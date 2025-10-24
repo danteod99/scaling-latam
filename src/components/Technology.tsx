@@ -33,16 +33,23 @@ const Technology = () => {
             </p>
           </div>
 
-          {/* Partners grid */}
+          {/* Partners grid with glow + reflection */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {partners.map((partner, index) => (
               <div
                 key={index}
-                className="glass-card p-6 rounded-xl flex flex-col items-center justify-center gap-3 hover:scale-105 transition-all duration-300 border border-primary/10 hover:border-primary/30 group animate-fade-in"
+                className="glass-card-3d p-6 rounded-xl flex flex-col items-center justify-center gap-3 hover:scale-110 transition-all duration-500 border border-primary/10 hover:border-cyan/40 group animate-fade-in relative overflow-hidden"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <partner.icon className="w-8 h-8 text-primary group-hover:text-secondary transition-colors" />
-                <span className="text-sm font-semibold tracking-wide text-center">
+                {/* Reflection surface effect */}
+                <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                
+                {/* Icon with animated glow */}
+                <div className="relative z-10 group-hover:drop-shadow-[0_0_20px_rgba(0,255,255,0.6)] transition-all">
+                  <partner.icon className="w-8 h-8 text-primary/70 group-hover:text-cyan transition-colors duration-500 group-hover:animate-pulse" />
+                </div>
+                
+                <span className="text-sm font-semibold tracking-wide text-center relative z-10 group-hover:text-cyan transition-colors">
                   {partner.name}
                 </span>
               </div>

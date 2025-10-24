@@ -38,22 +38,25 @@ const Testimonials = () => {
           </p>
         </div>
 
-        {/* Stats grid */}
+        {/* Stats grid with floating 3D cards */}
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="glass-card p-8 rounded-2xl text-center hover:scale-105 transition-all duration-300 border border-primary/20 hover:border-primary/50 animate-fade-in relative overflow-hidden group"
+              className="glass-card-3d p-8 rounded-2xl text-center hover:scale-105 hover:-translate-y-3 transition-all duration-500 border border-primary/20 hover:border-cyan/50 animate-fade-in relative overflow-hidden group"
               style={{ animationDelay: `${index * 0.15}s` }}
             >
+              {/* Bottom light strip */}
+              <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-transparent via-cyan/60 to-transparent group-hover:via-cyan/90 transition-all shadow-[0_0_15px_rgba(0,255,255,0.5)]" />
+              
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               
               <div className="relative z-10">
-                <div className="mb-4 inline-block p-4 bg-background/50 rounded-xl">
-                  <stat.icon className={`w-8 h-8 ${stat.color}`} />
+                <div className="mb-4 inline-block p-4 bg-background/50 rounded-xl group-hover:shadow-[0_0_25px_rgba(0,191,255,0.4)] transition-all">
+                  <stat.icon className={`w-8 h-8 ${stat.color} group-hover:scale-110 transition-transform`} />
                 </div>
-                <div className={`text-4xl md:text-5xl font-bold mb-3 ${stat.color} glow-text`}>
+                <div className={`text-4xl md:text-5xl font-bold mb-3 ${stat.color} glow-text-double animate-glow-dynamic`}>
                   {stat.value}
                 </div>
                 <p className="text-muted-foreground uppercase tracking-wide text-sm">

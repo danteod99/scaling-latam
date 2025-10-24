@@ -37,8 +37,12 @@ const UseCases = () => {
           </h2>
         </div>
 
-        {/* Use cases */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        {/* Use cases with circuit lines */}
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto relative">
+          {/* Connection lines between cards */}
+          <div className="hidden md:block absolute top-1/2 left-1/3 w-1/3 h-px bg-gradient-to-r from-primary/40 via-cyan/60 to-primary/40 -translate-y-1/2" />
+          <div className="hidden md:block absolute top-1/2 right-1/3 w-1/3 h-px bg-gradient-to-r from-primary/40 via-cyan/60 to-primary/40 -translate-y-1/2" />
+          
           {useCases.map((useCase, index) => (
             <div
               key={index}
@@ -48,15 +52,18 @@ const UseCases = () => {
               {/* Gradient background */}
               <div className={`absolute inset-0 bg-gradient-to-br ${useCase.gradient} opacity-50 group-hover:opacity-70 transition-opacity`} />
               
+              {/* Circuit node at center */}
+              <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-cyan rounded-full shadow-[0_0_15px_rgba(0,255,255,0.8)] z-20 group-hover:scale-150 transition-transform" />
+              
               {/* Content */}
-              <div className="relative glass-card p-8 h-full flex flex-col items-center text-center border border-primary/10 group-hover:border-primary/30 transition-all">
-                <div className="mb-6 p-5 bg-background/50 rounded-2xl group-hover:scale-110 transition-transform">
-                  <useCase.icon className="w-10 h-10 text-primary" />
+              <div className="relative glass-card-3d p-8 h-full flex flex-col items-center text-center border border-primary/10 group-hover:border-cyan/40 transition-all hover:-translate-y-2">
+                <div className="mb-6 p-5 bg-background/50 rounded-2xl group-hover:scale-110 transition-transform group-hover:shadow-[0_0_25px_rgba(0,191,255,0.5)] relative z-10">
+                  <useCase.icon className="w-10 h-10 text-primary group-hover:text-cyan transition-colors" />
                 </div>
-                <h3 className="text-2xl md:text-3xl font-bold mb-4 uppercase tracking-wider">
+                <h3 className="text-2xl md:text-3xl font-bold mb-4 uppercase tracking-wider relative z-10">
                   {useCase.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed relative z-10">
                   {useCase.description}
                 </p>
               </div>

@@ -39,6 +39,10 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
+        cyan: {
+          DEFAULT: "hsl(var(--cyan))",
+          foreground: "hsl(var(--cyan-foreground))",
+        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
@@ -88,9 +92,61 @@ export default {
             boxShadow: "0 0 30px hsl(197 100% 50% / 0.7), 0 0 60px hsl(197 100% 50% / 0.5)"
           }
         },
+        "glow-dynamic": {
+          "0%": { 
+            textShadow: "0 0 20px hsl(197 100% 50% / 0.6), 0 0 40px hsl(180 100% 50% / 0.4)",
+            filter: "brightness(1)"
+          },
+          "50%": { 
+            textShadow: "0 0 30px hsl(180 100% 50% / 0.8), 0 0 60px hsl(197 100% 50% / 0.6)",
+            filter: "brightness(1.2)"
+          },
+          "100%": { 
+            textShadow: "0 0 20px hsl(197 100% 50% / 0.6), 0 0 40px hsl(180 100% 50% / 0.4)",
+            filter: "brightness(1)"
+          }
+        },
         "float": {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-10px)" }
+        },
+        "particle-float": {
+          "0%, 100%": { 
+            transform: "translateY(0px) translateX(0px)",
+            opacity: "0.3"
+          },
+          "50%": { 
+            transform: "translateY(-20px) translateX(10px)",
+            opacity: "0.6"
+          }
+        },
+        "halo": {
+          "0%, 100%": { 
+            boxShadow: "0 0 30px hsl(197 100% 50% / 0.4), 0 0 60px hsl(180 100% 50% / 0.2)",
+            transform: "scale(1)"
+          },
+          "50%": { 
+            boxShadow: "0 0 50px hsl(197 100% 50% / 0.6), 0 0 100px hsl(180 100% 50% / 0.4)",
+            transform: "scale(1.02)"
+          }
+        },
+        "tunnel": {
+          "0%": { 
+            boxShadow: "inset 0 0 60px hsl(197 100% 50% / 0.3)",
+            transform: "scale(1)"
+          },
+          "50%": { 
+            boxShadow: "inset 0 0 100px hsl(180 100% 50% / 0.5)",
+            transform: "scale(1.05)"
+          },
+          "100%": { 
+            boxShadow: "inset 0 0 60px hsl(197 100% 50% / 0.3)",
+            transform: "scale(1)"
+          }
+        },
+        "shimmer": {
+          "0%": { backgroundPosition: "-200% center" },
+          "100%": { backgroundPosition: "200% center" }
         }
       },
       animation: {
@@ -99,7 +155,12 @@ export default {
         "fade-in": "fade-in 0.6s ease-out",
         "fade-in-up": "fade-in-up 0.8s ease-out",
         "glow-pulse": "glow-pulse 2s ease-in-out infinite",
-        "float": "float 3s ease-in-out infinite"
+        "glow-dynamic": "glow-dynamic 3s ease-in-out infinite",
+        "float": "float 3s ease-in-out infinite",
+        "particle-float": "particle-float 4s ease-in-out infinite",
+        "halo": "halo 2.5s ease-in-out infinite",
+        "tunnel": "tunnel 3s ease-in-out infinite",
+        "shimmer": "shimmer 3s linear infinite"
       },
     },
   },

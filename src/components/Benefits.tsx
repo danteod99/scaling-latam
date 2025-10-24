@@ -29,21 +29,26 @@ const Benefits = () => {
           </h2>
         </div>
 
-        {/* Benefits grid */}
+        {/* Benefits grid with 3D cards */}
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="glass-card p-8 rounded-2xl hover:scale-105 transition-all duration-300 animate-fade-in border border-primary/20 hover:border-primary/50 group"
+              className="glass-card-3d p-8 rounded-2xl hover:scale-105 hover:-translate-y-2 transition-all duration-500 animate-fade-in border border-primary/20 hover:border-cyan/50 group relative overflow-hidden"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
-              <div className="mb-6 inline-block p-4 bg-primary/10 rounded-xl group-hover:bg-primary/20 transition-colors">
-                <benefit.icon className="w-8 h-8 text-primary" />
+              {/* Bottom light effect */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent group-hover:via-cyan/70 transition-all" />
+              
+              {/* Icon with glow */}
+              <div className="mb-6 inline-block p-4 bg-primary/10 rounded-xl group-hover:bg-cyan/20 transition-all group-hover:shadow-[0_0_30px_rgba(0,255,255,0.4)] relative z-10">
+                <benefit.icon className="w-8 h-8 text-primary group-hover:text-cyan transition-colors animate-pulse" />
               </div>
-              <h3 className="text-xl md:text-2xl font-bold mb-4 uppercase tracking-wide">
+              
+              <h3 className="text-xl md:text-2xl font-bold mb-4 uppercase tracking-wide relative z-10">
                 {benefit.title}
               </h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed relative z-10">
                 {benefit.description}
               </p>
             </div>
