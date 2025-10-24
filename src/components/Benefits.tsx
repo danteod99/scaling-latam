@@ -4,7 +4,7 @@ const benefits = [
   {
     icon: Rocket,
     title: "Presencia viral",
-    description: "Bots que impulsan visibilidad orgánica en todas las redes"
+    description: "Bots que impulsan tu visibilidad orgánica en redes sociales, Las vistas que siempre has deseado."
   },
   {
     icon: Bot,
