@@ -1,4 +1,19 @@
+import { useEffect } from "react";
+
 const Calendly = () => {
+  useEffect(() => {
+    // Load Calendly script
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup script on unmount
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <section id="agendar" className="py-20 md:py-32 relative bg-[#0A0A0A]">
       {/* Decorative glow */}
@@ -26,7 +41,6 @@ const Calendly = () => {
             data-url="https://calendly.com/d/3tr-69b-hqj/asesoria-1-a-1-granja-de-bots" 
             style={{ minWidth: '320px', height: '700px' }}
           />
-          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
           {/* Final del widget integrado de Calendly */}
         </div>
 
