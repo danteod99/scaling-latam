@@ -29,8 +29,8 @@ const Testimonials = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 uppercase tracking-wider">
+        <div className="text-center mb-16 animate-fade-in" id="resultados">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 uppercase tracking-wider" style={{ fontFamily: "'Bebas Neue', 'Anton', sans-serif" }}>
             Resultados <span className="text-primary glow-text">reales</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">

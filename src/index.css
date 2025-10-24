@@ -8,25 +8,25 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 240 10% 3.9%;
+    --background: 0 0% 4%;
     --foreground: 0 0% 100%;
 
-    --card: 240 10% 6%;
+    --card: 0 0% 7%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 240 10% 6%;
+    --popover: 0 0% 7%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 197 100% 50%;
+    --primary: 200 100% 50%;
     --primary-foreground: 0 0% 0%;
 
-    --secondary: 240 100% 28%;
+    --secondary: 200 100% 40%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 240 6% 15%;
-    --muted-foreground: 240 5% 65%;
+    --muted: 0 0% 11%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 270 100% 20%;
+    --accent: 200 100% 45%;
     --accent-foreground: 0 0% 100%;
     
     --cyan: 180 100% 50%;
@@ -35,36 +35,36 @@ All colors MUST be HSL.
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 6% 15%;
-    --input: 240 6% 15%;
-    --ring: 197 100% 50%;
+    --border: 0 0% 11%;
+    --input: 0 0% 11%;
+    --ring: 200 100% 50%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    /* Custom design tokens */
+    /* Custom design tokens - Dark Pro Palette */
+    --graphite-black: 0 0% 4%;
+    --carbon-black: 0 0% 4%;
+    --metallic-gray: 0 0% 7%;
+    --electric-blue: 200 100% 50%;
     --neon-blue: 197 100% 50%;
-    --electric-blue: 210 100% 56%;
     --cyan-luminous: 180 100% 50%;
-    --deep-violet: 270 100% 10%;
-    --dark-purple: 270 100% 20%;
-    --absolute-black: 0 0% 0%;
     
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(240 10% 3.9%) 0%, hsl(270 100% 10%) 50%, hsl(240 10% 3.9%) 100%);
-    --gradient-radial: radial-gradient(circle at center, hsl(197 100% 50% / 0.15) 0%, transparent 70%);
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 4%) 0%, hsl(240 100% 8%) 50%, hsl(0 0% 4%) 100%);
+    --gradient-radial: radial-gradient(circle at center, hsl(200 100% 50% / 0.15) 0%, transparent 70%);
     --gradient-radial-cyan: radial-gradient(circle at center, hsl(180 100% 50% / 0.12) 0%, transparent 60%);
-    --gradient-card: linear-gradient(135deg, hsl(240 6% 10% / 0.4) 0%, hsl(270 100% 20% / 0.2) 100%);
-    --gradient-title: linear-gradient(135deg, hsl(197 100% 50%) 0%, hsl(0 0% 100%) 50%, hsl(180 100% 50%) 100%);
-    --gradient-3d: linear-gradient(180deg, hsl(240 6% 15% / 0.6) 0%, hsl(240 6% 10% / 0.8) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 7% / 0.4) 0%, hsl(240 100% 15% / 0.2) 100%);
+    --gradient-title: linear-gradient(135deg, hsl(200 100% 50%) 0%, hsl(0 0% 100%) 50%, hsl(180 100% 50%) 100%);
+    --gradient-3d: linear-gradient(180deg, hsl(0 0% 11% / 0.6) 0%, hsl(0 0% 7% / 0.8) 100%);
     
     /* Shadows and glows */
-    --glow-neon: 0 0 20px hsl(197 100% 50% / 0.5), 0 0 40px hsl(197 100% 50% / 0.3), 0 0 60px hsl(197 100% 50% / 0.1);
-    --glow-double: 0 0 15px hsl(197 100% 50% / 0.6), 0 0 30px hsl(180 100% 50% / 0.4), 0 0 45px hsl(197 100% 50% / 0.2);
-    --glow-electric: 0 0 15px hsl(210 100% 56% / 0.6), 0 0 30px hsl(210 100% 56% / 0.4);
+    --glow-neon: 0 0 20px hsl(200 100% 50% / 0.5), 0 0 40px hsl(200 100% 50% / 0.3), 0 0 60px hsl(200 100% 50% / 0.1);
+    --glow-double: 0 0 15px hsl(200 100% 50% / 0.6), 0 0 30px hsl(180 100% 50% / 0.4), 0 0 45px hsl(200 100% 50% / 0.2);
+    --glow-electric: 0 0 15px hsl(200 100% 50% / 0.6), 0 0 30px hsl(200 100% 50% / 0.4);
     --glow-cyan: 0 0 20px hsl(180 100% 50% / 0.5), 0 0 40px hsl(180 100% 50% / 0.3);
-    --shadow-deep: 0 10px 40px -10px hsl(0 0% 0% / 0.6);
-    --shadow-3d: 0 20px 60px -15px hsl(0 0% 0% / 0.8), 0 10px 30px -10px hsl(197 100% 50% / 0.3);
-    --reflection: linear-gradient(180deg, transparent 0%, hsl(0 0% 100% / 0.03) 100%);
+    --shadow-deep: 0 10px 40px -10px hsl(0 0% 0% / 0.8);
+    --shadow-3d: 0 20px 60px -15px hsl(0 0% 0% / 0.9), 0 10px 30px -10px hsl(200 100% 50% / 0.3);
+    --reflection: linear-gradient(180deg, transparent 0%, hsl(0 0% 100% / 0.02) 100%);
     
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -82,25 +82,25 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 240 10% 3.9%;
+    --background: 0 0% 4%;
     --foreground: 0 0% 100%;
-    --card: 240 10% 6%;
+    --card: 0 0% 7%;
     --card-foreground: 0 0% 100%;
-    --popover: 240 10% 6%;
+    --popover: 0 0% 7%;
     --popover-foreground: 0 0% 100%;
-    --primary: 197 100% 50%;
+    --primary: 200 100% 50%;
     --primary-foreground: 0 0% 0%;
-    --secondary: 240 100% 28%;
+    --secondary: 200 100% 40%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 240 6% 15%;
-    --muted-foreground: 240 5% 65%;
-    --accent: 270 100% 20%;
+    --muted: 0 0% 11%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 200 100% 45%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
-    --border: 240 6% 15%;
-    --input: 240 6% 15%;
-    --ring: 197 100% 50%;
+    --border: 0 0% 11%;
+    --input: 0 0% 11%;
+    --ring: 200 100% 50%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -118,13 +118,15 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-['Space_Grotesk'] antialiased;
-    background: linear-gradient(135deg, hsl(240 10% 3.9%) 0%, hsl(270 100% 10%) 50%, hsl(240 10% 3.9%) 100%);
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', 'Space Grotesk', sans-serif;
+    background: linear-gradient(135deg, hsl(0 0% 4%) 0%, hsl(240 100% 8%) 50%, hsl(0 0% 4%) 100%);
     background-attachment: fixed;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold tracking-wider;
+    font-family: 'Bebas Neue', 'Anton', sans-serif;
   }
 }
 

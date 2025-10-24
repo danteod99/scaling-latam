@@ -32,7 +32,7 @@ const UseCases = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section header */}
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 uppercase tracking-wider">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 uppercase tracking-wider" style={{ fontFamily: "'Bebas Neue', 'Anton', sans-serif" }}>
             Para quién es <span className="text-primary glow-text">Scaling</span>
           </h2>
         </div>

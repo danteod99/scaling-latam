@@ -23,8 +23,8 @@ const Benefits = () => {
     <section className="py-20 md:py-32 relative">
       <div className="container mx-auto px-4">
         {/* Section header */}
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 uppercase tracking-wider">
+        <div className="text-center mb-16 animate-fade-in" id="servicios">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 uppercase tracking-wider" style={{ fontFamily: "'Bebas Neue', 'Anton', sans-serif" }}>
             Crecimiento sin límites. <span className="text-primary glow-text">Resultados sin esfuerzo.</span>
           </h2>
         </div>

@@ -25,7 +25,7 @@ const Technology = () => {
         <div className="max-w-4xl">
           {/* Header */}
           <div className="mb-12 animate-fade-in">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 uppercase tracking-wider">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 uppercase tracking-wider" style={{ fontFamily: "'Bebas Neue', 'Anton', sans-serif" }}>
               Tecnología que impulsa tu <span className="text-primary glow-text">crecimiento</span>
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">

@@ -46,16 +46,9 @@ const Hero = () => {
         <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
       </div>
 
-      <div className="container mx-auto px-4 z-10 text-center animate-fade-in-up">
-        {/* Logo */}
-        <div className="mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold tracking-[0.3em] text-foreground">
-            SCALING
-          </h2>
-        </div>
-
+      <div className="container mx-auto px-4 z-10 text-center animate-fade-in-up pt-20">
         {/* Main headline */}
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 glow-text-double uppercase leading-tight max-w-5xl mx-auto animate-glow-dynamic">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 glow-text-double uppercase leading-tight max-w-5xl mx-auto animate-glow-dynamic" style={{ fontFamily: "'Bebas Neue', 'Anton', sans-serif" }}>
           DOMINA EL ALGORITMO CON <span className="text-primary drop-shadow-[0_0_25px_rgba(0,191,255,0.8)]">GRANJAS DE BOTS INTELIGENTES</span>
         </h1>
 
@@ -65,16 +58,18 @@ const Hero = () => {
         </p>
 
         {/* CTA Button with LED effect */}
-        <Button 
-          size="lg"
-          className="relative text-lg px-8 py-6 bg-primary hover:bg-cyan text-primary-foreground font-bold tracking-wider uppercase animate-halo group overflow-hidden"
-        >
-          <span className="relative z-10 flex items-center">
-            Agenda una llamada
-            <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-          </span>
-          <div className="absolute inset-0 bg-gradient-to-r from-primary via-cyan to-primary bg-[length:200%_100%] animate-shimmer opacity-50" />
-        </Button>
+        <a href="#agendar">
+          <Button 
+            size="lg"
+            className="relative text-lg px-8 py-6 bg-primary hover:bg-cyan text-primary-foreground font-bold tracking-wider uppercase animate-halo group overflow-hidden"
+          >
+            <span className="relative z-10 flex items-center">
+              Agenda una llamada
+              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-primary via-cyan to-primary bg-[length:200%_100%] animate-shimmer opacity-50" />
+          </Button>
+        </a>
 
         {/* Enhanced floating particles decoration */}
         <div className="absolute top-20 left-10 w-2 h-2 bg-primary rounded-full animate-particle-float shadow-[0_0_10px_rgba(0,191,255,0.8)]" />
