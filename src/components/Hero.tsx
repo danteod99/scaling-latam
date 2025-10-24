@@ -5,16 +5,17 @@ import heroBg from "@/assets/hero-bg.jpg";
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background image with overlay */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url(${heroBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          opacity: 0.25
-        }}
-      />
+      {/* Spline 3D Background */}
+      <div className="absolute inset-0 z-0">
+        <iframe 
+          src='https://my.spline.design/retrofuturismbganimation-70lFRp7sBZC4ac5lJMvtV1BF/' 
+          frameBorder='0' 
+          width='100%' 
+          height='100%'
+          className="w-full h-full"
+          title="3D Background Animation"
+        />
+      </div>
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/60 to-background z-0" />
       
       {/* Multi-layer 3D radial glows */}
