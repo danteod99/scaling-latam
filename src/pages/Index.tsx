@@ -6,6 +6,7 @@ import Technology from "@/components/Technology";
 import Testimonials from "@/components/Testimonials";
 import Calendly from "@/components/Calendly";
 import FinalCTA from "@/components/FinalCTA";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
       <Testimonials />
       <Calendly />
       <FinalCTA />
+      <Footer />
     </div>
   );
 };
