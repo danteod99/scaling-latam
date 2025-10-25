@@ -22,7 +22,7 @@ const Technology = () => {
       }} />
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left side: Content and logos */}
           <div>
             {/* Header */}
@@ -64,7 +64,7 @@ const Technology = () => {
           </div>
 
           {/* Right side: Spline 3D Interactive Element */}
-          <div className="hidden lg:block h-full min-h-[700px] relative">
+          <div className="hidden lg:block h-[850px] relative">
             <div className="absolute inset-0 glass-card-3d rounded-2xl overflow-hidden border border-primary/20">
               <iframe 
                 src='https://my.spline.design/blenderlogointeractivespline3d-jmTXGRRjKtka1YXGIIMuOBJp/' 
