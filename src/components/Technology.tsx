@@ -1,7 +1,7 @@
-import firefoxLogo from "@/assets/firefox-logo.jpg";
-import lineageosLogo from "@/assets/lineageos-logo.jpg";
-import shopifyLogo from "@/assets/shopify-logo.jpg";
-import grapheneosLogo from "@/assets/grapheneos-logo.jpg";
+import firefoxLogo from "@/assets/firefox-logo.png";
+import lineageosLogo from "@/assets/lineageos-logo.png";
+import shopifyLogo from "@/assets/shopify-logo.png";
+import grapheneosLogo from "@/assets/grapheneos-logo.png";
 
 const partners = [
   { name: "Firefox", logo: firefoxLogo },
