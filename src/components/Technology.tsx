@@ -64,7 +64,7 @@ const Technology = () => {
           </div>
 
           {/* Right side: Spline 3D Interactive Element */}
-          <div className="hidden lg:block h-[600px] relative">
+          <div className="hidden lg:block h-full min-h-[700px] relative">
             <div className="absolute inset-0 glass-card-3d rounded-2xl overflow-hidden border border-primary/20">
               <iframe 
                 src='https://my.spline.design/blenderlogointeractivespline3d-jmTXGRRjKtka1YXGIIMuOBJp/' 
