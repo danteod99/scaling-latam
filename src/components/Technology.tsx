@@ -1,25 +1,30 @@
-import { Cpu, Brain, Workflow, Database } from "lucide-react";
-import botNetwork from "@/assets/bot-network.jpg";
+import firefoxLogo from "@/assets/firefox-logo.jpg";
+import lineageosLogo from "@/assets/lineageos-logo.jpg";
+import shopifyLogo from "@/assets/shopify-logo.jpg";
+import grapheneosLogo from "@/assets/grapheneos-logo.jpg";
 
 const partners = [
-  { name: "GenFarmer", icon: Cpu },
-  { name: "OpenAI", icon: Brain },
-  { name: "Power Automate", icon: Workflow },
-  { name: "N8N", icon: Database }
+  { name: "Firefox", logo: firefoxLogo },
+  { name: "LineageOS", logo: lineageosLogo },
+  { name: "Shopify", logo: shopifyLogo },
+  { name: "GrapheneOS", logo: grapheneosLogo }
 ];
 
 const Technology = () => {
   return (
     <section className="py-20 md:py-32 relative overflow-hidden">
-      {/* Background decoration */}
-      <div 
-        className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full opacity-20"
-        style={{
-          backgroundImage: `url(${botNetwork})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}
-      />
+      {/* Spline 3D Background */}
+      <div className="absolute inset-0 z-0 opacity-30">
+        <iframe 
+          src='https://my.spline.design/contralogo-AZr7JLF96MujQzuVlcI583kE/' 
+          frameBorder='0' 
+          width='100%' 
+          height='100%'
+          className="w-full h-full"
+          title="3D Technology Background"
+        />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80 z-0" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl">
@@ -29,7 +34,7 @@ const Technology = () => {
               Tecnología que impulsa tu <span className="text-primary glow-text">crecimiento</span>
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              Aliados estratégicos como <span className="text-foreground font-semibold">GenFarmer</span>, <span className="text-foreground font-semibold">OpenAI</span>, <span className="text-foreground font-semibold">Power Automate</span> y <span className="text-foreground font-semibold">N8N</span> respaldan nuestras soluciones.
+              Aliados estratégicos como <span className="text-foreground font-semibold">Firefox</span>, <span className="text-foreground font-semibold">LineageOS</span>, <span className="text-foreground font-semibold">Shopify</span> y <span className="text-foreground font-semibold">GrapheneOS</span> respaldan nuestras soluciones.
             </p>
           </div>
 
@@ -44,9 +49,13 @@ const Technology = () => {
                 {/* Reflection surface effect */}
                 <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 
-                {/* Icon with animated glow */}
-                <div className="relative z-10 group-hover:drop-shadow-[0_0_20px_rgba(0,255,255,0.6)] transition-all">
-                  <partner.icon className="w-8 h-8 text-primary/70 group-hover:text-cyan transition-colors duration-500 group-hover:animate-pulse" />
+                {/* Logo with animated glow */}
+                <div className="relative z-10 w-16 h-16 flex items-center justify-center group-hover:drop-shadow-[0_0_20px_rgba(0,255,255,0.6)] transition-all">
+                  <img 
+                    src={partner.logo} 
+                    alt={partner.name}
+                    className="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                  />
                 </div>
                 
                 <span className="text-sm font-semibold tracking-wide text-center relative z-10 group-hover:text-cyan transition-colors">
