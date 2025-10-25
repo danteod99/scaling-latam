@@ -11,8 +11,7 @@ const VideoSection = () => {
               EL #1 SOFTWARE PARA ESTE NICHO
             </p>
             <h2 className="text-3xl md:text-6xl font-bold mb-6">
-              Aprende a usar<br />
-              Con Tiktok y BoxPhone
+              Cómo Genero más de $9,700 con este simple sistema con BoxPhoneFarms
             </h2>
             <div className="inline-block px-8 py-4 rounded-lg" style={{ backgroundColor: '#FFEB3B' }}>
               <p className="text-lg md:text-2xl font-medium" style={{ color: '#000' }}>
