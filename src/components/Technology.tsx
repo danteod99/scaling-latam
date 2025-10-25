@@ -13,18 +13,25 @@ const partners = [
 const Technology = () => {
   return (
     <section className="py-20 md:py-32 relative overflow-hidden">
-      {/* Spline 3D Background */}
-      <div className="absolute inset-0 z-0 opacity-30">
+      {/* Gradient background with grain effect */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/5 to-cyan/10" />
+      <div className="absolute inset-0 opacity-[0.15]" style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+        backgroundRepeat: 'repeat',
+        backgroundSize: '200px 200px'
+      }} />
+      
+      {/* Spline 3D element on the side */}
+      <div className="absolute right-0 top-0 w-1/2 h-full opacity-40 hidden lg:block">
         <iframe 
-          src='https://my.spline.design/contralogo-AZr7JLF96MujQzuVlcI583kE/' 
+          src='https://my.spline.design/blenderlogointeractivespline3d-jmTXGRRjKtka1YXGIIMuOBJp/' 
           frameBorder='0' 
           width='100%' 
           height='100%'
           className="w-full h-full"
-          title="3D Technology Background"
+          title="3D Interactive Element"
         />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80 z-0" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl">
