@@ -19,7 +19,7 @@ const FinalCTA = () => {
             Te mostraremos cómo convertir la automatización en influencia
           </p>
 
-          <a href="#agendar">
+          <a href="/agendar">
             <Button
               size="lg"
               className="relative text-lg px-10 py-7 bg-primary hover:bg-cyan text-primary-foreground font-bold tracking-wider uppercase animate-halo group overflow-hidden"

@@ -59,7 +59,7 @@ const Hero = () => {
         </p>
 
         {/* CTA Button with LED effect */}
-        <a href="#agendar">
+        <a href="/agendar">
           <Button 
             size="lg"
             className="relative text-lg px-8 py-7 bg-primary hover:bg-cyan text-primary-foreground font-bold tracking-wider uppercase animate-halo group overflow-hidden"

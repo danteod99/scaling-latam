@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const menuItems = [
-  { name: "Agendar llamada", href: "#agendar" },
-  { name: "Servicios", href: "#servicios" },
-  { name: "Resultados de Clientes", href: "#resultados" },
-  { name: "Aprende", href: "#aprende" }
+  { name: "Agendar llamada", href: "/agendar" },
+  { name: "Servicios", href: "/#servicios" },
+  { name: "Resultados de Clientes", href: "/#resultados" },
+  { name: "Aprende", href: "/#aprende" }
 ];
 
 const Navbar = () => {
@@ -17,7 +17,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a 
-            href="#" 
+            href="/" 
             className="text-2xl md:text-3xl font-bold tracking-[0.3em] text-foreground hover:text-primary transition-colors"
             style={{ fontFamily: "'Bebas Neue', 'Anton', sans-serif" }}
           >
