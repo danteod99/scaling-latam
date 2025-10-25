@@ -50,11 +50,11 @@ const Hero = () => {
       <div className="container mx-auto px-4 z-10 text-center animate-fade-in-up pt-20">
         {/* Main headline */}
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 glow-text-double uppercase leading-tight max-w-5xl mx-auto animate-glow-dynamic" style={{ fontFamily: "'Bebas Neue', 'Anton', sans-serif" }}>
-          DOMINA EL ALGORITMO CON <span className="text-primary drop-shadow-[0_0_25px_rgba(0,191,255,0.8)]">GRANJAS DE BOTS INTELIGENTES</span>
+          DOMINA EL ALGORITMO CON <span className="text-primary font-bold">GRANJAS DE BOTS INTELIGENTES</span>
         </h1>
 
         {/* Subtitle */}
-        <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto font-light leading-relaxed">
+        <p className="text-lg md:text-xl lg:text-2xl text-white mb-12 max-w-3xl mx-auto font-light leading-relaxed">
           Automatiza tu crecimiento, multiplica tu alcance y conquista la atención digital
         </p>
 
