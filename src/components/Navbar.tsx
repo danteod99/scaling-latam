@@ -30,7 +30,7 @@ const Navbar = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="relative text-sm font-medium tracking-wider uppercase text-muted-foreground hover:text-foreground transition-all duration-300 group"
+                className="relative text-sm font-medium tracking-wider uppercase text-white hover:text-primary transition-all duration-300 group"
               >
                 {item.name}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300 shadow-[0_0_10px_rgba(0,191,255,0.8)]" />
@@ -57,7 +57,7 @@ const Navbar = () => {
                   key={item.name}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-sm font-medium tracking-wider uppercase text-muted-foreground hover:text-primary transition-all duration-300 px-4 py-2 hover:bg-primary/5 rounded-lg"
+                  className="text-sm font-medium tracking-wider uppercase text-white hover:text-primary transition-all duration-300 px-4 py-2 hover:bg-primary/5 rounded-lg"
                 >
                   {item.name}
                 </a>
