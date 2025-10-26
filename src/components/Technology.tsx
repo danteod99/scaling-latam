@@ -4,8 +4,8 @@ import shopifyLogo from "@/assets/shopify-logo.png";
 import grapheneosLogo from "@/assets/grapheneos-logo.png";
 
 const partners = [
-  { name: "Firefox", logo: firefoxLogo },
-  { name: "LineageOS", logo: lineageosLogo },
+  { name: "Genfarmer", logo: firefoxLogo },
+  { name: "N8N", logo: lineageosLogo },
   { name: "Shopify", logo: shopifyLogo },
   { name: "GrapheneOS", logo: grapheneosLogo }
 ];
@@ -31,7 +31,7 @@ const Technology = () => {
                 Tecnología que impulsa tu <span className="text-primary glow-text">crecimiento</span>
               </h2>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                Aliados estratégicos como <span className="text-foreground font-semibold">Firefox</span>, <span className="text-foreground font-semibold">LineageOS</span>, <span className="text-foreground font-semibold">Shopify</span> y <span className="text-foreground font-semibold">GrapheneOS</span> respaldan nuestras soluciones.
+                Aliados estratégicos como <span className="text-foreground font-semibold">Genfarmer</span>, <span className="text-foreground font-semibold">N8N</span>, <span className="text-foreground font-semibold">Shopify</span> y <span className="text-foreground font-semibold">GrapheneOS</span> respaldan nuestras soluciones.
               </p>
             </div>
 
@@ -55,7 +55,7 @@ const Technology = () => {
                     />
                   </div>
                   
-                  <span className="text-sm font-semibold tracking-wide text-center relative z-10 group-hover:text-cyan transition-colors text-foreground">
+                  <span className="text-sm font-semibold tracking-wide text-center relative z-10 group-hover:text-cyan transition-colors" style={{ color: '#1e3a8a' }}>
                     {partner.name}
                   </span>
                 </div>
