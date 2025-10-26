@@ -1,13 +1,36 @@
+import { useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Index from "./pages/Index";
 import Agendar from "./pages/Agendar";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
+
+// Declare fbq type for TypeScript
+declare global {
+  interface Window {
+    fbq: (action: string, eventName: string, params?: Record<string, any>) => void;
+  }
+}
+
+// Component to track page views on route changes
+const FacebookPixelTracker = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Track page view when route changes
+    if (typeof window.fbq === 'function') {
+      window.fbq('track', 'PageView');
+      console.log('Facebook Pixel PageView tracked:', location.pathname);
+    }
+  }, [location]);
+
+  return null;
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -15,6 +38,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <FacebookPixelTracker />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/agendar" element={<Agendar />} />
