@@ -1,4 +1,9 @@
 import { TrendingUp, Users, Eye } from "lucide-react";
+import resultado1 from "@/assets/resultado-1.jpg";
+import resultado2 from "@/assets/resultado-2.jpg";
+import resultado3 from "@/assets/resultado-3.jpg";
+import resultado4 from "@/assets/resultado-4.jpg";
+import resultado5 from "@/assets/resultado-5.jpg";
 
 const stats = [
   {
@@ -65,6 +70,35 @@ const Testimonials = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Client Results Gallery */}
+        <div className="mt-20">
+          <h3 className="text-2xl md:text-4xl font-bold mb-8 text-center uppercase tracking-wider" style={{ fontFamily: "'Bebas Neue', 'Anton', sans-serif" }}>
+            Resultados <span className="text-primary glow-text">de Clientes</span>
+          </h3>
+          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+            Capturas reales de nuestros clientes generando ingresos
+          </p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {[resultado5, resultado2, resultado4, resultado1, resultado3].map((img, index) => (
+              <div
+                key={index}
+                className="glass-card-3d rounded-xl overflow-hidden hover:scale-105 transition-all duration-300 border border-primary/20 hover:border-cyan/50 animate-fade-in group"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="relative overflow-hidden">
+                  <img 
+                    src={img} 
+                    alt={`Resultado de cliente ${index + 1}`}
+                    className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
