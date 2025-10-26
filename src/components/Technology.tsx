@@ -47,7 +47,7 @@ const Technology = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                   
                   {/* Logo with animated glow */}
-                  <div className="relative z-10 w-16 h-16 flex items-center justify-center group-hover:drop-shadow-[0_0_20px_rgba(0,255,255,0.6)] transition-all">
+                  <div className="relative z-10 w-16 h-16 flex items-center justify-center bg-white rounded-lg group-hover:drop-shadow-[0_0_20px_rgba(0,255,255,0.6)] transition-all">
                     <img 
                       src={partner.logo} 
                       alt={partner.name}
