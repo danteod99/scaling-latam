@@ -40,14 +40,14 @@ const Technology = () => {
               {partners.map((partner, index) => (
                 <div
                   key={index}
-                  className="glass-card-3d p-6 rounded-xl flex flex-col items-center justify-center gap-3 hover:scale-110 transition-all duration-500 border border-primary/10 hover:border-cyan/40 group animate-fade-in relative overflow-hidden"
+                  className="bg-white p-6 rounded-xl flex flex-col items-center justify-center gap-3 hover:scale-110 transition-all duration-500 border border-primary/10 hover:border-cyan/40 group animate-fade-in relative overflow-hidden shadow-lg"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   {/* Reflection surface effect */}
                   <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                   
                   {/* Logo with animated glow */}
-                  <div className="relative z-10 w-16 h-16 flex items-center justify-center bg-white rounded-lg group-hover:drop-shadow-[0_0_20px_rgba(0,255,255,0.6)] transition-all">
+                  <div className="relative z-10 w-16 h-16 flex items-center justify-center group-hover:drop-shadow-[0_0_20px_rgba(0,255,255,0.6)] transition-all">
                     <img 
                       src={partner.logo} 
                       alt={partner.name}
@@ -55,7 +55,7 @@ const Technology = () => {
                     />
                   </div>
                   
-                  <span className="text-sm font-semibold tracking-wide text-center relative z-10 group-hover:text-cyan transition-colors">
+                  <span className="text-sm font-semibold tracking-wide text-center relative z-10 group-hover:text-cyan transition-colors text-foreground">
                     {partner.name}
                   </span>
                 </div>
