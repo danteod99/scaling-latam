@@ -1,11 +1,11 @@
-import firefoxLogo from "@/assets/firefox-logo.png";
-import lineageosLogo from "@/assets/lineageos-logo.png";
-import shopifyLogo from "@/assets/shopify-logo.png";
-import grapheneosLogo from "@/assets/grapheneos-logo.png";
+import genfarmerLogo from "@/assets/genfarmer-logo.jpg";
+import n8nLogo from "@/assets/n8n-logo.jpg";
+import shopifyLogo from "@/assets/shopify-logo-new.jpg";
+import grapheneosLogo from "@/assets/grapheneos-logo-new.jpg";
 
 const partners = [
-  { name: "Genfarmer", logo: firefoxLogo },
-  { name: "N8N", logo: lineageosLogo },
+  { name: "Genfarmer", logo: genfarmerLogo },
+  { name: "N8N", logo: n8nLogo },
   { name: "Shopify", logo: shopifyLogo },
   { name: "GrapheneOS", logo: grapheneosLogo }
 ];
