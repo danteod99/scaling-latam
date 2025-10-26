@@ -1,4 +1,5 @@
 import { Phone, MapPin, Building2, FileText } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -62,8 +63,22 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="pt-8 border-t border-primary/10">
+        {/* Copyright y Enlaces Legales */}
+        <div className="pt-8 border-t border-primary/10 space-y-4">
+          <div className="flex flex-wrap justify-center gap-6 text-sm">
+            <Link 
+              to="/politica-privacidad" 
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              Política de Privacidad
+            </Link>
+            <Link 
+              to="/terminos-servicio" 
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              Términos de Servicio
+            </Link>
+          </div>
           <p className="text-center text-sm text-muted-foreground">
             © {new Date().getFullYear()} SCALING - Todos los derechos reservados
           </p>
