@@ -24,6 +24,14 @@ const FacebookPixelTracker = () => {
   const location = useLocation();
 
   useEffect(() => {
+    // Initialize both pixels on app load
+    if (typeof window.fbq === 'function') {
+      window.fbq('init', '1922514418521214');
+      window.fbq('init', '817240111230065');
+    }
+  }, []);
+
+  useEffect(() => {
     // Track page view when route changes
     if (typeof window.fbq === 'function') {
       window.fbq('track', 'PageView');
