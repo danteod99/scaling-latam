@@ -12,9 +12,9 @@ const Agendar = () => {
       <Navbar />
       <div className="pt-20">
         <VideoSection />
+        <Calendly />
         <Testimonials />
         <BrandsSection />
-        <Calendly />
         <ComparisonSection />
       </div>
       <Footer />
