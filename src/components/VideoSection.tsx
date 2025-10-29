@@ -21,7 +21,7 @@ const VideoSection = () => {
           </div>
 
           {/* Video */}
-          <div className="relative" style={{ paddingBottom: '56.25%', height: 0 }}>
+          <div className="relative mb-8" style={{ paddingBottom: '56.25%', height: 0 }}>
             <iframe 
               src="https://www.loom.com/embed/da32896d665e49e997e4a1a5eb1c55c0" 
               frameBorder="0" 
@@ -29,6 +29,19 @@ const VideoSection = () => {
               className="absolute top-0 left-0 w-full h-full rounded-2xl shadow-2xl"
               style={{ border: '2px solid rgba(0,191,255,0.2)' }}
             />
+          </div>
+
+          {/* CTA Button */}
+          <div className="text-center">
+            <a 
+              href="https://calendly.com/d/3tr-69b-hqj/asesoria-1-a-1-granja-de-bots"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-lg transition-all hover:scale-105"
+              style={{ backgroundColor: '#4169E1', color: '#fff' }}
+            >
+              Agenda tu Llamada Ahora
+            </a>
           </div>
         </div>
       </div>
