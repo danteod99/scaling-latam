@@ -11,11 +11,11 @@ const VideoSection = () => {
               EL #1 SOFTWARE PARA ESTE NICHO
             </p>
             <h2 className="text-3xl md:text-6xl font-bold mb-6">
-              Mientras todos te venden flujos con N8N o bots de escritorio, nosotros usamos Granjas de Bots reales que ejecutan tareas, visualizaciones y ventas de forma física y automática.
+              Cómo Genero más de $9,700 con este simple sistema con BoxPhoneFarms
             </h2>
             <div className="inline-block px-8 py-4 rounded-lg" style={{ backgroundColor: '#FFEB3B' }}>
               <p className="text-lg md:text-2xl font-medium" style={{ color: '#000' }}>
-                Con esta tecnología logramos 30–50% más ingresos y filtramos 70% de los curiosos sin dinero, reduciendo a la mitad el costo por venta.
+                Hay un Simple Bug que Las Plataformas no quieren que sepas
               </p>
             </div>
           </div>
