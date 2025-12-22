@@ -23,7 +23,7 @@ const VideoSection = () => {
           {/* Video */}
           <div className="relative mb-8" style={{ paddingBottom: '56.25%', height: 0 }}>
             <iframe 
-              src="https://www.loom.com/embed/da32896d665e49e997e4a1a5eb1c55c0" 
+              src="https://www.loom.com/embed/76ef29771b374749af18b160520e2a73"
               frameBorder="0" 
               allowFullScreen
               className="absolute top-0 left-0 w-full h-full rounded-2xl shadow-2xl"
