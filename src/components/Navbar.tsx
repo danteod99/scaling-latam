@@ -5,6 +5,7 @@ const menuItems = [
   { name: "Agendar llamada", href: "/agendar" },
   { name: "Servicios", href: "/#servicios" },
   { name: "Resultados de Clientes", href: "/#resultados" },
+  { name: "Blog", href: "/blog" },
   { name: "Aprende", href: "/#aprende" }
 ];
 
