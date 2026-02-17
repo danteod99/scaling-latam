@@ -90,8 +90,7 @@ const MasterClass = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Redirect to agendar or show confirmation
-    window.location.href = "/agendar";
+    window.open("https://chat.whatsapp.com/CWC08M2o1nTHLwxvCBurnd", "_blank");
   };
 
   const RegistrationForm = ({ id }: { id: string }) => (
