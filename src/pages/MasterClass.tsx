@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { CheckCircle } from "lucide-react";
@@ -85,28 +85,15 @@ const CountdownCircle = ({ value, label }: { value: number; label: string }) => 
 
 const MasterClass = () => {
   const countdown = useCountdown(EVENT_DATE);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleClick = () => {
     window.open("https://chat.whatsapp.com/CWC08M2o1nTHLwxvCBurnd", "_blank");
   };
 
-  const RegistrationForm = ({ id }: { id: string }) => (
-    <form onSubmit={handleSubmit} className="w-full max-w-2xl mx-auto space-y-4">
-      <input
-        type="text" placeholder="Nombre" value={name} onChange={(e) => setName(e.target.value)}
-        required
-        className="w-full h-14 px-5 rounded-lg bg-muted/60 border border-border text-foreground placeholder:text-muted-foreground text-lg focus:outline-none focus:ring-2 focus:ring-primary"
-      />
-      <input
-        type="email" placeholder="Correo Electrónico" value={email} onChange={(e) => setEmail(e.target.value)}
-        required
-        className="w-full h-14 px-5 rounded-lg bg-muted/60 border border-border text-foreground placeholder:text-muted-foreground text-lg focus:outline-none focus:ring-2 focus:ring-primary"
-      />
+  const RegistrationButton = () => (
+    <div className="w-full max-w-2xl mx-auto">
       <button
-        type="submit"
+        onClick={handleClick}
         className="w-full h-14 rounded-lg text-lg font-bold uppercase tracking-wider transition-all duration-300 hover:scale-[1.02]"
         style={{
           background: "linear-gradient(135deg, hsl(45 100% 55%), hsl(40 100% 50%))",
@@ -116,7 +103,7 @@ const MasterClass = () => {
       >
         APUNTARME GRATIS &gt;&gt;
       </button>
-    </form>
+    </div>
   );
 
   return (
@@ -166,7 +153,7 @@ const MasterClass = () => {
           </div>
 
           {/* Registration Form */}
-          <RegistrationForm id="hero-form" />
+          <RegistrationButton />
         </div>
       </section>
 
@@ -245,7 +232,7 @@ const MasterClass = () => {
               <span className="text-primary">Granjas de Bots</span> diseñado para{" "}
               <span className="text-primary">generar ingresos en 2026</span>, dejando de improvisar y convirtiendo la automatización en un negocio real.
             </p>
-            <RegistrationForm id="countdown-form" />
+            <RegistrationButton />
           </div>
         </div>
       </section>
