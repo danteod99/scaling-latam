@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 
 const menuItems = [
   { name: "Agendar llamada", href: "/agendar" },
+  { name: "MasterClass", href: "/masterclass" },
   { name: "Servicios", href: "/#servicios" },
   { name: "Resultados de Clientes", href: "/#resultados" },
   { name: "Blog", href: "/blog" },

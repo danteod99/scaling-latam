@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Index from "./pages/Index";
 import Agendar from "./pages/Agendar";
 import Blog from "./pages/Blog";
+import MasterClass from "./pages/MasterClass";
 import BlogArticle from "./pages/BlogArticle";
 import PoliticaPrivacidad from "./pages/PoliticaPrivacidad";
 import TerminosServicio from "./pages/TerminosServicio";
@@ -54,6 +55,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/agendar" element={<Agendar />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/masterclass" element={<MasterClass />} />
           <Route path="/blog/:id" element={<BlogArticle />} />
           <Route path="/politica-privacidad" element={<PoliticaPrivacidad />} />
           <Route path="/terminos-servicio" element={<TerminosServicio />} />
