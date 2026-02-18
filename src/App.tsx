@@ -29,7 +29,7 @@ const FacebookPixelTracker = () => {
   useEffect(() => {
     // Initialize pixel on app load
     if (typeof window.fbq === 'function') {
-      window.fbq('init', '817240111230065');
+      window.fbq('init', '1083067690620010');
     }
   }, []);
 
