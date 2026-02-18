@@ -87,6 +87,9 @@ const MasterClass = () => {
   const countdown = useCountdown(EVENT_DATE);
 
   const handleClick = () => {
+    if (typeof window.fbq === 'function') {
+      window.fbq('track', 'Subscribe');
+    }
     window.open("https://chat.whatsapp.com/CWC08M2o1nTHLwxvCBurnd", "_blank");
   };
 
