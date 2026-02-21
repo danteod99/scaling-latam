@@ -90,7 +90,11 @@ const MasterClass = () => {
     if (typeof window.fbq === 'function') {
       window.fbq('track', 'Subscribe');
     }
-    window.open("https://scaling.short.gy/Kuscij", "_blank");
+    const link = document.createElement('a');
+    link.href = "https://scaling.short.gy/Kuscij";
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.click();
   };
 
   const RegistrationButton = () => (
