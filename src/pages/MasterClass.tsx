@@ -90,7 +90,7 @@ const MasterClass = () => {
     if (typeof window.fbq === 'function') {
       window.fbq('track', 'Subscribe');
     }
-    window.open("https://chat.whatsapp.com/GiEnm8v6GE95hkMqAnyIU0?mode=gi_t", "_blank");
+    window.open("https://scaling.short.gy/Kuscij", "_blank");
   };
 
   const RegistrationButton = () => (
