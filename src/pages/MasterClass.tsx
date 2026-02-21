@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { CheckCircle } from "lucide-react";
 import masterclassHero from "@/assets/masterclass-hero.jpg";
 
-const EVENT_DATE = new Date("2026-02-19T21:00:00-05:00"); // Lima time
+const EVENT_DATE = new Date("2026-02-24T21:00:00-05:00"); // Lima time
 
 const learningTopics = [
   {
@@ -125,7 +125,7 @@ const MasterClass = () => {
           color: "hsl(0 0% 0%)",
         }}
       >
-        🔥 MASTERCLASS GRATUITA / 90 minutos EN VIVO — Cupos limitados 19 de febrero — 9:00 PM (hora Perú) 🇵🇪
+        🔥 MASTERCLASS GRATUITA / 90 minutos EN VIVO — Cupos limitados 24 de febrero — 9:00 PM (hora Perú) 🇵🇪
       </div>
 
       {/* Hero Section */}
@@ -151,7 +151,7 @@ const MasterClass = () => {
               </p>
               <div className="flex items-center gap-4 text-3xl md:text-5xl font-bold" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                 <span className="text-4xl">☑️</span>
-                <span>19 FEB | 9 PM</span>
+                <span>24 FEB | 9 PM</span>
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden border border-border shadow-lg">
@@ -198,7 +198,7 @@ const MasterClass = () => {
                     {topic.description}
                   </p>
                   <div className="mt-4 flex items-center gap-2 text-xs text-muted-foreground">
-                    <span>19 de FEBRERO de 2026</span>
+                    <span>24 de FEBRERO de 2026</span>
                     <span className="flex items-center gap-1 text-destructive font-bold">
                       <span className="w-2 h-2 rounded-full bg-destructive inline-block animate-pulse" />
                       LIVE
@@ -221,7 +221,7 @@ const MasterClass = () => {
             Faltan pocos días para iniciar el evento.
           </h2>
           <p className="text-muted-foreground mb-10 text-sm">
-            (contador hasta el jueves 19 de febrero a las 9pm hora Perú 🇵🇪)
+            (contador hasta el martes 24 de febrero a las 9pm hora Perú 🇵🇪)
           </p>
 
           <div className="flex justify-center gap-6 md:gap-10 mb-16">
