@@ -91,7 +91,7 @@ const MasterClass = () => {
       window.fbq('track', 'Subscribe');
     }
     const link = document.createElement('a');
-    link.href = "https://scaling.short.gy/Kuscij";
+    link.href = "https://scaling.short.gy/grupo-wa";
     link.target = "_blank";
     link.rel = "noopener noreferrer";
     link.click();
