@@ -40,7 +40,7 @@ const Footer = () => {
               </a>
               <div className="flex items-start gap-3 text-muted-foreground">
                 <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <span>Jr Carhuaz 1462, Breña<br />Lima, Perú</span>
+                <span>Eduardo del Castillo 2355, Cercado de Lima<br />Lima, Perú</span>
               </div>
             </div>
           </div>

@@ -93,16 +93,16 @@ export default {
           }
         },
         "glow-dynamic": {
-          "0%": { 
-            textShadow: "0 0 20px hsl(197 100% 50% / 0.6), 0 0 40px hsl(180 100% 50% / 0.4)",
+          "0%": {
+            textShadow: "0 0 8px hsl(197 100% 50% / 0.25), 0 0 18px hsl(180 100% 50% / 0.15)",
             filter: "brightness(1)"
           },
-          "50%": { 
-            textShadow: "0 0 30px hsl(180 100% 50% / 0.8), 0 0 60px hsl(197 100% 50% / 0.6)",
-            filter: "brightness(1.2)"
+          "50%": {
+            textShadow: "0 0 12px hsl(180 100% 50% / 0.35), 0 0 25px hsl(197 100% 50% / 0.2)",
+            filter: "brightness(1.05)"
           },
-          "100%": { 
-            textShadow: "0 0 20px hsl(197 100% 50% / 0.6), 0 0 40px hsl(180 100% 50% / 0.4)",
+          "100%": {
+            textShadow: "0 0 8px hsl(197 100% 50% / 0.25), 0 0 18px hsl(180 100% 50% / 0.15)",
             filter: "brightness(1)"
           }
         },
