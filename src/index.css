@@ -8,62 +8,62 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 4%;
-    --foreground: 0 0% 100%;
+    --background: 240 28% 4%;
+    --foreground: 0 0% 94%;
 
-    --card: 0 0% 7%;
-    --card-foreground: 0 0% 100%;
+    --card: 240 28% 7%;
+    --card-foreground: 0 0% 94%;
 
-    --popover: 0 0% 7%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 240 28% 7%;
+    --popover-foreground: 0 0% 94%;
 
-    --primary: 200 100% 50%;
-    --primary-foreground: 0 0% 0%;
+    --primary: 204 100% 37%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 200 100% 40%;
+    --secondary: 204 100% 29%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 11%;
+    --muted: 240 25% 9%;
     --muted-foreground: 0 0% 60%;
 
-    --accent: 200 100% 45%;
+    --accent: 204 100% 37%;
     --accent-foreground: 0 0% 100%;
-    
-    --cyan: 180 100% 50%;
-    --cyan-foreground: 0 0% 0%;
+
+    --cyan: 204 67% 61%;
+    --cyan-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 11%;
-    --input: 0 0% 11%;
-    --ring: 200 100% 50%;
+    --border: 240 22% 12%;
+    --input: 240 22% 12%;
+    --ring: 204 100% 37%;
 
     --radius: 1rem;
 
-    /* Custom design tokens - Dark Pro Palette */
-    --graphite-black: 0 0% 4%;
-    --carbon-black: 0 0% 4%;
-    --metallic-gray: 0 0% 7%;
-    --electric-blue: 200 100% 50%;
-    --neon-blue: 197 100% 50%;
-    --cyan-luminous: 180 100% 50%;
-    
+    /* Custom design tokens - Trustmind Palette */
+    --graphite-black: 240 28% 4%;
+    --carbon-black: 240 28% 4%;
+    --metallic-gray: 240 28% 7%;
+    --electric-blue: 204 100% 37%;
+    --neon-blue: 204 75% 47%;
+    --cyan-luminous: 204 80% 74%;
+
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 4%) 0%, hsl(240 100% 8%) 50%, hsl(0 0% 4%) 100%);
-    --gradient-radial: radial-gradient(circle at center, hsl(200 100% 50% / 0.15) 0%, transparent 70%);
-    --gradient-radial-cyan: radial-gradient(circle at center, hsl(180 100% 50% / 0.12) 0%, transparent 60%);
-    --gradient-card: linear-gradient(135deg, hsl(0 0% 7% / 0.4) 0%, hsl(240 100% 15% / 0.2) 100%);
-    --gradient-title: linear-gradient(135deg, hsl(200 100% 50%) 0%, hsl(0 0% 100%) 50%, hsl(180 100% 50%) 100%);
-    --gradient-3d: linear-gradient(180deg, hsl(0 0% 11% / 0.6) 0%, hsl(0 0% 7% / 0.8) 100%);
-    
+    --gradient-hero: linear-gradient(135deg, hsl(240 28% 4%) 0%, hsl(240 50% 6%) 50%, hsl(240 28% 4%) 100%);
+    --gradient-radial: radial-gradient(circle at center, hsl(204 100% 37% / 0.15) 0%, transparent 70%);
+    --gradient-radial-cyan: radial-gradient(circle at center, hsl(204 67% 61% / 0.12) 0%, transparent 60%);
+    --gradient-card: linear-gradient(135deg, hsl(240 28% 7% / 0.4) 0%, hsl(240 50% 12% / 0.2) 100%);
+    --gradient-title: linear-gradient(135deg, hsl(204 80% 74%) 0%, hsl(204 100% 37%) 100%);
+    --gradient-3d: linear-gradient(180deg, hsl(240 25% 9% / 0.6) 0%, hsl(240 28% 7% / 0.8) 100%);
+
     /* Shadows and glows */
-    --glow-neon: 0 0 10px hsl(200 100% 50% / 0.25), 0 0 20px hsl(200 100% 50% / 0.15), 0 0 35px hsl(200 100% 50% / 0.05);
-    --glow-double: 0 0 8px hsl(200 100% 50% / 0.3), 0 0 18px hsl(180 100% 50% / 0.2), 0 0 28px hsl(200 100% 50% / 0.1);
-    --glow-electric: 0 0 15px hsl(200 100% 50% / 0.6), 0 0 30px hsl(200 100% 50% / 0.4);
-    --glow-cyan: 0 0 20px hsl(180 100% 50% / 0.5), 0 0 40px hsl(180 100% 50% / 0.3);
+    --glow-neon: 0 0 10px hsl(204 100% 37% / 0.25), 0 0 20px hsl(204 100% 37% / 0.15), 0 0 35px hsl(204 100% 37% / 0.05);
+    --glow-double: 0 0 8px hsl(204 100% 37% / 0.3), 0 0 18px hsl(204 67% 61% / 0.2), 0 0 28px hsl(204 100% 37% / 0.1);
+    --glow-electric: 0 0 15px hsl(204 100% 37% / 0.6), 0 0 30px hsl(204 100% 37% / 0.4);
+    --glow-cyan: 0 0 20px hsl(204 67% 61% / 0.5), 0 0 40px hsl(204 67% 61% / 0.3);
     --shadow-deep: 0 10px 40px -10px hsl(0 0% 0% / 0.8);
-    --shadow-3d: 0 20px 60px -15px hsl(0 0% 0% / 0.9), 0 10px 30px -10px hsl(200 100% 50% / 0.3);
+    --shadow-3d: 0 20px 60px -15px hsl(0 0% 0% / 0.9), 0 10px 30px -10px hsl(204 100% 37% / 0.3);
     --reflection: linear-gradient(180deg, transparent 0%, hsl(0 0% 100% / 0.02) 100%);
     
     /* Transitions */
@@ -82,25 +82,25 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 0 0% 4%;
-    --foreground: 0 0% 100%;
-    --card: 0 0% 7%;
-    --card-foreground: 0 0% 100%;
-    --popover: 0 0% 7%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 200 100% 50%;
-    --primary-foreground: 0 0% 0%;
-    --secondary: 200 100% 40%;
+    --background: 240 28% 4%;
+    --foreground: 0 0% 94%;
+    --card: 240 28% 7%;
+    --card-foreground: 0 0% 94%;
+    --popover: 240 28% 7%;
+    --popover-foreground: 0 0% 94%;
+    --primary: 204 100% 37%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 204 100% 29%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 11%;
+    --muted: 240 25% 9%;
     --muted-foreground: 0 0% 60%;
-    --accent: 200 100% 45%;
+    --accent: 204 100% 37%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 11%;
-    --input: 0 0% 11%;
-    --ring: 200 100% 50%;
+    --border: 240 22% 12%;
+    --input: 240 22% 12%;
+    --ring: 204 100% 37%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -120,7 +120,7 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', 'Space Grotesk', sans-serif;
-    background: linear-gradient(135deg, hsl(0 0% 4%) 0%, hsl(240 100% 8%) 50%, hsl(0 0% 4%) 100%);
+    background: linear-gradient(135deg, hsl(240 28% 4%) 0%, hsl(240 50% 6%) 50%, hsl(240 28% 4%) 100%);
     background-attachment: fixed;
   }
 
@@ -198,7 +198,7 @@ All colors MUST be HSL.
 
   .neon-line {
     height: 1px;
-    background: linear-gradient(90deg, transparent 0%, hsl(197 100% 50% / 0.6) 50%, transparent 100%);
+    background: linear-gradient(90deg, transparent 0%, hsl(204 100% 37% / 0.6) 50%, transparent 100%);
   }
 
   .energy-flow {
@@ -210,7 +210,7 @@ All colors MUST be HSL.
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, transparent 0%, hsl(180 100% 50% / 0.3) 50%, transparent 100%);
+    background: linear-gradient(90deg, transparent 0%, hsl(204 67% 61% / 0.3) 50%, transparent 100%);
     animation: flow 3s linear infinite;
   }
 

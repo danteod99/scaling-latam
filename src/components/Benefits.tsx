@@ -41,7 +41,7 @@ const Benefits = () => {
               <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent group-hover:via-cyan/70 transition-all" />
               
               {/* Icon with glow */}
-              <div className="mb-6 inline-block p-4 bg-primary/10 rounded-xl group-hover:bg-cyan/20 transition-all group-hover:shadow-[0_0_30px_rgba(0,255,255,0.4)] relative z-10">
+              <div className="mb-6 inline-block p-4 bg-primary/10 rounded-xl group-hover:bg-cyan/20 transition-all group-hover:shadow-[0_0_30px_rgba(0,122,191,0.4)] relative z-10">
                 <benefit.icon className="w-8 h-8 text-primary group-hover:text-cyan transition-colors animate-pulse" />
               </div>
               

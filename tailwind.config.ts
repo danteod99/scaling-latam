@@ -85,24 +85,24 @@ export default {
           "100%": { opacity: "1", transform: "translateY(0)" }
         },
         "glow-pulse": {
-          "0%, 100%": { 
-            boxShadow: "0 0 20px hsl(197 100% 50% / 0.5), 0 0 40px hsl(197 100% 50% / 0.3)"
+          "0%, 100%": {
+            boxShadow: "0 0 20px hsl(204 100% 37% / 0.5), 0 0 40px hsl(204 100% 37% / 0.3)"
           },
-          "50%": { 
-            boxShadow: "0 0 30px hsl(197 100% 50% / 0.7), 0 0 60px hsl(197 100% 50% / 0.5)"
+          "50%": {
+            boxShadow: "0 0 30px hsl(204 100% 37% / 0.7), 0 0 60px hsl(204 100% 37% / 0.5)"
           }
         },
         "glow-dynamic": {
           "0%": {
-            textShadow: "0 0 8px hsl(197 100% 50% / 0.25), 0 0 18px hsl(180 100% 50% / 0.15)",
+            textShadow: "0 0 8px hsl(204 100% 37% / 0.25), 0 0 18px hsl(204 67% 61% / 0.15)",
             filter: "brightness(1)"
           },
           "50%": {
-            textShadow: "0 0 12px hsl(180 100% 50% / 0.35), 0 0 25px hsl(197 100% 50% / 0.2)",
+            textShadow: "0 0 12px hsl(204 67% 61% / 0.35), 0 0 25px hsl(204 100% 37% / 0.2)",
             filter: "brightness(1.05)"
           },
           "100%": {
-            textShadow: "0 0 8px hsl(197 100% 50% / 0.25), 0 0 18px hsl(180 100% 50% / 0.15)",
+            textShadow: "0 0 8px hsl(204 100% 37% / 0.25), 0 0 18px hsl(204 67% 61% / 0.15)",
             filter: "brightness(1)"
           }
         },
@@ -121,26 +121,26 @@ export default {
           }
         },
         "halo": {
-          "0%, 100%": { 
-            boxShadow: "0 0 30px hsl(197 100% 50% / 0.4), 0 0 60px hsl(180 100% 50% / 0.2)",
+          "0%, 100%": {
+            boxShadow: "0 0 30px hsl(204 100% 37% / 0.4), 0 0 60px hsl(204 67% 61% / 0.2)",
             transform: "scale(1)"
           },
-          "50%": { 
-            boxShadow: "0 0 50px hsl(197 100% 50% / 0.6), 0 0 100px hsl(180 100% 50% / 0.4)",
+          "50%": {
+            boxShadow: "0 0 50px hsl(204 100% 37% / 0.6), 0 0 100px hsl(204 67% 61% / 0.4)",
             transform: "scale(1.02)"
           }
         },
         "tunnel": {
-          "0%": { 
-            boxShadow: "inset 0 0 60px hsl(197 100% 50% / 0.3)",
+          "0%": {
+            boxShadow: "inset 0 0 60px hsl(204 100% 37% / 0.3)",
             transform: "scale(1)"
           },
-          "50%": { 
-            boxShadow: "inset 0 0 100px hsl(180 100% 50% / 0.5)",
+          "50%": {
+            boxShadow: "inset 0 0 100px hsl(204 67% 61% / 0.5)",
             transform: "scale(1.05)"
           },
-          "100%": { 
-            boxShadow: "inset 0 0 60px hsl(197 100% 50% / 0.3)",
+          "100%": {
+            boxShadow: "inset 0 0 60px hsl(204 100% 37% / 0.3)",
             transform: "scale(1)"
           }
         },

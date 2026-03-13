@@ -52,13 +52,13 @@ const Testimonials = () => {
               style={{ animationDelay: `${index * 0.15}s` }}
             >
               {/* Bottom light strip */}
-              <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-transparent via-cyan/60 to-transparent group-hover:via-cyan/90 transition-all shadow-[0_0_15px_rgba(0,255,255,0.5)]" />
+              <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-transparent via-cyan/60 to-transparent group-hover:via-cyan/90 transition-all shadow-[0_0_15px_rgba(0,122,191,0.5)]" />
               
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               
               <div className="relative z-10">
-                <div className="mb-4 inline-block p-4 bg-background/50 rounded-xl group-hover:shadow-[0_0_25px_rgba(0,191,255,0.4)] transition-all">
+                <div className="mb-4 inline-block p-4 bg-background/50 rounded-xl group-hover:shadow-[0_0_25px_rgba(0,122,191,0.4)] transition-all">
                   <stat.icon className={`w-8 h-8 ${stat.color} group-hover:scale-110 transition-transform`} />
                 </div>
                 <div className={`text-4xl md:text-5xl font-bold mb-3 ${stat.color} glow-text-double animate-glow-dynamic`}>

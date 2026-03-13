@@ -73,10 +73,10 @@ const Hero = () => {
         </a>
 
         {/* Enhanced floating particles decoration */}
-        <div className="absolute top-20 left-10 w-2 h-2 bg-primary rounded-full animate-particle-float shadow-[0_0_10px_rgba(0,191,255,0.8)]" />
-        <div className="absolute top-40 right-20 w-3 h-3 bg-cyan rounded-full animate-particle-float shadow-[0_0_12px_rgba(0,255,255,0.8)]" style={{ animationDelay: '0.5s' }} />
-        <div className="absolute bottom-20 left-20 w-2 h-2 bg-secondary rounded-full animate-particle-float shadow-[0_0_10px_rgba(30,144,255,0.6)]" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/3 right-1/4 w-1.5 h-1.5 bg-cyan rounded-full animate-particle-float shadow-[0_0_8px_rgba(0,255,255,0.7)]" style={{ animationDelay: '1.5s' }} />
+        <div className="absolute top-20 left-10 w-2 h-2 bg-primary rounded-full animate-particle-float shadow-[0_0_10px_rgba(0,122,191,0.8)]" />
+        <div className="absolute top-40 right-20 w-3 h-3 bg-cyan rounded-full animate-particle-float shadow-[0_0_12px_rgba(0,122,191,0.8)]" style={{ animationDelay: '0.5s' }} />
+        <div className="absolute bottom-20 left-20 w-2 h-2 bg-secondary rounded-full animate-particle-float shadow-[0_0_10px_rgba(0,95,150,0.6)]" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/3 right-1/4 w-1.5 h-1.5 bg-cyan rounded-full animate-particle-float shadow-[0_0_8px_rgba(0,122,191,0.7)]" style={{ animationDelay: '1.5s' }} />
       </div>
     </section>
   );

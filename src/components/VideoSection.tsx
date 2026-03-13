@@ -27,7 +27,7 @@ const VideoSection = () => {
               frameBorder="0" 
               allowFullScreen
               className="absolute top-0 left-0 w-full h-full rounded-2xl shadow-2xl"
-              style={{ border: '2px solid rgba(0,191,255,0.2)' }}
+              style={{ border: '2px solid rgba(0,122,191,0.2)' }}
             />
           </div>
 

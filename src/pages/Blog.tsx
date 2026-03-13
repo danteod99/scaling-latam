@@ -98,7 +98,7 @@ const Blog = () => {
               <Link
                 key={article.id}
                 to={`/blog/${article.id}`}
-                className="group bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/40 transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,191,255,0.1)] flex flex-col"
+                className="group bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/40 transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,122,191,0.1)] flex flex-col"
               >
                 <div className="relative overflow-hidden h-48">
                   <img

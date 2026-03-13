@@ -54,7 +54,7 @@ const Navbar = () => {
                   >
                     {item.name}
                     <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${openSubmenu === item.name ? "rotate-180" : ""}`} />
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300 shadow-[0_0_10px_rgba(0,191,255,0.8)]" />
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300 shadow-[0_0_10px_rgba(0,122,191,0.8)]" />
                   </button>
                   {openSubmenu === item.name && (
                     <div className="absolute top-full right-0 mt-2 min-w-[180px] bg-card/95 backdrop-blur-xl border border-border rounded-xl shadow-lg overflow-hidden animate-fade-in">
@@ -86,7 +86,7 @@ const Navbar = () => {
                   className="relative text-sm font-medium tracking-wider uppercase text-white hover:text-primary transition-all duration-300 group"
                 >
                   {item.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300 shadow-[0_0_10px_rgba(0,191,255,0.8)]" />
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300 shadow-[0_0_10px_rgba(0,122,191,0.8)]" />
                 </a>
               )
             )}
