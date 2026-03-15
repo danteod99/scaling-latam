@@ -12,6 +12,11 @@ import BlogArticle from "./pages/BlogArticle";
 import PoliticaPrivacidad from "./pages/PoliticaPrivacidad";
 import TerminosServicio from "./pages/TerminosServicio";
 import NotFound from "./pages/NotFound";
+import LandingRD from "./pages/landing/RD";
+import LandingArgentina from "./pages/landing/Argentina";
+import LandingPeru from "./pages/landing/Peru";
+import LandingSpotify from "./pages/landing/Spotify";
+import LandingTikTok from "./pages/landing/TikTok";
 
 const queryClient = new QueryClient();
 
@@ -59,6 +64,12 @@ const App = () => (
           <Route path="/blog/:id" element={<BlogArticle />} />
           <Route path="/politica-privacidad" element={<PoliticaPrivacidad />} />
           <Route path="/terminos-servicio" element={<TerminosServicio />} />
+          {/* Landing pages por audiencia / A/B testing */}
+          <Route path="/landing/rd" element={<LandingRD />} />
+          <Route path="/landing/argentina" element={<LandingArgentina />} />
+          <Route path="/landing/peru" element={<LandingPeru />} />
+          <Route path="/landing/spotify" element={<LandingSpotify />} />
+          <Route path="/landing/tiktok" element={<LandingTikTok />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
