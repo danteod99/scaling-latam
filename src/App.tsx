@@ -11,6 +11,7 @@ import MasterClass from "./pages/MasterClass";
 import BlogArticle from "./pages/BlogArticle";
 import PoliticaPrivacidad from "./pages/PoliticaPrivacidad";
 import TerminosServicio from "./pages/TerminosServicio";
+import Quiz from "./pages/Quiz";
 import NotFound from "./pages/NotFound";
 import LandingRD from "./pages/landing/RD";
 import LandingArgentina from "./pages/landing/Argentina";
@@ -70,6 +71,7 @@ const App = () => (
           <Route path="/landing/peru" element={<LandingPeru />} />
           <Route path="/landing/spotify" element={<LandingSpotify />} />
           <Route path="/landing/tiktok" element={<LandingTikTok />} />
+          <Route path="/quiz" element={<Quiz />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
