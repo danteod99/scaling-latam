@@ -117,7 +117,7 @@ const CAPITAL_QUESTION_ID = 4;
 const CAPITAL_DISQUALIFY_OPTIONS = [2, 3]; // índices de opciones c y d (0-based)
 
 const SKOOL_URL = "https://www.skool.com/artificial-humans-7653";
-const AGENDAR_URL = "/agendar";
+const AGENDAR_URL = "https://calendly.com/d/328-gbq-zqx/reunion-de-asesoria-1-1-creacion-app";
 
 const Quiz = () => {
   const [started, setStarted] = useState(false);
@@ -485,7 +485,7 @@ const Quiz = () => {
             </p>
 
             <div className="flex flex-col items-center gap-4">
-              <a href={AGENDAR_URL}>
+              <a href={AGENDAR_URL} target="_blank" rel="noopener noreferrer">
                 <Button
                   size="lg"
                   className="relative text-lg px-10 py-7 bg-primary hover:bg-cyan text-primary-foreground font-bold tracking-wider uppercase animate-halo group overflow-hidden"
