@@ -479,10 +479,49 @@ const Quiz = () => {
               inteligentes. Nuestro equipo te espera.
             </p>
 
-            <p className="text-base text-cyan mb-12 max-w-xl mx-auto font-semibold">
+            <p className="text-base text-cyan mb-8 max-w-xl mx-auto font-semibold">
               Los cupos para asesorías privadas son limitados — agenda ahora para
               asegurar tu lugar.
             </p>
+
+            {/* Resultados reales — prueba social */}
+            <div className="max-w-3xl mx-auto mb-12">
+              <p className="text-xs text-muted-foreground uppercase tracking-wider mb-4 font-semibold">
+                Personas reales que están obteniendo estos resultados con su granja
+              </p>
+              <div className="grid md:grid-cols-3 gap-4">
+                <div className="glass-card-3d rounded-2xl p-4 border border-cyan/20 overflow-hidden">
+                  <img
+                    src="/youtube-results.png"
+                    alt="Resultados: 6.3M views, $1,407.56 en un día"
+                    className="w-full rounded-xl"
+                  />
+                  <p className="text-sm text-cyan mt-3 font-medium">
+                    6.3M views · $1,407.56 en un solo día
+                  </p>
+                </div>
+                <div className="glass-card-3d rounded-2xl p-4 border border-cyan/20 overflow-hidden">
+                  <img
+                    src="/youtube-results-2.png"
+                    alt="Resultados: 57.4K views, $8,640 en 28 días"
+                    className="w-full rounded-xl"
+                  />
+                  <p className="text-sm text-cyan mt-3 font-medium">
+                    57.4K views · $8,640 en 28 días · +707 subs
+                  </p>
+                </div>
+                <div className="glass-card-3d rounded-2xl p-4 border border-cyan/20 overflow-hidden">
+                  <img
+                    src="/earnings-results.png"
+                    alt="Resultados: $15,942 en 6 días"
+                    className="w-full rounded-xl"
+                  />
+                  <p className="text-sm text-cyan mt-3 font-medium">
+                    $15,942 en 6 días · +74.2% crecimiento
+                  </p>
+                </div>
+              </div>
+            </div>
 
             <div className="flex flex-col items-center gap-4">
               <a href={AGENDAR_URL} target="_blank" rel="noopener noreferrer">
