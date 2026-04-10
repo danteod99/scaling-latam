@@ -1,6 +1,24 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ArrowLeft, Crown, Users, Sparkles, Shield, Target, DollarSign, Clock, MessageCircle } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowLeft,
+  Crown,
+  Smartphone,
+  Sparkles,
+  Shield,
+  Target,
+  DollarSign,
+  Users,
+  Zap,
+  Globe,
+  Layers,
+  Monitor,
+  Music,
+  Video,
+  Play,
+  Facebook,
+} from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import resultado6 from "@/assets/resultado-6.png";
@@ -8,144 +26,331 @@ import resultado7 from "@/assets/resultado-7.png";
 import resultado8 from "@/assets/resultado-8.png";
 
 /* ──────────────────────────
-   Sistema de puntuación
-   - Máximo: 18 puntos (6 preguntas puntuadas × 3pts)
-   - Califica: 12+ puntos
-   - Filtro duro: pregunta 4 (capital) opciones c/d → no califica
-   - Pregunta 7 es informativa (0pts)
+   Configurador de Granja de Bots
+   - 8 pasos de personalización
+   - Resultado → resumen + CTA agendar
    ────────────────────────── */
 
-interface Option {
-  text: string;
-  points: number;
+interface StepOption {
+  id: string;
+  label: string;
+  description: string;
+  icon: React.ElementType;
+  emoji?: string;
 }
 
-interface Question {
+interface Step {
   id: number;
   icon: React.ElementType;
-  question: string;
+  title: string;
   subtitle: string;
-  options: Option[];
+  type: "single" | "multi" | "grid";
+  options: StepOption[];
 }
 
-const questions: Question[] = [
+const steps: Step[] = [
   {
     id: 1,
-    icon: Target,
-    question: "¿Cuál es tu situación actual?",
-    subtitle: "Queremos entender en qué punto te encuentras",
+    icon: Globe,
+    title: "¿En qué plataforma quieres operar?",
+    subtitle: "Selecciona la plataforma principal para tu granja",
+    type: "grid",
     options: [
-      { text: "Tengo un negocio funcionando y quiero escalar", points: 3 },
-      { text: "Quiero abrir una nueva línea de negocio", points: 3 },
-      { text: "Estoy explorando opciones de ingreso", points: 1 },
-      { text: "Solo tengo curiosidad", points: 0 },
+      {
+        id: "youtube",
+        label: "YouTube",
+        description: "Videos, Shorts y monetización con AdSense",
+        icon: Play,
+      },
+      {
+        id: "tiktok",
+        label: "TikTok",
+        description: "Contenido viral y Creator Fund",
+        icon: Video,
+      },
+      {
+        id: "spotify",
+        label: "Spotify",
+        description: "Streams, playlists y royalties",
+        icon: Music,
+      },
+      {
+        id: "facebook",
+        label: "Facebook",
+        description: "Reels, páginas y monetización in-stream",
+        icon: Facebook,
+      },
     ],
   },
   {
     id: 2,
-    icon: Shield,
-    question: "¿Qué tanto conoces sobre granjas de bots?",
-    subtitle: "No importa tu nivel — tenemos soluciones para cada perfil",
+    icon: Layers,
+    title: "¿Cuántas cuentas quieres manejar?",
+    subtitle: "Más cuentas = más alcance y más ingresos",
+    type: "single",
     options: [
-      { text: "Nada, pero me interesa aprender", points: 2 },
-      { text: "He visto contenido al respecto", points: 2 },
-      { text: "Ya tengo experiencia operando bots", points: 3 },
-      { text: "No sé qué es eso", points: 0 },
+      {
+        id: "starter",
+        label: "5 - 10 cuentas",
+        description: "Ideal para empezar y aprender el sistema",
+        icon: Target,
+      },
+      {
+        id: "growth",
+        label: "10 - 25 cuentas",
+        description: "Para generar ingresos consistentes",
+        icon: Sparkles,
+      },
+      {
+        id: "scale",
+        label: "25 - 50 cuentas",
+        description: "Operación seria con ingresos escalables",
+        icon: Zap,
+      },
+      {
+        id: "enterprise",
+        label: "50+ cuentas",
+        description: "Granja completa — máximo rendimiento",
+        icon: Crown,
+      },
     ],
   },
   {
     id: 3,
-    icon: Sparkles,
-    question: "¿Cuál es tu objetivo principal?",
-    subtitle: "Esto nos ayuda a personalizar tu experiencia",
+    icon: Users,
+    title: "¿A cuántas personas quieres llegar?",
+    subtitle: "Define tu meta de alcance mensual",
+    type: "single",
     options: [
-      { text: "Generar ingresos recurrentes automatizados", points: 3 },
-      { text: "Escalar mi negocio actual con automatización", points: 3 },
-      { text: "Aprender sobre el modelo", points: 1 },
-      { text: "No estoy seguro aún", points: 0 },
+      {
+        id: "10k",
+        label: "10K - 50K",
+        description: "Audiencia inicial para validar el modelo",
+        icon: Users,
+      },
+      {
+        id: "100k",
+        label: "50K - 500K",
+        description: "Alcance medio con monetización activa",
+        icon: Users,
+      },
+      {
+        id: "1m",
+        label: "500K - 1M",
+        description: "Alcance masivo — ingresos significativos",
+        icon: Users,
+      },
+      {
+        id: "5m",
+        label: "1M - 5M+",
+        description: "Operación a gran escala — máximo revenue",
+        icon: Users,
+      },
     ],
   },
   {
     id: 4,
-    icon: DollarSign,
-    question: "¿Cuánto capital tienes disponible para invertir?",
-    subtitle: "Esto determina el tipo de programa ideal para ti",
+    icon: Smartphone,
+    title: "¿Qué dispositivos prefieres para tu granja?",
+    subtitle: "Selecciona los equipos que usarás — puedes elegir varios",
+    type: "multi",
     options: [
-      { text: "Más de $5,000 USD", points: 3 },
-      { text: "Entre $2,000 y $5,000 USD", points: 2 },
-      { text: "Entre $500 y $2,000 USD", points: 1 },
-      { text: "Menos de $500 USD", points: 0 },
+      {
+        id: "s8-change",
+        label: "Samsung S8 Change",
+        description: "Económico y confiable — ideal para empezar",
+        icon: Smartphone,
+      },
+      {
+        id: "zflip4-pro",
+        label: "Samsung Z Flip 4 Pro",
+        description: "Rendimiento premium — máxima velocidad",
+        icon: Smartphone,
+      },
+      {
+        id: "note8-change",
+        label: "Samsung Note 8 Change",
+        description: "Pantalla grande — perfecto para multitarea",
+        icon: Smartphone,
+      },
+      {
+        id: "s10-active",
+        label: "Samsung S10 Active",
+        description: "Batería duradera — operación continua 24/7",
+        icon: Smartphone,
+      },
     ],
   },
   {
     id: 5,
-    icon: Clock,
-    question: "¿Cuántas horas semanales puedes dedicar a este proyecto?",
-    subtitle: "El éxito requiere dedicación — sé honesto contigo mismo",
+    icon: Monitor,
+    title: "¿Qué tipo de contenido vas a generar?",
+    subtitle: "Esto define la estrategia de tu granja",
+    type: "single",
     options: [
-      { text: "Tiempo completo (+30 horas)", points: 3 },
-      { text: "10 a 20 horas semanales", points: 2 },
-      { text: "5 a 10 horas semanales", points: 1 },
-      { text: "Menos de 5 horas", points: 0 },
+      {
+        id: "ai-generated",
+        label: "Contenido generado con IA",
+        description: "Videos, imágenes y textos creados automáticamente",
+        icon: Sparkles,
+      },
+      {
+        id: "compilation",
+        label: "Compilaciones y recopilaciones",
+        description: "Recopilaciones virales de contenido existente",
+        icon: Layers,
+      },
+      {
+        id: "faceless",
+        label: "Canales sin rostro (Faceless)",
+        description: "Narración + stock footage — sin aparecer en cámara",
+        icon: Video,
+      },
+      {
+        id: "mixed",
+        label: "Estrategia mixta",
+        description: "Combinas varios formatos según la plataforma",
+        icon: Globe,
+      },
     ],
   },
   {
     id: 6,
-    icon: Crown,
-    question: "¿Qué nivel de compromiso tienes con este proyecto?",
-    subtitle: "Solo trabajamos con personas comprometidas",
+    icon: Zap,
+    title: "¿Qué nivel de automatización buscas?",
+    subtitle: "Define cuánto quieres automatizar tu operación",
+    type: "single",
     options: [
-      { text: "Estoy listo para invertir y ejecutar", points: 3 },
-      { text: "Estoy decidido pero necesito orientación", points: 2 },
-      { text: "Me interesa pero aún tengo dudas", points: 1 },
-      { text: "Solo estoy viendo opciones", points: 0 },
+      {
+        id: "manual",
+        label: "Semi-manual",
+        description: "Tú controlas todo — automatizas lo básico",
+        icon: Target,
+      },
+      {
+        id: "hybrid",
+        label: "Híbrido",
+        description: "Automatización parcial + supervisión manual",
+        icon: Zap,
+      },
+      {
+        id: "full-auto",
+        label: "Full Automático",
+        description: "Todo automatizado — solo supervisas métricas",
+        icon: Sparkles,
+      },
+      {
+        id: "ai-driven",
+        label: "IA + Automatización",
+        description: "La IA decide, publica y optimiza por ti",
+        icon: Crown,
+      },
     ],
   },
   {
     id: 7,
-    icon: MessageCircle,
-    question: "¿Cómo te enteraste de Scaling?",
-    subtitle: "Última pregunta — esto nos ayuda a mejorar",
+    icon: DollarSign,
+    title: "¿Cuál es tu meta de ingresos mensuales?",
+    subtitle: "Sé ambicioso pero realista — esto define tu plan",
+    type: "single",
     options: [
-      { text: "Redes sociales (ads o contenido)", points: 0 },
-      { text: "Recomendación de alguien", points: 0 },
-      { text: "Búsqueda en internet", points: 0 },
-      { text: "Otro", points: 0 },
+      {
+        id: "500",
+        label: "$500 - $1,000 USD",
+        description: "Ingreso extra — complemento a tu trabajo actual",
+        icon: DollarSign,
+      },
+      {
+        id: "3000",
+        label: "$1,000 - $5,000 USD",
+        description: "Ingreso serio — reemplazo de sueldo tradicional",
+        icon: DollarSign,
+      },
+      {
+        id: "10000",
+        label: "$5,000 - $15,000 USD",
+        description: "Negocio rentable — libertad financiera",
+        icon: DollarSign,
+      },
+      {
+        id: "20000",
+        label: "$15,000+ USD",
+        description: "Operación a escala — empresa digital completa",
+        icon: DollarSign,
+      },
+    ],
+  },
+  {
+    id: 8,
+    icon: Shield,
+    title: "¿Cuándo quieres empezar?",
+    subtitle: "Los cupos son limitados — la acción rápida tiene ventaja",
+    type: "single",
+    options: [
+      {
+        id: "now",
+        label: "Ahora mismo",
+        description: "Estoy listo para arrancar hoy",
+        icon: Zap,
+      },
+      {
+        id: "week",
+        label: "Esta semana",
+        description: "Necesito unos días para organizarme",
+        icon: Target,
+      },
+      {
+        id: "month",
+        label: "Este mes",
+        description: "Estoy planeando y reuniendo capital",
+        icon: Sparkles,
+      },
+      {
+        id: "exploring",
+        label: "Solo estoy explorando",
+        description: "Quiero informarme antes de decidir",
+        icon: Globe,
+      },
     ],
   },
 ];
 
-const QUALIFY_THRESHOLD = 12;
-const CAPITAL_QUESTION_ID = 4;
-const CAPITAL_DISQUALIFY_OPTIONS = [2, 3]; // índices de opciones c y d (0-based)
-
+const AGENDAR_URL =
+  "https://calendly.com/d/328-gbq-zqx/reunion-de-asesoria-1-1-creacion-app";
 const SKOOL_URL = "https://www.skool.com/artificial-humans-7653";
-const AGENDAR_URL = "https://calendly.com/d/328-gbq-zqx/reunion-de-asesoria-1-1-creacion-app";
 
 const Quiz = () => {
   const [started, setStarted] = useState(false);
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [selectedOption, setSelectedOption] = useState<number | null>(null);
-  const [answers, setAnswers] = useState<number[]>([]);
+  const [currentStep, setCurrentStep] = useState(0);
+  const [selections, setSelections] = useState<Record<number, string[]>>({});
   const [finished, setFinished] = useState(false);
   const [showResult, setShowResult] = useState(false);
   const [processing, setProcessing] = useState(false);
 
-  const progress = ((currentQuestion + 1) / questions.length) * 100;
+  const progress = ((currentStep + 1) / steps.length) * 100;
+  const step = steps[currentStep];
 
-  const handleSelect = (optionIndex: number) => {
-    setSelectedOption(optionIndex);
+  const currentSelections = selections[currentStep] || [];
+  const hasSelection = currentSelections.length > 0;
+
+  const handleSelect = (optionId: string) => {
+    if (step.type === "multi") {
+      setSelections((prev) => {
+        const current = prev[currentStep] || [];
+        if (current.includes(optionId)) {
+          return { ...prev, [currentStep]: current.filter((id) => id !== optionId) };
+        }
+        return { ...prev, [currentStep]: [...current, optionId] };
+      });
+    } else {
+      setSelections((prev) => ({ ...prev, [currentStep]: [optionId] }));
+    }
   };
 
   const handleNext = () => {
-    if (selectedOption === null) return;
-
-    const newAnswers = [...answers, selectedOption];
-    setAnswers(newAnswers);
-
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-      setSelectedOption(null);
+    if (!hasSelection) return;
+    if (currentStep < steps.length - 1) {
+      setCurrentStep(currentStep + 1);
     } else {
       setFinished(true);
       setProcessing(true);
@@ -153,12 +358,8 @@ const Quiz = () => {
   };
 
   const handleBack = () => {
-    if (currentQuestion > 0) {
-      setCurrentQuestion(currentQuestion - 1);
-      const newAnswers = [...answers];
-      const previousAnswer = newAnswers.pop();
-      setAnswers(newAnswers);
-      setSelectedOption(previousAnswer ?? null);
+    if (currentStep > 0) {
+      setCurrentStep(currentStep - 1);
     }
   };
 
@@ -167,28 +368,33 @@ const Quiz = () => {
       const timer = setTimeout(() => {
         setProcessing(false);
         setShowResult(true);
-      }, 2500);
+      }, 3000);
       return () => clearTimeout(timer);
     }
   }, [processing]);
 
-  const calculateResult = () => {
-    let totalPoints = 0;
-    answers.forEach((optionIndex, questionIndex) => {
-      totalPoints += questions[questionIndex].options[optionIndex].points;
-    });
+  // Build summary from selections
+  const getSummary = () => {
+    const platform =
+      steps[0].options.find((o) => selections[0]?.includes(o.id))?.label || "";
+    const accounts =
+      steps[1].options.find((o) => selections[1]?.includes(o.id))?.label || "";
+    const reach =
+      steps[2].options.find((o) => selections[2]?.includes(o.id))?.label || "";
+    const devices = (selections[3] || [])
+      .map((id) => steps[3].options.find((o) => o.id === id)?.label)
+      .filter(Boolean);
+    const content =
+      steps[4].options.find((o) => selections[4]?.includes(o.id))?.label || "";
+    const automation =
+      steps[5].options.find((o) => selections[5]?.includes(o.id))?.label || "";
+    const income =
+      steps[6].options.find((o) => selections[6]?.includes(o.id))?.label || "";
+    const timeline =
+      steps[7].options.find((o) => selections[7]?.includes(o.id))?.id || "";
 
-    // Filtro duro: capital < $2,000
-    const capitalAnswer = answers[CAPITAL_QUESTION_ID - 1];
-    if (CAPITAL_DISQUALIFY_OPTIONS.includes(capitalAnswer)) {
-      return { qualifies: false, points: totalPoints };
-    }
-
-    return { qualifies: totalPoints >= QUALIFY_THRESHOLD, points: totalPoints };
+    return { platform, accounts, reach, devices, content, automation, income, timeline };
   };
-
-  const question = questions[currentQuestion];
-  const QuestionIcon = question?.icon;
 
   return (
     <div className="min-h-screen">
@@ -204,9 +410,9 @@ const Quiz = () => {
 
           <div className="container mx-auto px-4 z-10 text-center animate-fade-in-up pt-20">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 mb-8">
-              <Crown className="w-4 h-4 text-primary" />
+              <Sparkles className="w-4 h-4 text-primary" />
               <span className="text-xs md:text-sm font-medium tracking-wider uppercase text-primary">
-                Programa Privado · Cupos Limitados
+                Configurador Personalizado
               </span>
             </div>
 
@@ -214,20 +420,18 @@ const Quiz = () => {
               className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 glow-text-double uppercase leading-tight max-w-5xl mx-auto animate-glow-dynamic"
               style={{ fontFamily: "'Bebas Neue', 'Anton', sans-serif" }}
             >
-              ¿Calificas para el{" "}
-              <span className="text-primary font-bold">Programa Privado</span>{" "}
-              de Scaling?
+              Personaliza tu{" "}
+              <span className="text-primary font-bold">Granja de Bots</span>
             </h1>
 
             <p className="text-lg md:text-xl lg:text-2xl text-white mb-4 max-w-3xl mx-auto font-light leading-relaxed">
-              No trabajamos con cualquiera. Este programa está diseñado para
-              emprendedores serios que quieren escalar con granjas de bots
-              inteligentes.
+              Diseña tu operación ideal en menos de 2 minutos. Elige plataforma,
+              dispositivos, nivel de automatización y recibe un plan
+              personalizado.
             </p>
 
             <p className="text-base md:text-lg text-cyan mb-12 max-w-2xl mx-auto font-semibold">
-              Completa esta evaluación de 7 preguntas y descubre si tu perfil es
-              compatible.
+              8 pasos simples para configurar la granja perfecta para ti.
             </p>
 
             <div className="flex flex-col items-center gap-4">
@@ -237,22 +441,22 @@ const Quiz = () => {
                 className="relative text-lg px-8 py-7 bg-primary hover:bg-cyan text-primary-foreground font-bold tracking-wider uppercase animate-halo group overflow-hidden"
               >
                 <span className="relative z-10 flex items-center">
-                  Comenzar Evaluación
+                  Diseñar Mi Granja
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-primary via-cyan to-primary bg-[length:200%_100%] animate-shimmer opacity-50" />
               </Button>
               <span className="text-sm text-muted-foreground">
-                Toma menos de 2 minutos · 100% confidencial
+                100% gratis · Sin compromiso · Resultado instantáneo
               </span>
             </div>
 
             {/* Trust indicators */}
             <div className="mt-16 grid grid-cols-3 gap-6 max-w-2xl mx-auto">
               {[
-                { value: "500+", label: "Evaluados" },
-                { value: "1:1", label: "Asesoría privada" },
-                { value: "Elite", label: "Solo perfiles serios" },
+                { value: "500+", label: "Granjas configuradas" },
+                { value: "1:1", label: "Asesoría personalizada" },
+                { value: "$10K+", label: "Ingreso promedio/mes" },
               ].map((stat, i) => (
                 <div
                   key={i}
@@ -270,7 +474,10 @@ const Quiz = () => {
             </div>
 
             {/* Resultados reales */}
-            <div className="mt-16 mb-20 max-w-4xl mx-auto animate-fade-in" style={{ animationDelay: "0.5s" }}>
+            <div
+              className="mt-16 mb-20 max-w-4xl mx-auto animate-fade-in"
+              style={{ animationDelay: "0.5s" }}
+            >
               <p className="text-xs text-muted-foreground uppercase tracking-wider mb-6 font-semibold">
                 Personas reales obteniendo resultados con su granja
               </p>
@@ -280,19 +487,22 @@ const Quiz = () => {
                     img: resultado6,
                     text: "6.3M views · $1,407 en un día",
                     name: "Carlos M.",
-                    story: "Empezó con una sola cuenta hace 4 meses. Hoy maneja una granja de 12 canales que generan contenido automatizado 24/7. En su mejor día facturó $1,407 solo con AdSense.",
+                    story:
+                      "Empezó con una sola cuenta hace 4 meses. Hoy maneja una granja de 12 canales que generan contenido automatizado 24/7. En su mejor día facturó $1,407 solo con AdSense.",
                   },
                   {
                     img: resultado7,
                     text: "57.4K views · $8,640 en 28 días",
                     name: "Andrea R.",
-                    story: "Sin experiencia previa en YouTube. Aplicó el método Scaling y en su primer mes completo logró $8,640 con una granja de 8 canales en el nicho de motivación.",
+                    story:
+                      "Sin experiencia previa en YouTube. Aplicó el método Scaling y en su primer mes completo logró $8,640 con una granja de 8 canales en el nicho de motivación.",
                   },
                   {
                     img: resultado8,
                     text: "$15,942 en 6 días · +74% crecimiento",
                     name: "Miguel T.",
-                    story: "Ya tenía experiencia con contenido digital pero no lograba escalar. Con el sistema de granjas automatizó su operación y en solo 6 días generó casi $16K en ingresos.",
+                    story:
+                      "Ya tenía experiencia con contenido digital pero no lograba escalar. Con el sistema de granjas automatizó su operación y en solo 6 días generó casi $16K en ingresos.",
                   },
                 ].map((item, i) => (
                   <div
@@ -309,7 +519,9 @@ const Quiz = () => {
                       {item.text}
                     </p>
                     <div className="mt-3 pt-3 border-t border-primary/10">
-                      <p className="text-sm font-semibold text-white">{item.name}</p>
+                      <p className="text-sm font-semibold text-white">
+                        {item.name}
+                      </p>
                       <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
                         {item.story}
                       </p>
@@ -322,7 +534,7 @@ const Quiz = () => {
         </section>
       )}
 
-      {/* ═══ PREGUNTAS ═══ */}
+      {/* ═══ PASOS DEL CONFIGURADOR ═══ */}
       {started && !finished && (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20">
           <div className="absolute inset-0 z-0">
@@ -334,7 +546,7 @@ const Quiz = () => {
             <div className="mb-10">
               <div className="flex justify-between items-center mb-3">
                 <span className="text-sm text-muted-foreground">
-                  Pregunta {currentQuestion + 1} de {questions.length}
+                  Paso {currentStep + 1} de {steps.length}
                 </span>
                 <span className="text-sm text-primary font-semibold">
                   {Math.round(progress)}%
@@ -353,11 +565,11 @@ const Quiz = () => {
               </div>
             </div>
 
-            {/* Question card */}
+            {/* Step card */}
             <div className="glass-card-3d rounded-2xl p-8 md:p-12 border border-primary/20 animate-fade-in">
               <div className="flex items-center gap-4 mb-8">
                 <div className="p-3 rounded-xl bg-primary/10">
-                  <QuestionIcon className="w-6 h-6 text-primary" />
+                  <step.icon className="w-6 h-6 text-primary" />
                 </div>
                 <div>
                   <h2
@@ -366,59 +578,109 @@ const Quiz = () => {
                       fontFamily: "'Bebas Neue', 'Anton', sans-serif",
                     }}
                   >
-                    {question.question}
+                    {step.title}
                   </h2>
                   <p className="text-sm text-muted-foreground mt-1">
-                    {question.subtitle}
+                    {step.subtitle}
                   </p>
                 </div>
               </div>
 
               {/* Options */}
-              <div className="space-y-4">
-                {question.options.map((option, index) => (
-                  <button
-                    key={index}
-                    onClick={() => handleSelect(index)}
-                    className={`w-full text-left p-5 rounded-xl border transition-all duration-300 group ${
-                      selectedOption === index
-                        ? "border-cyan/70 bg-cyan/10 shadow-[0_0_25px_hsl(204_67%_61%/0.2)]"
-                        : "border-primary/10 bg-muted/30 hover:border-primary/40 hover:bg-primary/5"
-                    }`}
-                  >
-                    <div className="flex items-center gap-4">
-                      <div
-                        className={`w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all ${
-                          selectedOption === index
-                            ? "border-cyan bg-cyan"
-                            : "border-muted-foreground/40"
-                        }`}
-                      >
-                        {selectedOption === index && (
-                          <div className="w-2 h-2 rounded-full bg-white" />
+              <div
+                className={
+                  step.type === "grid"
+                    ? "grid grid-cols-2 gap-4"
+                    : "space-y-4"
+                }
+              >
+                {step.options.map((option) => {
+                  const isSelected = currentSelections.includes(option.id);
+                  const OptionIcon = option.icon;
+                  return (
+                    <button
+                      key={option.id}
+                      onClick={() => handleSelect(option.id)}
+                      className={`w-full text-left p-5 rounded-xl border transition-all duration-300 group ${
+                        isSelected
+                          ? "border-cyan/70 bg-cyan/10 shadow-[0_0_25px_hsl(204_67%_61%/0.2)]"
+                          : "border-primary/10 bg-muted/30 hover:border-primary/40 hover:bg-primary/5"
+                      }`}
+                    >
+                      <div className="flex items-start gap-4">
+                        <div
+                          className={`p-2 rounded-lg flex-shrink-0 transition-all ${
+                            isSelected
+                              ? "bg-cyan/20"
+                              : "bg-muted/50 group-hover:bg-primary/10"
+                          }`}
+                        >
+                          <OptionIcon
+                            className={`w-5 h-5 transition-colors ${
+                              isSelected
+                                ? "text-cyan"
+                                : "text-muted-foreground group-hover:text-primary"
+                            }`}
+                          />
+                        </div>
+                        <div>
+                          <span
+                            className={`text-sm md:text-base font-semibold transition-colors block ${
+                              isSelected
+                                ? "text-foreground"
+                                : "text-muted-foreground group-hover:text-foreground"
+                            }`}
+                          >
+                            {option.label}
+                          </span>
+                          <span className="text-xs text-muted-foreground mt-1 block">
+                            {option.description}
+                          </span>
+                        </div>
+                        {step.type === "multi" && (
+                          <div
+                            className={`ml-auto w-5 h-5 rounded border-2 flex items-center justify-center flex-shrink-0 transition-all ${
+                              isSelected
+                                ? "border-cyan bg-cyan"
+                                : "border-muted-foreground/40"
+                            }`}
+                          >
+                            {isSelected && (
+                              <svg
+                                className="w-3 h-3 text-white"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                strokeWidth={3}
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  d="M5 13l4 4L19 7"
+                                />
+                              </svg>
+                            )}
+                          </div>
                         )}
                       </div>
-                      <span
-                        className={`text-sm md:text-base font-medium transition-colors ${
-                          selectedOption === index
-                            ? "text-foreground"
-                            : "text-muted-foreground group-hover:text-foreground"
-                        }`}
-                      >
-                        {option.text}
-                      </span>
-                    </div>
-                  </button>
-                ))}
+                    </button>
+                  );
+                })}
               </div>
+
+              {step.type === "multi" && (
+                <p className="text-xs text-muted-foreground mt-3 text-center">
+                  Puedes seleccionar varios dispositivos
+                </p>
+              )}
 
               {/* Navigation */}
               <div className="flex items-center justify-between mt-10">
                 <button
                   onClick={handleBack}
-                  disabled={currentQuestion === 0}
+                  disabled={currentStep === 0}
                   className={`flex items-center gap-2 text-sm font-medium transition-colors ${
-                    currentQuestion === 0
+                    currentStep === 0
                       ? "text-muted-foreground/30 cursor-not-allowed"
                       : "text-muted-foreground hover:text-foreground"
                   }`}
@@ -429,20 +691,20 @@ const Quiz = () => {
 
                 <Button
                   onClick={handleNext}
-                  disabled={selectedOption === null}
+                  disabled={!hasSelection}
                   className={`relative px-8 py-6 font-bold tracking-wider uppercase group overflow-hidden transition-all ${
-                    selectedOption === null
+                    !hasSelection
                       ? "bg-muted text-muted-foreground cursor-not-allowed"
                       : "bg-primary hover:bg-cyan text-primary-foreground animate-halo"
                   }`}
                 >
                   <span className="relative z-10 flex items-center">
-                    {currentQuestion === questions.length - 1
-                      ? "Ver Resultado"
+                    {currentStep === steps.length - 1
+                      ? "Ver Mi Granja"
                       : "Siguiente"}
                     <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                   </span>
-                  {selectedOption !== null && (
+                  {hasSelection && (
                     <div className="absolute inset-0 bg-gradient-to-r from-primary via-cyan to-primary bg-[length:200%_100%] animate-shimmer opacity-50" />
                   )}
                 </Button>
@@ -461,7 +723,6 @@ const Quiz = () => {
 
           <div className="container mx-auto px-4 z-10 text-center">
             <div className="max-w-lg mx-auto">
-              {/* Spinner */}
               <div className="relative w-24 h-24 mx-auto mb-10">
                 <div className="absolute inset-0 rounded-full border-4 border-muted" />
                 <div
@@ -469,7 +730,7 @@ const Quiz = () => {
                   style={{ animationDuration: "1s" }}
                 />
                 <div className="absolute inset-3 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Shield className="w-8 h-8 text-primary animate-pulse" />
+                  <Sparkles className="w-8 h-8 text-primary animate-pulse" />
                 </div>
               </div>
 
@@ -479,13 +740,12 @@ const Quiz = () => {
                   fontFamily: "'Bebas Neue', 'Anton', sans-serif",
                 }}
               >
-                Analizando tu perfil...
+                Configurando tu granja...
               </h2>
               <p className="text-muted-foreground text-lg">
-                Evaluando compatibilidad con el programa privado
+                Preparando tu plan personalizado
               </p>
 
-              {/* Animated dots */}
               <div className="flex justify-center gap-2 mt-8">
                 {[0, 1, 2].map((i) => (
                   <div
@@ -500,218 +760,196 @@ const Quiz = () => {
         </section>
       )}
 
-      {/* ═══ RESULTADO: CALIFICA ═══ */}
-      {showResult && calculateResult().qualifies && (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-primary/15 rounded-full blur-[150px] animate-glow-pulse" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan/20 rounded-full blur-[100px] animate-pulse" />
-          </div>
-
-          <div className="container mx-auto px-4 z-10 text-center pt-20 animate-fade-in-up">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-cyan/40 bg-cyan/10 mb-8">
-              <Crown className="w-5 h-5 text-cyan" />
-              <span className="text-sm font-bold tracking-wider uppercase text-cyan">
-                Perfil Aprobado
-              </span>
+      {/* ═══ RESULTADO ═══ */}
+      {showResult && (() => {
+        const summary = getSummary();
+        return (
+          <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+            <div className="absolute inset-0 z-0">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-primary/15 rounded-full blur-[150px] animate-glow-pulse" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan/20 rounded-full blur-[100px] animate-pulse" />
             </div>
 
-            <h1
-              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 glow-text-double uppercase leading-tight max-w-4xl mx-auto"
-              style={{ fontFamily: "'Bebas Neue', 'Anton', sans-serif" }}
-            >
-              Has sido seleccionado para una{" "}
-              <span className="text-primary font-bold">
-                Asesoría Privada 1 a 1
-              </span>
-            </h1>
-
-            <p className="text-lg md:text-xl text-white mb-4 max-w-2xl mx-auto font-light leading-relaxed">
-              Tu perfil muestra que estás listo para escalar con granjas de bots
-              inteligentes. Nuestro equipo te espera.
-            </p>
-
-            <p className="text-base text-cyan mb-8 max-w-xl mx-auto font-semibold">
-              Los cupos para asesorías privadas son limitados — agenda ahora para
-              asegurar tu lugar.
-            </p>
-
-            {/* Resultados reales — prueba social */}
-            <div className="max-w-3xl mx-auto mb-12">
-              <p className="text-xs text-muted-foreground uppercase tracking-wider mb-4 font-semibold">
-                Personas reales que están obteniendo estos resultados con su granja
-              </p>
-              <div className="grid md:grid-cols-3 gap-4">
-                <div className="glass-card-3d rounded-2xl p-4 border border-cyan/20 overflow-hidden">
-                  <img
-                    src="/youtube-results.png"
-                    alt="Resultados: 6.3M views, $1,407.56 en un día"
-                    className="w-full rounded-xl"
-                  />
-                  <p className="text-sm text-cyan mt-3 font-medium">
-                    6.3M views · $1,407.56 en un solo día
-                  </p>
-                </div>
-                <div className="glass-card-3d rounded-2xl p-4 border border-cyan/20 overflow-hidden">
-                  <img
-                    src="/youtube-results-2.png"
-                    alt="Resultados: 57.4K views, $8,640 en 28 días"
-                    className="w-full rounded-xl"
-                  />
-                  <p className="text-sm text-cyan mt-3 font-medium">
-                    57.4K views · $8,640 en 28 días · +707 subs
-                  </p>
-                </div>
-                <div className="glass-card-3d rounded-2xl p-4 border border-cyan/20 overflow-hidden">
-                  <img
-                    src="/earnings-results.png"
-                    alt="Resultados: $15,942 en 6 días"
-                    className="w-full rounded-xl"
-                  />
-                  <p className="text-sm text-cyan mt-3 font-medium">
-                    $15,942 en 6 días · +74.2% crecimiento
-                  </p>
-                </div>
+            <div className="container mx-auto px-4 z-10 text-center pt-20 pb-20 animate-fade-in-up">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-cyan/40 bg-cyan/10 mb-8">
+                <Crown className="w-5 h-5 text-cyan" />
+                <span className="text-sm font-bold tracking-wider uppercase text-cyan">
+                  Tu Granja Está Lista
+                </span>
               </div>
-            </div>
 
-            <div className="flex flex-col items-center gap-4">
-              <a href={AGENDAR_URL} target="_blank" rel="noopener noreferrer">
-                <Button
-                  size="lg"
-                  className="relative text-lg px-10 py-7 bg-primary hover:bg-cyan text-primary-foreground font-bold tracking-wider uppercase animate-halo group overflow-hidden"
-                >
-                  <span className="relative z-10 flex items-center">
-                    Agendar Mi Asesoría Privada
-                    <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary via-cyan to-primary bg-[length:200%_100%] animate-shimmer opacity-50" />
-                </Button>
-              </a>
-              <span className="text-sm text-muted-foreground">
-                Sin compromiso · 100% personalizada · Cupos limitados
-              </span>
-            </div>
-
-            {/* Trust */}
-            <div className="mt-16 glass-card-3d rounded-2xl p-8 max-w-2xl mx-auto border border-cyan/20">
-              <h3
-                className="text-xl font-bold uppercase tracking-wider mb-4"
+              <h1
+                className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 glow-text-double uppercase leading-tight max-w-4xl mx-auto"
                 style={{ fontFamily: "'Bebas Neue', 'Anton', sans-serif" }}
               >
-                ¿Qué sucede en la asesoría?
-              </h3>
-              <div className="grid md:grid-cols-3 gap-4 text-left">
+                Tu Granja de{" "}
+                <span className="text-primary font-bold">
+                  {summary.platform}
+                </span>{" "}
+                Personalizada
+              </h1>
+
+              <p className="text-lg md:text-xl text-white mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+                Hemos diseñado el plan perfecto basado en tus preferencias.
+                Agenda una asesoría para ponerlo en marcha.
+              </p>
+
+              {/* Summary cards */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12">
                 {[
-                  "Analizamos tu situación actual y objetivos",
-                  "Diseñamos un plan personalizado para tu granja",
-                  "Te mostramos el ROI proyectado de tu inversión",
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <span className="text-xs font-bold text-primary">
-                        {i + 1}
-                      </span>
-                    </div>
-                    <span className="text-sm text-muted-foreground">
-                      {item}
-                    </span>
+                  { label: "Plataforma", value: summary.platform, icon: Globe },
+                  { label: "Cuentas", value: summary.accounts, icon: Layers },
+                  { label: "Alcance", value: summary.reach, icon: Users },
+                  { label: "Meta mensual", value: summary.income, icon: DollarSign },
+                ].map((card, i) => (
+                  <div
+                    key={i}
+                    className="glass-card-3d rounded-xl p-4 border border-cyan/20 text-center animate-fade-in"
+                    style={{ animationDelay: `${i * 0.1}s` }}
+                  >
+                    <card.icon className="w-5 h-5 text-cyan mx-auto mb-2" />
+                    <p className="text-xs text-muted-foreground uppercase tracking-wide">
+                      {card.label}
+                    </p>
+                    <p className="text-sm font-bold text-white mt-1">
+                      {card.value}
+                    </p>
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
-        </section>
-      )}
 
-      {/* ═══ RESULTADO: NO CALIFICA ═══ */}
-      {showResult && !calculateResult().qualifies && (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-secondary/15 rounded-full blur-[150px]" />
-          </div>
+              {/* Detailed config */}
+              <div className="glass-card-3d rounded-2xl p-6 md:p-8 max-w-3xl mx-auto border border-primary/20 mb-12 text-left">
+                <h3
+                  className="text-xl font-bold uppercase tracking-wider mb-6 text-center"
+                  style={{ fontFamily: "'Bebas Neue', 'Anton', sans-serif" }}
+                >
+                  Configuración de tu Granja
+                </h3>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {[
+                    {
+                      label: "Dispositivos",
+                      value: summary.devices.join(", "),
+                      icon: Smartphone,
+                    },
+                    {
+                      label: "Tipo de contenido",
+                      value: summary.content,
+                      icon: Video,
+                    },
+                    {
+                      label: "Automatización",
+                      value: summary.automation,
+                      icon: Zap,
+                    },
+                    {
+                      label: "Timeline",
+                      value:
+                        summary.timeline === "now"
+                          ? "Arrancar ahora"
+                          : summary.timeline === "week"
+                          ? "Esta semana"
+                          : summary.timeline === "month"
+                          ? "Este mes"
+                          : "Explorando opciones",
+                      icon: Target,
+                    },
+                  ].map((item, i) => (
+                    <div
+                      key={i}
+                      className="flex items-start gap-3 p-3 rounded-lg bg-muted/20 border border-primary/10"
+                    >
+                      <item.icon className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                      <div>
+                        <p className="text-xs text-muted-foreground uppercase tracking-wide">
+                          {item.label}
+                        </p>
+                        <p className="text-sm font-medium text-white mt-0.5">
+                          {item.value}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
 
-          <div className="container mx-auto px-4 z-10 text-center pt-20 animate-fade-in-up">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-primary/30 bg-primary/10 mb-8">
-              <Users className="w-5 h-5 text-primary" />
-              <span className="text-sm font-bold tracking-wider uppercase text-primary">
-                Tu Siguiente Paso
-              </span>
-            </div>
+              {/* Resultados reales */}
+              <div className="max-w-3xl mx-auto mb-12">
+                <p className="text-xs text-muted-foreground uppercase tracking-wider mb-4 font-semibold">
+                  Personas reales con granjas como la tuya
+                </p>
+                <div className="grid md:grid-cols-3 gap-4">
+                  <div className="glass-card-3d rounded-xl p-3 border border-cyan/20 overflow-hidden">
+                    <img
+                      src={resultado6}
+                      alt="Resultados: 6.3M views"
+                      className="w-full rounded-lg"
+                    />
+                    <p className="text-xs text-cyan mt-2 font-medium">
+                      6.3M views · $1,407 en un día
+                    </p>
+                  </div>
+                  <div className="glass-card-3d rounded-xl p-3 border border-cyan/20 overflow-hidden">
+                    <img
+                      src={resultado7}
+                      alt="Resultados: $8,640"
+                      className="w-full rounded-lg"
+                    />
+                    <p className="text-xs text-cyan mt-2 font-medium">
+                      57.4K views · $8,640 en 28 días
+                    </p>
+                  </div>
+                  <div className="glass-card-3d rounded-xl p-3 border border-cyan/20 overflow-hidden">
+                    <img
+                      src={resultado8}
+                      alt="Resultados: $15,942"
+                      className="w-full rounded-lg"
+                    />
+                    <p className="text-xs text-cyan mt-2 font-medium">
+                      $15,942 en 6 días · +74% crecimiento
+                    </p>
+                  </div>
+                </div>
+              </div>
 
-            <h1
-              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 uppercase leading-tight max-w-4xl mx-auto"
-              style={{ fontFamily: "'Bebas Neue', 'Anton', sans-serif" }}
-            >
-              Aún no es tu momento para la{" "}
-              <span className="text-primary glow-text">asesoría privada</span>
-            </h1>
+              {/* CTA */}
+              <div className="flex flex-col items-center gap-4 mb-8">
+                <a
+                  href={AGENDAR_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button
+                    size="lg"
+                    className="relative text-lg px-10 py-7 bg-primary hover:bg-cyan text-primary-foreground font-bold tracking-wider uppercase animate-halo group overflow-hidden"
+                  >
+                    <span className="relative z-10 flex items-center">
+                      Agendar Mi Asesoría 1 a 1
+                      <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary via-cyan to-primary bg-[length:200%_100%] animate-shimmer opacity-50" />
+                  </Button>
+                </a>
+                <span className="text-sm text-muted-foreground">
+                  Te mostramos cómo arrancar tu granja de {summary.platform} en
+                  la asesoría
+                </span>
+              </div>
 
-            <p className="text-lg md:text-xl text-white mb-4 max-w-2xl mx-auto font-light leading-relaxed">
-              Pero eso no significa que te quedes fuera. Nuestra comunidad
-              exclusiva es el lugar perfecto para prepararte y dar el siguiente
-              paso cuando estés listo.
-            </p>
-
-            <p className="text-base text-cyan mb-12 max-w-xl mx-auto font-semibold">
-              Únete a la comunidad, aprende de los que ya están escalando y
-              vuelve cuando estés listo.
-            </p>
-
-            <div className="flex flex-col items-center gap-4">
               <a
                 href={SKOOL_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="text-sm text-primary hover:text-cyan transition-colors underline underline-offset-4"
               >
-                <Button
-                  size="lg"
-                  className="relative text-lg px-10 py-7 bg-primary hover:bg-cyan text-primary-foreground font-bold tracking-wider uppercase animate-halo group overflow-hidden"
-                >
-                  <span className="relative z-10 flex items-center">
-                    Unirme a la Comunidad
-                    <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary via-cyan to-primary bg-[length:200%_100%] animate-shimmer opacity-50" />
-                </Button>
+                O únete a la comunidad gratuita para aprender más
               </a>
-              <span className="text-sm text-muted-foreground">
-                Acceso gratuito · Comunidad activa · Contenido exclusivo
-              </span>
             </div>
-
-            {/* What you get */}
-            <div className="mt-16 glass-card-3d rounded-2xl p-8 max-w-2xl mx-auto border border-primary/20">
-              <h3
-                className="text-xl font-bold uppercase tracking-wider mb-4"
-                style={{ fontFamily: "'Bebas Neue', 'Anton', sans-serif" }}
-              >
-                ¿Qué encontrarás en la comunidad?
-              </h3>
-              <div className="grid md:grid-cols-3 gap-4 text-left">
-                {[
-                  "Tutoriales y guías paso a paso sobre granjas de bots",
-                  "Networking con emprendedores que ya están escalando",
-                  "Acceso prioritario cuando estés listo para el programa",
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <span className="text-xs font-bold text-primary">
-                        {i + 1}
-                      </span>
-                    </div>
-                    <span className="text-sm text-muted-foreground">
-                      {item}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
+          </section>
+        );
+      })()}
 
       <Footer />
     </div>
