@@ -276,9 +276,24 @@ const Quiz = () => {
               </p>
               <div className="grid md:grid-cols-3 gap-4">
                 {[
-                  { img: resultado6, text: "6.3M views · $1,407 en un día" },
-                  { img: resultado7, text: "57.4K views · $8,640 en 28 días" },
-                  { img: resultado8, text: "$15,942 en 6 días · +74% crecimiento" },
+                  {
+                    img: resultado6,
+                    text: "6.3M views · $1,407 en un día",
+                    name: "Carlos M.",
+                    story: "Empezó con una sola cuenta hace 4 meses. Hoy maneja una granja de 12 canales que generan contenido automatizado 24/7. En su mejor día facturó $1,407 solo con AdSense.",
+                  },
+                  {
+                    img: resultado7,
+                    text: "57.4K views · $8,640 en 28 días",
+                    name: "Andrea R.",
+                    story: "Sin experiencia previa en YouTube. Aplicó el método Scaling y en su primer mes completo logró $8,640 con una granja de 8 canales en el nicho de motivación.",
+                  },
+                  {
+                    img: resultado8,
+                    text: "$15,942 en 6 días · +74% crecimiento",
+                    name: "Miguel T.",
+                    story: "Ya tenía experiencia con contenido digital pero no lograba escalar. Con el sistema de granjas automatizó su operación y en solo 6 días generó casi $16K en ingresos.",
+                  },
                 ].map((item, i) => (
                   <div
                     key={i}
@@ -293,6 +308,12 @@ const Quiz = () => {
                     <p className="text-xs text-cyan mt-2 font-medium">
                       {item.text}
                     </p>
+                    <div className="mt-3 pt-3 border-t border-primary/10">
+                      <p className="text-sm font-semibold text-white">{item.name}</p>
+                      <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
+                        {item.story}
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>
