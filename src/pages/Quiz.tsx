@@ -270,7 +270,7 @@ const Quiz = () => {
             </div>
 
             {/* Resultados reales */}
-            <div className="mt-16 max-w-4xl mx-auto animate-fade-in" style={{ animationDelay: "0.5s" }}>
+            <div className="mt-16 mb-20 max-w-4xl mx-auto animate-fade-in" style={{ animationDelay: "0.5s" }}>
               <p className="text-xs text-muted-foreground uppercase tracking-wider mb-6 font-semibold">
                 Personas reales obteniendo resultados con su granja
               </p>
