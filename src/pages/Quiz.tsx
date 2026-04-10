@@ -3,6 +3,9 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, ArrowLeft, Crown, Users, Sparkles, Shield, Target, DollarSign, Clock, MessageCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import resultado6 from "@/assets/resultado-6.png";
+import resultado7 from "@/assets/resultado-7.png";
+import resultado8 from "@/assets/resultado-8.png";
 
 /* ──────────────────────────
    Sistema de puntuación
@@ -264,6 +267,35 @@ const Quiz = () => {
                   </p>
                 </div>
               ))}
+            </div>
+
+            {/* Resultados reales */}
+            <div className="mt-16 max-w-4xl mx-auto animate-fade-in" style={{ animationDelay: "0.5s" }}>
+              <p className="text-xs text-muted-foreground uppercase tracking-wider mb-6 font-semibold">
+                Personas reales obteniendo resultados con su granja
+              </p>
+              <div className="grid md:grid-cols-3 gap-4">
+                {[
+                  { img: resultado6, text: "6.3M views · $1,407 en un día" },
+                  { img: resultado7, text: "57.4K views · $8,640 en 28 días" },
+                  { img: resultado8, text: "$15,942 en 6 días · +74% crecimiento" },
+                ].map((item, i) => (
+                  <div
+                    key={i}
+                    className="glass-card-3d rounded-xl p-3 border border-primary/20 overflow-hidden animate-fade-in"
+                    style={{ animationDelay: `${0.6 + i * 0.15}s` }}
+                  >
+                    <img
+                      src={item.img}
+                      alt={item.text}
+                      className="w-full rounded-lg"
+                    />
+                    <p className="text-xs text-cyan mt-2 font-medium">
+                      {item.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
