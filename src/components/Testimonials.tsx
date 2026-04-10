@@ -4,6 +4,9 @@ import resultado2 from "@/assets/resultado-2.jpg";
 import resultado3 from "@/assets/resultado-3.jpg";
 import resultado4 from "@/assets/resultado-4.jpg";
 import resultado5 from "@/assets/resultado-5.jpg";
+import resultado6 from "@/assets/resultado-6.png";
+import resultado7 from "@/assets/resultado-7.png";
+import resultado8 from "@/assets/resultado-8.png";
 
 const stats = [
   {
@@ -78,11 +81,11 @@ const Testimonials = () => {
             Resultados <span className="text-primary glow-text">de Clientes</span>
           </h3>
           <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Capturas reales de nuestros clientes generando ingresos
+            Personas reales que están obteniendo estos resultados con su granja
           </p>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {[resultado5, resultado2, resultado4, resultado1, resultado3].map((img, index) => (
+            {[resultado6, resultado7, resultado8, resultado5, resultado2, resultado4, resultado1, resultado3].map((img, index) => (
               <div
                 key={index}
                 className="glass-card-3d rounded-xl overflow-hidden hover:scale-105 transition-all duration-300 border border-primary/20 hover:border-cyan/50 animate-fade-in group"
