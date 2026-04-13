@@ -18,6 +18,7 @@ import LandingArgentina from "./pages/landing/Argentina";
 import LandingPeru from "./pages/landing/Peru";
 import LandingSpotify from "./pages/landing/Spotify";
 import LandingTikTok from "./pages/landing/TikTok";
+import LandingDante from "./pages/landing/Dante";
 
 const queryClient = new QueryClient();
 
@@ -71,6 +72,7 @@ const App = () => (
           <Route path="/landing/peru" element={<LandingPeru />} />
           <Route path="/landing/spotify" element={<LandingSpotify />} />
           <Route path="/landing/tiktok" element={<LandingTikTok />} />
+          <Route path="/landing/dante" element={<LandingDante />} />
           <Route path="/quiz" element={<Quiz />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
