@@ -245,7 +245,7 @@ const Quiz = () => {
   if (showResult) {
     const summary = getSummary();
     return (
-      <div className="min-h-screen">
+      <div className="min-h-screen bg-background text-foreground">
         <Navbar />
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 z-0">
@@ -351,7 +351,7 @@ const Quiz = () => {
   // ═══════════════════════════════════════
   if (processing) {
     return (
-      <div className="min-h-screen">
+      <div className="min-h-screen bg-background text-foreground">
         <Navbar />
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 z-0">
@@ -387,7 +387,7 @@ const Quiz = () => {
   // LANDING + CONFIGURADOR
   // ═══════════════════════════════════════
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background text-foreground">
       <Navbar />
 
       {/* ═══ HERO — Dante ═══ */}
