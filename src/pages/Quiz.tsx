@@ -397,8 +397,8 @@ const Quiz = () => {
           <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-cyan/10 rounded-full blur-[120px]" />
         </div>
 
-        <div className="container mx-auto px-4 z-10 pt-28 pb-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="container mx-auto px-4 z-10 pt-24 pb-16">
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
             {/* Text */}
             <div className="animate-fade-in-up">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 mb-6">
@@ -456,8 +456,8 @@ const Quiz = () => {
 
             {/* Photo */}
             <div className="relative animate-fade-in" style={{ animationDelay: "0.3s" }}>
-              <div className="relative rounded-2xl overflow-hidden border-2 border-primary/20 shadow-[0_0_60px_rgba(0,122,191,0.15)]">
-                <img src={danteSolo} alt="Dante Oliveros — Fundador de Scaling LATAM" className="w-full h-auto object-cover" />
+              <div className="relative rounded-2xl overflow-hidden border-2 border-primary/20 shadow-[0_0_60px_rgba(0,122,191,0.15)] max-h-[600px]">
+                <img src={danteSolo} alt="Dante Oliveros — Fundador de Scaling LATAM" className="w-full h-full object-cover object-top max-h-[600px]" />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
                   <div className="glass-card-3d rounded-xl p-4 border border-cyan/30">
