@@ -480,7 +480,7 @@ const Quiz = () => {
             {/* Photo */}
             <div className="relative animate-fade-in" style={{ animationDelay: "0.3s" }}>
               <div className="relative rounded-2xl overflow-hidden border-2 border-primary/20 shadow-[0_0_60px_rgba(0,122,191,0.15)] max-h-[600px]">
-                <img src={danteSolo} alt="Dante Oliveros — Fundador de Scaling LATAM" className="w-full h-full object-cover object-top max-h-[600px]" />
+                <img src={danteSolo} alt="Dante Oliveros — Fundador de Scaling LATAM" className="w-full h-full object-cover object-center max-h-[600px]" style={{ objectPosition: "center 30%" }} />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
                   <div className="glass-card-3d rounded-xl p-4 border border-cyan/30">
