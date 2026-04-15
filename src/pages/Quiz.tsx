@@ -29,6 +29,8 @@ import danteTeam from "@/assets/dante-team.png";
 import resultado6 from "@/assets/resultado-6.png";
 import resultado7 from "@/assets/resultado-7.png";
 import resultado8 from "@/assets/resultado-8.png";
+import granjaReal from "@/assets/granja-real.png";
+import granjaInfraestructura from "@/assets/granja-infraestructura.png";
 
 /* ──────────────────────────
    Landing + Configurador de Granja
@@ -68,15 +70,15 @@ const steps: Step[] = [
   },
   {
     id: 2,
-    icon: Layers,
-    title: "¿Cuántas cuentas quieres manejar?",
-    subtitle: "Más cuentas = más alcance y más ingresos",
+    icon: Smartphone,
+    title: "¿Cuántos dispositivos quieres manejar?",
+    subtitle: "Más dispositivos = más cuentas, más alcance y más ingresos",
     type: "single",
     options: [
-      { id: "starter", label: "5 - 10 cuentas", description: "Ideal para empezar y aprender el sistema", icon: Target },
-      { id: "growth", label: "10 - 25 cuentas", description: "Para generar ingresos consistentes", icon: Sparkles },
-      { id: "scale", label: "25 - 50 cuentas", description: "Operación seria con ingresos escalables", icon: Zap },
-      { id: "enterprise", label: "50+ cuentas", description: "Granja completa — máximo rendimiento", icon: Crown },
+      { id: "starter", label: "5 - 10 dispositivos", description: "Ideal para empezar y aprender el sistema", icon: Target },
+      { id: "growth", label: "10 - 25 dispositivos", description: "Para generar ingresos consistentes", icon: Sparkles },
+      { id: "scale", label: "25 - 50 dispositivos", description: "Operación seria con ingresos escalables", icon: Zap },
+      { id: "enterprise", label: "50+ dispositivos", description: "Granja completa — máximo rendimiento", icon: Crown },
     ],
   },
   {
@@ -244,6 +246,18 @@ const Quiz = () => {
   // ═══════════════════════════════════════
   if (showResult) {
     const summary = getSummary();
+    const accountsId = selections[1]?.[0] || "";
+    const incomeId = selections[6]?.[0] || "";
+    const timelineId = selections[7]?.[0] || "";
+    const isBeginner =
+      accountsId === "starter" ||
+      timelineId === "exploring" ||
+      timelineId === "month" ||
+      incomeId === "500";
+    const farmImage = isBeginner ? granjaReal : granjaInfraestructura;
+    const farmCaption = isBeginner
+      ? "Así funciona una granja de bots real — dispositivos físicos que simulan actividad real en redes sociales."
+      : "Tu agencia con infraestructura propia — Scaling arma y configura todo por ti.";
     return (
       <div className="min-h-screen bg-background text-foreground">
         <Navbar />
@@ -270,7 +284,7 @@ const Quiz = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12">
               {[
                 { label: "Plataforma", value: summary.platform, icon: Globe },
-                { label: "Cuentas", value: summary.accounts, icon: Layers },
+                { label: "Dispositivos", value: summary.accounts, icon: Smartphone },
                 { label: "Alcance", value: summary.reach, icon: Users },
                 { label: "Meta mensual", value: summary.income, icon: DollarSign },
               ].map((card, i) => (
@@ -301,6 +315,15 @@ const Quiz = () => {
                     </div>
                   </div>
                 ))}
+              </div>
+            </div>
+
+            {/* Visualización de tu granja */}
+            <div className="max-w-2xl mx-auto mb-12">
+              <p className="text-xs text-muted-foreground uppercase tracking-wider mb-4 font-semibold">Así se ve tu granja</p>
+              <div className="glass-card-3d rounded-2xl p-4 border border-cyan/30 overflow-hidden">
+                <img src={farmImage} alt="Visualización de tu granja" className="w-full rounded-xl" />
+                <p className="text-sm text-cyan mt-3 font-medium text-center px-2">{farmCaption}</p>
               </div>
             </div>
 
