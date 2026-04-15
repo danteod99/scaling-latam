@@ -33,14 +33,12 @@ const VideoSection = () => {
 
           {/* CTA Button */}
           <div className="text-center">
-            <a 
-              href="https://calendly.com/d/3tr-69b-hqj/asesoria-1-a-1-granja-de-bots"
-              target="_blank"
-              rel="noopener noreferrer"
+            <a
+              href="/quiz"
               className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold rounded-lg transition-all hover:scale-105"
               style={{ backgroundColor: '#4169E1', color: '#fff' }}
             >
-              Agenda tu Llamada Ahora
+              Iniciar Quiz
             </a>
           </div>
         </div>
