@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -68,6 +69,11 @@ const formatDate = (dateStr: string) => {
 const Blog = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Blog — Guías y Estrategias de Granjas de Bots"
+        description="Aprende sobre granjas de bots, automatización en redes sociales, monetización en YouTube, TikTok y Spotify. Guías paso a paso y estrategias probadas."
+        path="/blog"
+      />
       <Navbar />
 
       {/* Hero Section */}

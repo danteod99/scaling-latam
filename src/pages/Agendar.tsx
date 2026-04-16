@@ -4,6 +4,7 @@ import Testimonials from "@/components/Testimonials";
 import BrandsSection from "@/components/BrandsSection";
 import ComparisonSection from "@/components/ComparisonSection";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -11,6 +12,11 @@ import { Link } from "react-router-dom";
 const Agendar = () => {
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Conoce Scaling — Tu Granja de Bots Personalizada"
+        description="Mira cómo funciona el sistema Scaling y diseña tu propia granja de bots. Automatización inteligente para generar ingresos en redes sociales."
+        path="/agendar"
+      />
       <Navbar />
       <div className="pt-20">
         <VideoSection />

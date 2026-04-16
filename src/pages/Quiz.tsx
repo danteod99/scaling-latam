@@ -26,6 +26,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import danteSolo from "@/assets/dante-solo.jpg";
 import danteTeam from "@/assets/dante-team.png";
+import SEO from "@/components/SEO";
 import resultado6 from "@/assets/resultado-6.png";
 import resultado7 from "@/assets/resultado-7.png";
 import resultado8 from "@/assets/resultado-8.png";
@@ -411,6 +412,11 @@ const Quiz = () => {
   // ═══════════════════════════════════════
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SEO
+        title="Quiz — Diseña tu Granja de Bots Personalizada"
+        description="Responde 8 preguntas y recibe un plan personalizado para tu granja de bots. Elige plataforma, dispositivos, automatización y meta de ingresos."
+        path="/quiz"
+      />
       <Navbar />
 
       {/* ═══ HERO — Dante ═══ */}

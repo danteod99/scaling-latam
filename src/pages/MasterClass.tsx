@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { CheckCircle } from "lucide-react";
 import masterclassHero from "@/assets/masterclass-hero.jpg";
 
@@ -115,6 +116,11 @@ const MasterClass = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="MasterClass — Cómo Crear tu Granja de Bots desde Cero"
+        description="Clase en vivo donde aprenderás a montar tu granja de bots, automatizar contenido y generar ingresos pasivos en YouTube, TikTok, Spotify y Facebook."
+        path="/masterclass"
+      />
       <Navbar />
 
       {/* Top Banner */}
