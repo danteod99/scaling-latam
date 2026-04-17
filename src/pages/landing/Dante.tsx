@@ -20,7 +20,7 @@ import resultado7 from "@/assets/resultado-7.png";
 import resultado8 from "@/assets/resultado-8.png";
 
 const AGENDAR_URL =
-  "https://calendly.com/d/328-gbq-zqx/reunion-de-asesoria-1-1-creacion-app";
+  "https://calendly.com/d/3tr-69b-hqj/asesoria-1-a-1-granja-de-bots";
 const QUIZ_URL = "/quiz";
 
 const LandingDante = () => {

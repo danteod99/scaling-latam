@@ -162,7 +162,7 @@ const steps: Step[] = [
   },
 ];
 
-const AGENDAR_URL = "https://calendly.com/d/328-gbq-zqx/reunion-de-asesoria-1-1-creacion-app";
+const AGENDAR_URL = "https://calendly.com/d/3tr-69b-hqj/asesoria-1-a-1-granja-de-bots";
 const SKOOL_URL = "https://www.skool.com/artificial-humans-7653/about";
 
 const Quiz = () => {
