@@ -32,6 +32,7 @@ import resultado7 from "@/assets/resultado-7.png";
 import resultado8 from "@/assets/resultado-8.png";
 import granjaReal from "@/assets/granja-real.png";
 import granjaInfraestructura from "@/assets/granja-infraestructura.png";
+import { supabase } from "@/lib/supabase";
 
 /* ──────────────────────────
    Landing + Configurador de Granja
@@ -219,14 +220,45 @@ const Quiz = () => {
     }
   };
 
+  const [processingStep, setProcessingStep] = useState(0);
+  const processingSteps = [
+    "Analizando tu perfil...",
+    "Seleccionando dispositivos ideales...",
+    "Configurando automatizaciones...",
+    "Calculando proyeccion de ingresos...",
+    "Preparando tu granja a medida...",
+  ];
+
   useEffect(() => {
     if (processing) {
-      const timer = setTimeout(() => {
-        setProcessing(false);
-        setShowResult(true);
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }, 3000);
-      return () => clearTimeout(timer);
+      // Save to Supabase
+      const summary = getSummary();
+      supabase.from("quiz_submissions").insert({
+        platform: summary.platform,
+        devices_qty: summary.accounts,
+        reach: summary.reach,
+        device_models: summary.devices,
+        content_type: summary.content,
+        automation_level: summary.automation,
+        income_goal: summary.income,
+        timeline: summary.timeline,
+        selections,
+      }).then(() => {});
+
+      // Animate processing steps
+      let step = 0;
+      const stepInterval = setInterval(() => {
+        step++;
+        if (step < processingSteps.length) {
+          setProcessingStep(step);
+        } else {
+          clearInterval(stepInterval);
+          setProcessing(false);
+          setShowResult(true);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      }, 1200);
+      return () => clearInterval(stepInterval);
     }
   }, [processing]);
 
@@ -271,7 +303,7 @@ const Quiz = () => {
           <div className="container mx-auto px-4 z-10 text-center pt-28 pb-20 animate-fade-in-up">
             <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-cyan/40 bg-cyan/10 mb-8">
               <Crown className="w-5 h-5 text-cyan" />
-              <span className="text-sm font-bold tracking-wider uppercase text-cyan">Tu Granja Está Lista</span>
+              <span className="text-sm font-bold tracking-wider uppercase text-cyan">Tu Granja a Medida Está Lista</span>
             </div>
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 glow-text-double uppercase leading-tight max-w-4xl mx-auto" style={{ fontFamily: "'Bebas Neue', 'Anton', sans-serif" }}>
@@ -279,7 +311,7 @@ const Quiz = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-white mb-12 max-w-2xl mx-auto font-light leading-relaxed">
-              Hemos diseñado el plan perfecto basado en tus preferencias. Agenda una asesoría con Dante para ponerlo en marcha.
+              Tu granja fue diseñada a medida. Agenda una asesoría con Dante para recogerla y ponerla en marcha.
             </p>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12">
@@ -349,14 +381,14 @@ const Quiz = () => {
               <a href={AGENDAR_URL} target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="relative text-lg px-10 py-7 bg-primary hover:bg-cyan text-primary-foreground font-bold tracking-wider uppercase animate-halo group overflow-hidden">
                   <span className="relative z-10 flex items-center">
-                    Agendar Asesoría con Dante
+                    Recoger Mi Granja
                     <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-primary via-cyan to-primary bg-[length:200%_100%] animate-shimmer opacity-50" />
                 </Button>
               </a>
               <span className="text-sm text-muted-foreground">
-                Te mostramos cómo arrancar tu granja de {summary.platform} en la asesoría
+                Agenda una llamada con Dante para recibir tu granja de {summary.platform} configurada
               </span>
             </div>
 
@@ -391,10 +423,19 @@ const Quiz = () => {
                 </div>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-wider" style={{ fontFamily: "'Bebas Neue', 'Anton', sans-serif" }}>
-                Configurando tu granja...
+                Preparando tu granja a medida...
               </h2>
-              <p className="text-muted-foreground text-lg">Preparando tu plan personalizado</p>
-              <div className="flex justify-center gap-2 mt-8">
+              <p className="text-cyan text-lg font-medium animate-pulse">{processingSteps[processingStep]}</p>
+              <div className="mt-8 max-w-xs mx-auto">
+                <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-gradient-to-r from-primary to-cyan rounded-full transition-all duration-1000 ease-out"
+                    style={{ width: `${((processingStep + 1) / processingSteps.length) * 100}%` }}
+                  />
+                </div>
+                <p className="text-xs text-muted-foreground mt-2">{processingStep + 1} de {processingSteps.length}</p>
+              </div>
+              <div className="flex justify-center gap-2 mt-6">
                 {[0, 1, 2].map((i) => (
                   <div key={i} className="w-3 h-3 rounded-full bg-primary animate-bounce" style={{ animationDelay: `${i * 0.2}s` }} />
                 ))}
