@@ -181,8 +181,15 @@ const Quiz = () => {
   const currentSelections = selections[currentStep] || [];
   const hasSelection = currentSelections.length > 0;
 
+  const fbEvent = (event: string, params?: Record<string, any>) => {
+    if (typeof window.fbq === "function") {
+      window.fbq("track", event, params);
+    }
+  };
+
   const handleStartConfigurator = () => {
     setConfiguratorStarted(true);
+    fbEvent("StartQuiz", { content_name: "Configurador de Granja" });
     setTimeout(() => {
       configuratorRef.current?.scrollIntoView({ behavior: "smooth" });
     }, 100);
@@ -206,10 +213,12 @@ const Quiz = () => {
     if (!hasSelection) return;
     if (currentStep < steps.length - 1) {
       setCurrentStep(currentStep + 1);
+      fbEvent("QuizStep", { step: currentStep + 2, step_name: steps[currentStep + 1]?.title });
       configuratorRef.current?.scrollIntoView({ behavior: "smooth" });
     } else {
       setFinished(true);
       setProcessing(true);
+      fbEvent("CompleteRegistration", { content_name: "Quiz Granja Completado" });
     }
   };
 
@@ -231,6 +240,9 @@ const Quiz = () => {
 
   useEffect(() => {
     if (processing) {
+      // Fire Lead event
+      fbEvent("Lead", { content_name: "Quiz Granja Finalizado" });
+
       // Save to Supabase
       const summary = getSummary();
       supabase.from("quiz_submissions").insert({
@@ -378,7 +390,7 @@ const Quiz = () => {
             </div>
 
             <div className="flex flex-col items-center gap-4 mb-8">
-              <a href={AGENDAR_URL} target="_blank" rel="noopener noreferrer">
+              <a href={AGENDAR_URL} target="_blank" rel="noopener noreferrer" onClick={() => fbEvent("Schedule", { content_name: `Recoger Granja ${summary.platform}` })}>
                 <Button size="lg" className="relative text-lg px-10 py-7 bg-primary hover:bg-cyan text-primary-foreground font-bold tracking-wider uppercase animate-halo group overflow-hidden">
                   <span className="relative z-10 flex items-center">
                     Recoger Mi Granja
