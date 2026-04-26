@@ -8,6 +8,8 @@ const ADMIN_PASSWORD = "scaling2026";
 interface QuizSubmission {
   id: string;
   created_at: string;
+  name: string;
+  phone: string;
   platform: string;
   devices_qty: string;
   reach: string;
@@ -153,11 +155,10 @@ const Admin = () => {
               <thead>
                 <tr className="border-b border-primary/20">
                   <th className="text-left py-3 px-4 text-xs text-muted-foreground uppercase tracking-wide">Fecha</th>
+                  <th className="text-left py-3 px-4 text-xs text-muted-foreground uppercase tracking-wide">Nombre</th>
+                  <th className="text-left py-3 px-4 text-xs text-muted-foreground uppercase tracking-wide">Telefono</th>
                   <th className="text-left py-3 px-4 text-xs text-muted-foreground uppercase tracking-wide">Plataforma</th>
                   <th className="text-left py-3 px-4 text-xs text-muted-foreground uppercase tracking-wide">Dispositivos</th>
-                  <th className="text-left py-3 px-4 text-xs text-muted-foreground uppercase tracking-wide">Modelos</th>
-                  <th className="text-left py-3 px-4 text-xs text-muted-foreground uppercase tracking-wide">Contenido</th>
-                  <th className="text-left py-3 px-4 text-xs text-muted-foreground uppercase tracking-wide">Automatizacion</th>
                   <th className="text-left py-3 px-4 text-xs text-muted-foreground uppercase tracking-wide">Meta Ingresos</th>
                   <th className="text-left py-3 px-4 text-xs text-muted-foreground uppercase tracking-wide">Timeline</th>
                 </tr>
@@ -171,12 +172,17 @@ const Admin = () => {
                       <span className="text-xs">{new Date(sub.created_at).toLocaleTimeString("es-PE", { hour: "2-digit", minute: "2-digit" })}</span>
                     </td>
                     <td className="py-3 px-4">
+                      <span className="text-sm font-bold text-white">{sub.name || "—"}</span>
+                    </td>
+                    <td className="py-3 px-4">
+                      <a href={`https://wa.me/${sub.phone?.replace(/[^0-9+]/g, "")}`} target="_blank" rel="noopener noreferrer" className="text-sm text-cyan hover:underline">
+                        {sub.phone || "—"}
+                      </a>
+                    </td>
+                    <td className="py-3 px-4">
                       <span className="text-sm font-medium text-white">{sub.platform}</span>
                     </td>
                     <td className="py-3 px-4 text-sm text-white">{sub.devices_qty}</td>
-                    <td className="py-3 px-4 text-sm text-muted-foreground">{sub.device_models?.join(", ") || "—"}</td>
-                    <td className="py-3 px-4 text-sm text-muted-foreground">{sub.content_type}</td>
-                    <td className="py-3 px-4 text-sm text-muted-foreground">{sub.automation_level}</td>
                     <td className="py-3 px-4">
                       <span className="text-sm font-medium text-green-400">{sub.income_goal}</span>
                     </td>

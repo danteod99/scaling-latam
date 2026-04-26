@@ -173,6 +173,9 @@ const Quiz = () => {
   const [finished, setFinished] = useState(false);
   const [showResult, setShowResult] = useState(false);
   const [processing, setProcessing] = useState(false);
+  const [showContactForm, setShowContactForm] = useState(false);
+  const [contactName, setContactName] = useState("");
+  const [contactPhone, setContactPhone] = useState("");
 
   const configuratorRef = useRef<HTMLDivElement>(null);
 
@@ -216,10 +219,17 @@ const Quiz = () => {
       fbEvent("QuizStep", { step: currentStep + 2, step_name: steps[currentStep + 1]?.title });
       configuratorRef.current?.scrollIntoView({ behavior: "smooth" });
     } else {
-      setFinished(true);
-      setProcessing(true);
+      setShowContactForm(true);
       fbEvent("CompleteRegistration", { content_name: "Quiz Granja Completado" });
+      configuratorRef.current?.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  const handleContactSubmit = () => {
+    if (!contactName.trim() || !contactPhone.trim()) return;
+    setShowContactForm(false);
+    setFinished(true);
+    setProcessing(true);
   };
 
   const handleBack = () => {
@@ -246,6 +256,8 @@ const Quiz = () => {
       // Save to Supabase
       const summary = getSummary();
       supabase.from("quiz_submissions").insert({
+        name: contactName,
+        phone: contactPhone,
         platform: summary.platform,
         devices_qty: summary.accounts,
         reach: summary.reach,
@@ -407,6 +419,79 @@ const Quiz = () => {
             <a href={SKOOL_URL} target="_blank" rel="noopener noreferrer" className="text-sm text-primary hover:text-cyan transition-colors underline underline-offset-4">
               O únete a la comunidad gratuita para aprender más
             </a>
+          </div>
+        </section>
+        <Footer />
+      </div>
+    );
+  }
+
+  // ═══════════════════════════════════════
+  // FORMULARIO DE CONTACTO
+  // ═══════════════════════════════════════
+  if (showContactForm) {
+    return (
+      <div className="min-h-screen bg-background text-foreground">
+        <Navbar />
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/15 rounded-full blur-[80px]" />
+          </div>
+          <div className="container mx-auto px-4 z-10 text-center pt-24 pb-16" ref={configuratorRef}>
+            <div className="max-w-md mx-auto">
+              <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-cyan/40 bg-cyan/10 mb-6">
+                <CheckCircle className="w-4 h-4 text-cyan" />
+                <span className="text-xs font-bold tracking-wider uppercase text-cyan">Paso final</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-3 uppercase tracking-wider" style={{ fontFamily: "'Bebas Neue', 'Anton', sans-serif" }}>
+                ¿A dónde enviamos <span className="text-primary">tu granja?</span>
+              </h2>
+              <p className="text-muted-foreground mb-8">Dejanos tus datos para preparar tu granja a medida</p>
+
+              <div className="space-y-4 text-left">
+                <div>
+                  <label className="text-xs text-muted-foreground uppercase tracking-wide mb-1 block">Nombre completo</label>
+                  <input
+                    type="text"
+                    value={contactName}
+                    onChange={(e) => setContactName(e.target.value)}
+                    placeholder="Ej: Juan Pérez"
+                    className="w-full px-4 py-3 rounded-lg bg-muted/30 border border-primary/20 text-white placeholder:text-muted-foreground focus:outline-none focus:border-cyan transition-colors"
+                    autoFocus
+                  />
+                </div>
+                <div>
+                  <label className="text-xs text-muted-foreground uppercase tracking-wide mb-1 block">WhatsApp / Teléfono</label>
+                  <input
+                    type="tel"
+                    value={contactPhone}
+                    onChange={(e) => setContactPhone(e.target.value)}
+                    placeholder="Ej: +51 999 888 777"
+                    className="w-full px-4 py-3 rounded-lg bg-muted/30 border border-primary/20 text-white placeholder:text-muted-foreground focus:outline-none focus:border-cyan transition-colors"
+                  />
+                </div>
+              </div>
+
+              <Button
+                onClick={handleContactSubmit}
+                disabled={!contactName.trim() || !contactPhone.trim()}
+                size="lg"
+                className="relative w-full mt-6 text-lg px-8 py-7 bg-primary hover:bg-cyan text-primary-foreground font-bold tracking-wider uppercase animate-halo group overflow-hidden disabled:opacity-40 disabled:cursor-not-allowed"
+              >
+                <span className="relative z-10 flex items-center justify-center">
+                  Preparar Mi Granja
+                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary via-cyan to-primary bg-[length:200%_100%] animate-shimmer opacity-50" />
+              </Button>
+
+              <button
+                onClick={() => { setShowContactForm(false); setCurrentStep(steps.length - 1); }}
+                className="mt-4 text-sm text-muted-foreground hover:text-white transition-colors flex items-center justify-center gap-1 mx-auto"
+              >
+                <ArrowLeft className="w-3 h-3" /> Volver al quiz
+              </button>
+            </div>
           </div>
         </section>
         <Footer />
