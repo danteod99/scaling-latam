@@ -21,6 +21,10 @@ import {
   CheckCircle,
   Star,
   TrendingUp,
+  MapPin,
+  MessageCircle,
+  Wallet,
+  GraduationCap,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -150,6 +154,61 @@ const steps: Step[] = [
   },
   {
     id: 8,
+    icon: Wallet,
+    title: "¿Cuánto puedes invertir hoy?",
+    subtitle: "Esto nos ayuda a recomendarte el paquete ideal",
+    type: "single",
+    options: [
+      { id: "under-1k", label: "Menos de $1,000 USD", description: "Quiero empezar con lo mínimo", icon: DollarSign },
+      { id: "1k-2k", label: "$1,000 - $2,000 USD", description: "Inversión inicial seria", icon: DollarSign },
+      { id: "2k-3.5k", label: "$2,000 - $3,500 USD", description: "Granja completa lista para operar", icon: DollarSign },
+      { id: "over-3.5k", label: "$3,500+ USD", description: "Máxima inversión — máximo retorno", icon: Crown },
+    ],
+  },
+  {
+    id: 9,
+    icon: GraduationCap,
+    title: "¿Qué experiencia tienes en marketing digital?",
+    subtitle: "No importa tu nivel — tenemos solución para todos",
+    type: "single",
+    options: [
+      { id: "none", label: "Ninguna experiencia", description: "Soy completamente nuevo en esto", icon: Target },
+      { id: "basic", label: "Experiencia básica", description: "He usado redes sociales para vender o promocionar", icon: Sparkles },
+      { id: "intermediate", label: "Experiencia intermedia", description: "Manejo ads, funnels o automatizaciones", icon: Zap },
+      { id: "advanced", label: "Experiencia avanzada", description: "Tengo agencia o negocio digital activo", icon: Crown },
+    ],
+  },
+  {
+    id: 10,
+    icon: MapPin,
+    title: "¿Desde qué país nos escribes?",
+    subtitle: "Para coordinar envío y soporte en tu zona",
+    type: "single",
+    options: [
+      { id: "peru", label: "Perú", description: "Envío local disponible", icon: MapPin },
+      { id: "argentina", label: "Argentina", description: "Envío internacional", icon: MapPin },
+      { id: "rd", label: "República Dominicana", description: "Envío internacional", icon: MapPin },
+      { id: "mexico", label: "México", description: "Envío internacional", icon: MapPin },
+      { id: "usa", label: "Estados Unidos", description: "Envío disponible", icon: MapPin },
+      { id: "otro", label: "Otro país", description: "Consultar disponibilidad", icon: Globe },
+    ],
+  },
+  {
+    id: 11,
+    icon: MessageCircle,
+    title: "¿Cómo nos encontraste?",
+    subtitle: "Esto nos ayuda a mejorar nuestro contenido",
+    type: "single",
+    options: [
+      { id: "youtube", label: "YouTube", description: "Vi un video o anuncio", icon: Play },
+      { id: "tiktok", label: "TikTok", description: "Vi contenido en TikTok", icon: Video },
+      { id: "facebook", label: "Facebook / Instagram Ads", description: "Vi un anuncio", icon: Facebook },
+      { id: "referido", label: "Me lo recomendó alguien", description: "Un amigo o conocido", icon: Users },
+      { id: "otro", label: "Otro", description: "Google, blog, podcast, etc.", icon: Globe },
+    ],
+  },
+  {
+    id: 12,
     icon: Shield,
     title: "¿Cuándo quieres empezar?",
     subtitle: "Los cupos son limitados — la acción rápida tiene ventaja",
@@ -162,6 +221,35 @@ const steps: Step[] = [
     ],
   },
 ];
+
+// ══════════════════════════════
+// LEAD SCORING
+// ══════════════════════════════
+const scoreMap: Record<string, Record<string, number>> = {
+  // Step 1 (devices qty) - index 1
+  "1": { starter: 5, growth: 10, scale: 20, enterprise: 25 },
+  // Step 6 (automation) - index 5
+  "5": { manual: 5, hybrid: 10, "full-auto": 15, "ai-driven": 20 },
+  // Step 7 (income goal) - index 6
+  "6": { "500": 5, "3000": 10, "10000": 20, "20000": 25 },
+  // Step 8 (budget) - index 7
+  "7": { "under-1k": 5, "1k-2k": 15, "2k-3.5k": 25, "over-3.5k": 30 },
+  // Step 9 (experience) - index 8
+  "8": { none: 5, basic: 10, intermediate: 15, advanced: 20 },
+  // Step 12 (timeline) - index 11
+  "11": { now: 30, week: 20, month: 10, exploring: -10 },
+};
+
+const calculateScore = (selections: Record<number, string[]>): number => {
+  let score = 0;
+  for (const [stepIndex, optionScores] of Object.entries(scoreMap)) {
+    const selected = selections[Number(stepIndex)]?.[0];
+    if (selected && optionScores[selected]) {
+      score += optionScores[selected];
+    }
+  }
+  return Math.max(0, Math.min(100, score));
+};
 
 const AGENDAR_URL = "https://calendly.com/d/3tr-69b-hqj/asesoria-1-a-1-granja-de-bots";
 const SKOOL_URL = "https://www.skool.com/artificial-humans-7653/about";
@@ -255,6 +343,7 @@ const Quiz = () => {
 
       // Save to Supabase
       const summary = getSummary();
+      const score = calculateScore(selections);
       supabase.from("quiz_submissions").insert({
         name: contactName,
         phone: contactPhone,
@@ -265,7 +354,12 @@ const Quiz = () => {
         content_type: summary.content,
         automation_level: summary.automation,
         income_goal: summary.income,
+        budget: summary.budget,
+        experience: summary.experience,
+        country: summary.country,
+        source: summary.source,
         timeline: summary.timeline,
+        score,
         selections,
       }).then(() => {});
 
@@ -294,8 +388,12 @@ const Quiz = () => {
     const content = steps[4].options.find((o) => selections[4]?.includes(o.id))?.label || "";
     const automation = steps[5].options.find((o) => selections[5]?.includes(o.id))?.label || "";
     const income = steps[6].options.find((o) => selections[6]?.includes(o.id))?.label || "";
-    const timeline = steps[7].options.find((o) => selections[7]?.includes(o.id))?.id || "";
-    return { platform, accounts, reach, devices, content, automation, income, timeline };
+    const budget = steps[7].options.find((o) => selections[7]?.includes(o.id))?.label || "";
+    const experience = steps[8].options.find((o) => selections[8]?.includes(o.id))?.label || "";
+    const country = steps[9].options.find((o) => selections[9]?.includes(o.id))?.label || "";
+    const source = steps[10].options.find((o) => selections[10]?.includes(o.id))?.label || "";
+    const timeline = steps[11].options.find((o) => selections[11]?.includes(o.id))?.id || "";
+    return { platform, accounts, reach, devices, content, automation, income, budget, experience, country, source, timeline };
   };
 
   // ═══════════════════════════════════════
@@ -305,7 +403,7 @@ const Quiz = () => {
     const summary = getSummary();
     const accountsId = selections[1]?.[0] || "";
     const incomeId = selections[6]?.[0] || "";
-    const timelineId = selections[7]?.[0] || "";
+    const timelineId = selections[11]?.[0] || "";
     const isBeginner =
       accountsId === "starter" ||
       timelineId === "exploring" ||
