@@ -401,9 +401,19 @@ const Quiz = () => {
   // ═══════════════════════════════════════
   if (showResult) {
     const summary = getSummary();
+    const score = calculateScore(selections);
     const accountsId = selections[1]?.[0] || "";
     const incomeId = selections[6]?.[0] || "";
+    const budgetId = selections[7]?.[0] || "";
+    const experienceId = selections[8]?.[0] || "";
     const timelineId = selections[11]?.[0] || "";
+
+    // Lead classification
+    const isColdLead =
+      score < 35 ||
+      (timelineId === "exploring" && budgetId === "under-1k") ||
+      (timelineId === "exploring" && experienceId === "none" && incomeId === "500");
+
     const isBeginner =
       accountsId === "starter" ||
       timelineId === "exploring" ||
@@ -413,6 +423,74 @@ const Quiz = () => {
     const farmCaption = isBeginner
       ? "Así funciona una granja de bots real — dispositivos físicos que simulan actividad real en redes sociales."
       : "Tu agencia con infraestructura propia — Scaling arma y configura todo por ti.";
+
+    // Cold lead → redirect to Skool
+    if (isColdLead) {
+      return (
+        <div className="min-h-screen bg-background text-foreground">
+          <Navbar />
+          <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+            <div className="absolute inset-0 z-0">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/15 rounded-full blur-[150px] animate-glow-pulse" />
+            </div>
+            <div className="container mx-auto px-4 z-10 text-center pt-28 pb-20 animate-fade-in-up">
+              <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-primary/40 bg-primary/10 mb-8">
+                <Sparkles className="w-5 h-5 text-primary" />
+                <span className="text-sm font-bold tracking-wider uppercase text-primary">Tu camino empieza aquí</span>
+              </div>
+
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 glow-text-double uppercase leading-tight max-w-4xl mx-auto" style={{ fontFamily: "'Bebas Neue', 'Anton', sans-serif" }}>
+                Primero aprende, <span className="text-primary">después invierte</span>
+              </h1>
+
+              <p className="text-lg md:text-xl text-white/80 mb-8 max-w-2xl mx-auto font-light leading-relaxed">
+                Vemos que estás empezando a explorar el mundo de las granjas de bots. Antes de invertir, te recomendamos unirte a nuestra comunidad gratuita donde hay más de <strong className="text-cyan">50 horas de clases</strong> para que aprendas todo desde cero.
+              </p>
+
+              <div className="glass-card-3d rounded-2xl p-8 max-w-2xl mx-auto border border-primary/20 mb-10 text-left">
+                <h3 className="text-xl font-bold uppercase tracking-wider mb-6 text-center" style={{ fontFamily: "'Bebas Neue', 'Anton', sans-serif" }}>
+                  Lo que encontrarás en la comunidad
+                </h3>
+                <div className="grid gap-4">
+                  {[
+                    { icon: Play, text: "50+ horas de clases paso a paso sobre granjas de bots" },
+                    { icon: Users, text: "Comunidad activa de granjeros compartiendo resultados" },
+                    { icon: Zap, text: "Tutoriales de automatización, proxies y configuración" },
+                    { icon: DollarSign, text: "Casos reales de personas que ya están generando ingresos" },
+                    { icon: Shield, text: "Soporte y respuestas a todas tus dudas" },
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3 p-3 rounded-lg bg-muted/20 border border-primary/10">
+                      <item.icon className="w-5 h-5 text-cyan flex-shrink-0" />
+                      <p className="text-sm text-white">{item.text}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex flex-col items-center gap-4 mb-8">
+                <a href={SKOOL_URL} target="_blank" rel="noopener noreferrer" onClick={() => fbEvent("ColdLeadSkool", { score })}>
+                  <Button size="lg" className="relative text-lg px-10 py-7 bg-primary hover:bg-cyan text-primary-foreground font-bold tracking-wider uppercase animate-halo group overflow-hidden">
+                    <span className="relative z-10 flex items-center">
+                      Unirme Gratis a la Comunidad
+                      <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary via-cyan to-primary bg-[length:200%_100%] animate-shimmer opacity-50" />
+                  </Button>
+                </a>
+                <span className="text-sm text-muted-foreground">
+                  100% gratis — sin compromiso — acceso inmediato
+                </span>
+              </div>
+
+              <p className="text-xs text-muted-foreground max-w-lg mx-auto">
+                Cuando te sientas listo para dar el siguiente paso, dentro de la comunidad podrás agendar una asesoría personalizada con Dante.
+              </p>
+            </div>
+          </section>
+          <Footer />
+        </div>
+      );
+    }
     return (
       <div className="min-h-screen bg-background text-foreground">
         <Navbar />
