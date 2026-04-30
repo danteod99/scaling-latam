@@ -363,6 +363,40 @@ const Quiz = () => {
         selections,
       }).then(() => {});
 
+      // Fire-and-forget: notificar al CRM oliveros-finanzas para que el bot
+      // de WhatsApp sepa quién llenó el quiz y mande recordatorio si no
+      // agendan en 1h. NO bloquea el flujo del quiz si falla.
+      try {
+        const normalizeWhatsapp = (raw: string): string => {
+          const cleaned = (raw || "").replace(/[^\d+]/g, "");
+          if (!cleaned) return "";
+          if (cleaned.startsWith("+")) return cleaned;
+          // Si solo dígitos sin +, asumimos Perú si parece local (9 dígitos)
+          if (cleaned.length === 9) return `+51${cleaned}`;
+          return `+${cleaned}`;
+        };
+        const whatsapp = normalizeWhatsapp(contactPhone);
+        if (whatsapp) {
+          fetch("https://mlijhhzjathoqnuexhqu.supabase.co/functions/v1/quiz-webhook", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              whatsapp,
+              nombre: contactName,
+              pais: summary.country,
+              producto_interes: summary.platform,
+              presupuesto: summary.budget,
+              urgencia: summary.timeline,
+              respuestas: { ...summary, score, selections },
+            }),
+          }).catch((err) => {
+            console.warn("CRM webhook failed (no bloqueante):", err);
+          });
+        }
+      } catch (err) {
+        console.warn("CRM webhook error:", err);
+      }
+
       // Animate processing steps
       let step = 0;
       const stepInterval = setInterval(() => {
