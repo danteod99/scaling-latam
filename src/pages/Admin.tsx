@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
 import { Button } from "@/components/ui/button";
-import { Lock, RefreshCw, Users, Globe, Zap, Calendar, Flame, Filter } from "lucide-react";
+import { Lock, RefreshCw, Users, Globe, Zap, Calendar, Flame, Filter, CheckCircle, Circle, Phone } from "lucide-react";
 
 const ADMIN_PASSWORD = "scaling2026";
 
@@ -23,6 +23,9 @@ interface QuizSubmission {
   source: string;
   timeline: string;
   score: number;
+  contacted?: boolean;
+  contacted_at?: string;
+  contact_notes?: string;
 }
 
 type ScoreFilter = "all" | "hot" | "warm" | "cold";
@@ -107,6 +110,21 @@ const Admin = () => {
   const hotCount = submissions.filter((s) => (s.score || 0) >= 80).length;
   const warmCount = submissions.filter((s) => (s.score || 0) >= 40 && (s.score || 0) < 80).length;
   const coldCount = submissions.filter((s) => (s.score || 0) < 40).length;
+  const contactedCount = submissions.filter((s) => s.contacted).length;
+  const pendingCount = submissions.length - contactedCount;
+
+  const toggleContacted = async (id: string, currentlyContacted: boolean) => {
+    const updates = currentlyContacted
+      ? { contacted: false, contacted_at: null }
+      : { contacted: true, contacted_at: new Date().toISOString() };
+
+    await supabase.from("quiz_submissions").update(updates).eq("id", id);
+    setSubmissions((prev) =>
+      prev.map((s) =>
+        s.id === id ? { ...s, contacted: !currentlyContacted, contacted_at: currentlyContacted ? undefined : new Date().toISOString() } : s
+      )
+    );
+  };
 
   if (!authenticated) {
     return (
@@ -170,6 +188,8 @@ const Admin = () => {
             { label: "Calientes (80+)", value: hotCount, icon: Flame, color: "text-green-400" },
             { label: "Tibios (40-79)", value: warmCount, icon: Zap, color: "text-yellow-400" },
             { label: "Frios (<40)", value: coldCount, icon: Globe, color: "text-red-400" },
+            { label: "Contactados", value: contactedCount, icon: CheckCircle, color: "text-emerald-400" },
+            { label: "Pendientes", value: pendingCount, icon: Phone, color: "text-orange-400" },
             { label: "Hoy", value: submissions.filter((s) => new Date(s.created_at).toDateString() === new Date().toDateString()).length, icon: Calendar, color: "text-cyan" },
           ].map((stat, i) => (
             <div key={i} className="glass-card-3d rounded-xl p-4 border border-primary/20">
@@ -227,6 +247,7 @@ const Admin = () => {
                   <th className="text-left py-3 px-3 text-xs text-muted-foreground uppercase tracking-wide">Presupuesto</th>
                   <th className="text-left py-3 px-3 text-xs text-muted-foreground uppercase tracking-wide">Meta</th>
                   <th className="text-left py-3 px-3 text-xs text-muted-foreground uppercase tracking-wide">Timeline</th>
+                  <th className="text-left py-3 px-3 text-xs text-muted-foreground uppercase tracking-wide">Estado</th>
                 </tr>
               </thead>
               <tbody>
@@ -277,10 +298,40 @@ const Admin = () => {
                           {timelineLabel(sub.timeline)}
                         </span>
                       </td>
+                      <td className="py-3 px-3">
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            toggleContacted(sub.id, !!sub.contacted);
+                          }}
+                          className={`flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full border transition-all ${
+                            sub.contacted
+                              ? "bg-emerald-500/20 text-emerald-400 border-emerald-500/30 hover:bg-emerald-500/30"
+                              : "bg-orange-500/10 text-orange-400 border-orange-500/20 hover:bg-orange-500/20"
+                          }`}
+                        >
+                          {sub.contacted ? (
+                            <>
+                              <CheckCircle className="w-3.5 h-3.5" />
+                              Contactado
+                            </>
+                          ) : (
+                            <>
+                              <Circle className="w-3.5 h-3.5" />
+                              Pendiente
+                            </>
+                          )}
+                        </button>
+                        {sub.contacted_at && (
+                          <span className="text-[10px] text-muted-foreground mt-1 block">
+                            {new Date(sub.contacted_at).toLocaleDateString("es-PE", { day: "2-digit", month: "short" })}
+                          </span>
+                        )}
+                      </td>
                     </tr>
                     {expandedId === sub.id && (
                       <tr key={`${sub.id}-details`} className="border-b border-muted/20 bg-muted/5">
-                        <td colSpan={9} className="py-4 px-6">
+                        <td colSpan={10} className="py-4 px-6">
                           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
                             <div>
                               <p className="text-xs text-muted-foreground uppercase mb-1">Dispositivos</p>
