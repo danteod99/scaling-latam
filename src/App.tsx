@@ -21,6 +21,8 @@ const LandingPeru = lazy(() => import("./pages/landing/Peru"));
 const LandingSpotify = lazy(() => import("./pages/landing/Spotify"));
 const LandingTikTok = lazy(() => import("./pages/landing/TikTok"));
 const LandingDante = lazy(() => import("./pages/landing/Dante"));
+const LandingMiami = lazy(() => import("./pages/landing/Miami"));
+const LandingEspana = lazy(() => import("./pages/landing/Espana"));
 const Admin = lazy(() => import("./pages/Admin"));
 
 const queryClient = new QueryClient();
@@ -78,6 +80,8 @@ const App = () => (
             <Route path="/landing/spotify" element={<LandingSpotify />} />
             <Route path="/landing/tiktok" element={<LandingTikTok />} />
             <Route path="/landing/dante" element={<LandingDante />} />
+            <Route path="/landing/miami" element={<LandingMiami />} />
+            <Route path="/landing/espana" element={<LandingEspana />} />
             <Route path="/quiz" element={<Quiz />} />
             <Route path="/admin" element={<Admin />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

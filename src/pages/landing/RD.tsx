@@ -1,46 +1,47 @@
-import { Smartphone, Music, Bot, CreditCard, BarChart3, Flame, Mic, Store, Camera, Building2 } from "lucide-react";
+import { Bot, Music, Store, ShieldCheck, DollarSign, MessageCircle, Mic, Coffee, Camera, Building2 } from "lucide-react";
 import LandingTemplate from "@/components/LandingTemplate";
 
 const LandingRD = () => (
   <LandingTemplate
     countryFlag="🇩🇴"
-    badge="Plataforma #1 en República Dominicana"
-    headlineTop="DOMINA LAS REDES"
+    badge="Hub Caribe · Mercado #1 de Scaling LATAM"
+    headlineTop="TU CUENTA CRECE"
     headlineHighlight="DESDE REPÚBLICA DOMINICANA"
-    subheadline="Automatiza tu crecimiento en Instagram, TikTok, YouTube y Spotify. La herramienta preferida por emprendedores y artistas dominicanos."
-    ctaText="Agenda tu llamada gratis"
-    ctaSubtext="Consultoría gratuita · Sin compromiso · En español"
+    subheadline="Somos la primera IA que comanda 1,000 granjas de bots reales para hacer crecer tu cuenta. RD es nuestro mercado más fuerte — operamos directo en el Caribe, con soporte y entrega local."
+    ctaText="Empezar gratis ahora"
+    ctaSubtext="Demo gratis · Sin tarjeta · Soporte local en español"
     stats={[
-      { value: "2,500+", label: "Usuarios en RD" },
-      { value: "15M+", label: "Seguidores entregados" },
-      { value: "$0.50", label: "Precio desde / 1K" },
-      { value: "24/7", label: "Soporte en español" },
+      { value: "19.2%", label: "De nuestra audiencia es RD" },
+      { value: "3,597", label: "Dominicanos activos este mes" },
+      { value: "1,000+", label: "Granjas comandadas por IA" },
+      { value: "67h", label: "Watch time semanal en RD" },
     ]}
-    featuresTitle="Hecho para el"
-    featuresHighlight="mercado dominicano"
+    featuresTitle="Operamos en el"
+    featuresHighlight="Caribe, no desde afuera"
     features={[
-      { icon: Smartphone, title: "Instagram & TikTok", description: "Seguidores, likes, views y comentarios optimizados para cuentas dominicanas. Engagement real que impulsa el algoritmo." },
-      { icon: Music, title: "Promoción musical", description: "Impulsa tu dembow, bachata o trap dominicano. Streams en Spotify, views en YouTube y promoción en todas las plataformas." },
-      { icon: Bot, title: "Bots inteligentes", description: "Granjas de bots configuradas para el mercado caribeño. Anti-detección avanzada y comportamiento humano realista." },
-      { icon: CreditCard, title: "Pagos accesibles", description: "Crypto, tarjeta y más. Precios en USD accesibles para el mercado dominicano. Sin mínimos altos." },
-      { icon: BarChart3, title: "Dashboard completo", description: "+5,000 servicios disponibles. Monitorea tus pedidos en tiempo real. Historial completo de todas tus órdenes." },
-      { icon: Flame, title: "Resultados rápidos", description: "Entrega en minutos para la mayoría de servicios. Tu cuenta empieza a crecer desde el primer pedido." },
+      { icon: Bot, title: "IA que comanda granjas reales", description: "No compras seguidores fake. La IA activa granjas de bots físicas en RD, Caribe y LATAM. Engagement real, no números muertos." },
+      { icon: Music, title: "Dembow, bachata, urbano latino", description: "Promociona tu música en Spotify, YouTube Music y TikTok. La IA activa granjas dominicanas que escuchan en loop tu canción." },
+      { icon: Store, title: "Negocios locales SD y Santiago", description: "Restaurantes, salones, tiendas, colmados. Crece tu Instagram con audiencia dominicana real que se convierte en cliente que paga." },
+      { icon: ShieldCheck, title: "La IA rota granjas anti-baneo", description: "Tu cuenta nunca usa la misma granja dos veces seguidas. La IA distribuye el trabajo entre 1,000 granjas. Cero baneos." },
+      { icon: DollarSign, title: "Pago en USD desde RD", description: "Stripe, crypto, transferencia. Operación legal a través de Scaling Tech Farm LLC en USA. Facturas formales." },
+      { icon: MessageCircle, title: "Soporte local 24/7", description: "Equipo dominicano atiende por WhatsApp en horario RD. Entendemos el mercado, hablamos como local." },
     ]}
-    useCasesTitle="Para quién es Scaling en"
-    useCasesHighlight="RD"
+    useCasesTitle="¿Para quién es Scaling LATAM en"
+    useCasesHighlight="RD?"
     useCases={[
-      { icon: Mic, title: "Artistas urbanos", description: "Promociona tu dembow y trap en Spotify, YouTube y TikTok. Gana streams y visibilidad sin gastar una fortuna." },
-      { icon: Store, title: "Negocios locales", description: "Restaurantes, barbershops, tiendas en Santo Domingo — crece tu Instagram con seguidores dominicanos reales." },
-      { icon: Camera, title: "Influencers", description: "Impulsa tus métricas para conseguir mejores deals con marcas. Likes, views y engagement automatizado." },
+      { icon: Mic, title: "Artistas urbanos dominicanos", description: "Dembowseros, raperos, traperos, bachateros. La IA activa granjas que escuchan tu música 24/7. Streams reales, regalías reales en Spotify." },
+      { icon: Coffee, title: "Negocios en SD y Punta Cana", description: "Barbershops, salones, restaurantes, colmados. Llena tu Instagram con dominicanos reales que viven cerca de ti." },
+      { icon: Camera, title: "Influencers y creadores RD", description: "Sube tu autoridad para cobrar mejor a marcas. La IA te da seguidores, likes y comentarios en español dominicano." },
+      { icon: Building2, title: "Resellers y agencias", description: "Construye tu propio negocio sobre nuestra infraestructura. Margen 60-70%, sin armar nada físico." },
     ]}
     testimonials={[
-      { name: "Carlos M.", role: "Artista urbano · Santo Domingo", text: "Mis tracks tienen 3x más streams desde que uso Scaling. El equipo me ayudó a configurar todo en minutos.", country: "🇩🇴" },
-      { name: "María P.", role: "Dueña de salón · Santiago", text: "Mi Instagram pasó de 2K a 15K seguidores en un mes. Ahora tengo más clientes que nunca. Súper recomendado.", country: "🇩🇴" },
-      { name: "Juan R.", role: "Agencia digital · Punta Cana", text: "Revendo los servicios a mis clientes de turismo. Los precios son imbatibles y la calidad es consistente.", country: "🇩🇴" },
+      { name: "Carlos M.", role: "Artista urbano · Santo Domingo", text: "Subí mi último tema y la IA activó granjas que lo escucharon en loop. 47K streams en 2 semanas. Cobré $312 en regalías. Esto es real.", country: "🇩🇴" },
+      { name: "María P.", role: "Dueña de salón · Santiago", text: "Mi Instagram pasó de 2,400 a 18,000 seguidores reales en 30 días. Ahora tengo lista de espera para citas. Vale cada centavo.", country: "🇩🇴" },
+      { name: "Junior R.", role: "Influencer · Punta Cana", text: "Antes me pagaban $50 por post. Ahora $400. La IA me dio la autoridad que necesitaba para subir el ticket. Brutal.", country: "🇩🇴" },
     ]}
     finalCtaTitle="¿Listo para crecer en"
     finalCtaHighlight="República Dominicana?"
-    finalCtaSubtitle="Únete a miles de dominicanos que ya automatizan su crecimiento digital"
+    finalCtaSubtitle="Empresa formal · Soporte 100% en español caribeño · Únete a 3,500+ dominicanos que ya usan la IA"
   />
 );
 
