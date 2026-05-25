@@ -36,6 +36,8 @@ export interface LandingProps {
   subheadline: string;
   ctaText?: string;
   ctaSubtext?: string;
+  ctaLink?: string;
+  finalCtaButtonText?: string;
   countryFlag?: string;
 
   // Stats
@@ -67,6 +69,8 @@ const LandingTemplate = ({
   subheadline,
   ctaText = "Agenda una llamada",
   ctaSubtext,
+  ctaLink = "/agendar",
+  finalCtaButtonText = "Agendar ahora",
   countryFlag,
   stats,
   featuresTitle,
@@ -133,7 +137,7 @@ const LandingTemplate = ({
 
           {/* CTA */}
           <div className="flex flex-col items-center gap-4">
-            <a href="/agendar">
+            <a href={ctaLink}>
               <Button
                 size="lg"
                 className="relative text-lg px-8 py-7 bg-primary hover:bg-cyan text-primary-foreground font-bold tracking-wider uppercase animate-halo group overflow-hidden"
@@ -320,13 +324,13 @@ const LandingTemplate = ({
               {finalCtaSubtitle}
             </p>
 
-            <a href="/agendar">
+            <a href={ctaLink}>
               <Button
                 size="lg"
                 className="relative text-lg px-10 py-7 bg-primary hover:bg-cyan text-primary-foreground font-bold tracking-wider uppercase animate-halo group overflow-hidden"
               >
                 <span className="relative z-10 flex items-center">
-                  Agendar ahora
+                  {finalCtaButtonText}
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-primary via-cyan to-primary bg-[length:200%_100%] animate-shimmer opacity-50" />

@@ -1,47 +1,49 @@
-import { Bot, Music, Store, ShieldCheck, DollarSign, MessageCircle, Mic, Coffee, Camera, Building2 } from "lucide-react";
+import { Smartphone, Settings, Truck, ShieldCheck, DollarSign, Headphones, Mic, Coffee, Camera, Building2 } from "lucide-react";
 import LandingTemplate from "@/components/LandingTemplate";
 
 const LandingRD = () => (
   <LandingTemplate
     countryFlag="🇩🇴"
     badge="Hub Caribe · Mercado #1 de Scaling LATAM"
-    headlineTop="TU CUENTA CRECE"
-    headlineHighlight="DESDE REPÚBLICA DOMINICANA"
-    subheadline="Somos la primera IA que comanda 1,000 granjas de bots reales para hacer crecer tu cuenta. RD es nuestro mercado más fuerte — operamos directo en el Caribe, con soporte y entrega local."
-    ctaText="Empezar gratis ahora"
-    ctaSubtext="Demo gratis · Sin tarjeta · Soporte local en español"
+    headlineTop="ARMA TU GRANJA DE BOTS"
+    headlineHighlight="PERSONALIZADA EN RD"
+    subheadline="Te configuramos una granja física de dispositivos reales según tu negocio: música, multicuenta, streamer o agencia. Te llega lista a tu casa en Santo Domingo, Santiago o Punta Cana — y arrancas a facturar."
+    ctaText="Arma tu Granja de Bots Personalizada"
+    ctaSubtext="Quiz de 60 segundos · Te decimos exactamente qué granja necesitas"
+    ctaLink="/quiz"
+    finalCtaButtonText="Arma tu Granja Ahora"
     stats={[
-      { value: "19.2%", label: "De nuestra audiencia es RD" },
-      { value: "3,597", label: "Dominicanos activos este mes" },
-      { value: "1,000+", label: "Granjas comandadas por IA" },
-      { value: "67h", label: "Watch time semanal en RD" },
+      { value: "19.2%", label: "De nuestros clientes son RD" },
+      { value: "3,597", label: "Dominicanos en comunidad" },
+      { value: "$2K-6K", label: "Rango de granja personalizada" },
+      { value: "7 días", label: "Envío + instalación" },
     ]}
-    featuresTitle="Operamos en el"
-    featuresHighlight="Caribe, no desde afuera"
+    featuresTitle="Tu granja, hecha"
+    featuresHighlight="a tu medida"
     features={[
-      { icon: Bot, title: "IA que comanda granjas reales", description: "No compras seguidores fake. La IA activa granjas de bots físicas en RD, Caribe y LATAM. Engagement real, no números muertos." },
-      { icon: Music, title: "Dembow, bachata, urbano latino", description: "Promociona tu música en Spotify, YouTube Music y TikTok. La IA activa granjas dominicanas que escuchan en loop tu canción." },
-      { icon: Store, title: "Negocios locales SD y Santiago", description: "Restaurantes, salones, tiendas, colmados. Crece tu Instagram con audiencia dominicana real que se convierte en cliente que paga." },
-      { icon: ShieldCheck, title: "La IA rota granjas anti-baneo", description: "Tu cuenta nunca usa la misma granja dos veces seguidas. La IA distribuye el trabajo entre 1,000 granjas. Cero baneos." },
-      { icon: DollarSign, title: "Pago en USD desde RD", description: "Stripe, crypto, transferencia. Operación legal a través de Scaling Tech Farm LLC en USA. Facturas formales." },
-      { icon: MessageCircle, title: "Soporte local 24/7", description: "Equipo dominicano atiende por WhatsApp en horario RD. Entendemos el mercado, hablamos como local." },
+      { icon: Smartphone, title: "Dispositivos Samsung reales", description: "Galaxy S8, S10, Note 8, Z Flip 4. Probados, configurados y rackeados. No emuladores, no software trucho — hardware real que escala." },
+      { icon: Settings, title: "Configuración personalizada", description: "El quiz nos dice tu nicho (música, multicuenta, streamer, agencia, e-commerce). Configuramos la granja específica para ese caso." },
+      { icon: Truck, title: "Envío a toda RD", description: "Santo Domingo, Santiago, Puerto Plata, Punta Cana, San Pedro. Llega en menos de 7 días con manual paso a paso." },
+      { icon: ShieldCheck, title: "Software TrustMind incluido", description: "Cada granja viene con TrustMind preinstalado: panel de control, IA que recomienda, automatizaciones anti-baneo. Sin costo extra." },
+      { icon: DollarSign, title: "Pago en USD o transferencia", description: "Stripe, crypto, transferencia bancaria. Facturas formales vía Scaling Tech Farm LLC. ROI promedio: 30-45 días." },
+      { icon: Headphones, title: "Soporte dominicano 24/7", description: "Equipo local atiende por WhatsApp en horario RD. Te acompañamos los primeros 90 días para que tu granja produzca de verdad." },
     ]}
-    useCasesTitle="¿Para quién es Scaling LATAM en"
-    useCasesHighlight="RD?"
+    useCasesTitle="¿Para quién es la granja"
+    useCasesHighlight="personalizada?"
     useCases={[
-      { icon: Mic, title: "Artistas urbanos dominicanos", description: "Dembowseros, raperos, traperos, bachateros. La IA activa granjas que escuchan tu música 24/7. Streams reales, regalías reales en Spotify." },
-      { icon: Coffee, title: "Negocios en SD y Punta Cana", description: "Barbershops, salones, restaurantes, colmados. Llena tu Instagram con dominicanos reales que viven cerca de ti." },
-      { icon: Camera, title: "Influencers y creadores RD", description: "Sube tu autoridad para cobrar mejor a marcas. La IA te da seguidores, likes y comentarios en español dominicano." },
-      { icon: Building2, title: "Resellers y agencias", description: "Construye tu propio negocio sobre nuestra infraestructura. Margen 60-70%, sin armar nada físico." },
+      { icon: Mic, title: "Artistas urbanos dominicanos", description: "Granja optimizada para Spotify y YouTube Music. Streams reales, regalías reales. Dembowseros, traperos, bachateros — vive de tu música." },
+      { icon: Coffee, title: "Negocios locales SD y Santiago", description: "Granja para crecer Instagram local. Llena tu salón, restaurante o tienda con dominicanos reales que viven cerca de ti." },
+      { icon: Camera, title: "Influencers y creadores RD", description: "Granja para subir tu autoridad rápido. Más seguidores, más engagement, más deals con marcas. Sube tu ticket por post." },
+      { icon: Building2, title: "Agencias y revendedores", description: "Granja para ofrecer servicios a tus clientes. Margen 60-70%. Construye un negocio completo sobre tu granja." },
     ]}
     testimonials={[
-      { name: "Carlos M.", role: "Artista urbano · Santo Domingo", text: "Subí mi último tema y la IA activó granjas que lo escucharon en loop. 47K streams en 2 semanas. Cobré $312 en regalías. Esto es real.", country: "🇩🇴" },
-      { name: "María P.", role: "Dueña de salón · Santiago", text: "Mi Instagram pasó de 2,400 a 18,000 seguidores reales en 30 días. Ahora tengo lista de espera para citas. Vale cada centavo.", country: "🇩🇴" },
-      { name: "Junior R.", role: "Influencer · Punta Cana", text: "Antes me pagaban $50 por post. Ahora $400. La IA me dio la autoridad que necesitaba para subir el ticket. Brutal.", country: "🇩🇴" },
+      { name: "Carlos M.", role: "Artista urbano · Santo Domingo", text: "Pedí mi granja personalizada para Spotify. 47K streams en 2 semanas, $312 en regalías. Recuperé la inversión en 30 días. Ahora voy por la segunda granja.", country: "🇩🇴" },
+      { name: "María P.", role: "Dueña de salón · Santiago", text: "Mi granja llegó configurada para mi salón. Instagram pasó de 2,400 a 18,000 seguidores reales en 30 días. Lista de espera para citas. Vale cada centavo.", country: "🇩🇴" },
+      { name: "Junior R.", role: "Influencer · Punta Cana", text: "Mi granja personalizada me dio la autoridad que necesitaba. Antes cobraba $50 por post, ahora $400. ROI brutal en menos de 2 meses.", country: "🇩🇴" },
     ]}
-    finalCtaTitle="¿Listo para crecer en"
+    finalCtaTitle="¿Listo para armar tu granja en"
     finalCtaHighlight="República Dominicana?"
-    finalCtaSubtitle="Empresa formal · Soporte 100% en español caribeño · Únete a 3,500+ dominicanos que ya usan la IA"
+    finalCtaSubtitle="Empresa formal · Soporte 100% dominicano · Quiz de 60 segundos te dice exactamente qué granja necesitas"
   />
 );
 
