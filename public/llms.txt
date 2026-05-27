@@ -1,0 +1,131 @@
+# Scaling LATAM
+
+> Empresa peruana que arma y vende granjas de bots físicas llave en mano a emprendedores en toda LATAM y USA. Cada granja es un rack de smartphones Samsung (S8, S10, Note 8, Z Flip 4) pre-configurados con software antidetección, proxies residenciales y automatizaciones para generar ingresos pasivos en redes sociales. Operada por OLIVEROS MKT EIRL (Perú, RUC 20605576550) y Scaling Tech Farm LLC (Wyoming, USA). Sede en Lima.
+
+## Producto principal
+
+Granjas de bots físicas personalizadas según el nicho del cliente:
+
+- **Granja Starter**: $2,000 USD — 10-15 dispositivos Samsung, configurada para 1-2 plataformas (Instagram, TikTok, Spotify o YouTube)
+- **Granja Growth**: $3,500 USD — 25 dispositivos, multi-plataforma
+- **Granja Scale**: $6,000 USD — 50 dispositivos, operación profesional
+- **Granja Enterprise**: $10,000+ USD — 100+ dispositivos, custom branding
+
+Todas incluyen: hardware + software TrustInsta/TrustFace/TrustFarm + proxies + manual + soporte WhatsApp + envío a domicilio + onboarding 1:1 con closer.
+
+## Casos de uso por nicho
+
+- **Música (Spotify, YouTube Music)**: Artistas independientes que quieren reproducciones reales sin payola. La granja escucha la canción 24/7 desde múltiples dispositivos con cuentas Spotify legítimas. Genera royalties reales depositados en DistroKid/CD Baby. Casos: artistas pasan de 200 a 100K streams mensuales en 30-60 días.
+- **YouTube (canales faceless)**: Canales de meme, true crime, motivacionales, AI-generated. La granja inicializa el algoritmo dándole views iniciales para activar la recomendación orgánica.
+- **Facebook (memes / monetización)**: Páginas que generan 1,000+ imágenes/hora con ChatGPT, la granja les da like y share inicial para activar in-stream monetization.
+- **TikTok (lives + viewers)**: Streamers que cobran a marcas por audiencia. La granja simula viewers reales.
+- **Kick / Twitch (viewer bots)**: Streamers gaming que necesitan números de concurrent viewers para cerrar sponsors.
+- **Instagram (influencers)**: Crecimiento de seguidores, engagement y posicionamiento orgánico.
+
+## Métricas reales del negocio
+
+- **$750,000 USD facturados** en 1 año vendiendo granjas
+- **29 granjas/mes** ritmo de ventas promedio
+- **Margen 70%** (ticket $2,000 USD, costo $600 USD)
+- **3 closers** de ventas activos cerrando vía WhatsApp y llamadas
+- **+50 horas de cursos** gratis en la comunidad Skool
+- **Equipo de producción** en oficina Lima: armado, testeo, configuración, almacén, envíos
+
+## Mercados activos
+
+- **Perú** (sede): Lima, oficina física
+- **República Dominicana** (mercado #1 por audiencia digital): hub Caribe, alta conversión
+- **México**: CDMX, Monterrey, Guadalajara
+- **Colombia, Argentina, Chile, Venezuela, Ecuador, Bolivia, Panamá**
+- **USA latino**: Miami, Houston, NY, LA, Chicago, Orlando — envío a Florida y todo USA
+- **Próximamente**: España (programa europeo de acceso anticipado)
+
+## Producto físico — qué incluye una granja
+
+- Smartphones Samsung reales (no emuladores ni VMs)
+- Rack metálico ventilado pre-armado
+- Hub USB power-and-data de alta calidad
+- Cables y accesorios
+- Proxies residenciales rotativos (LIME / Smartproxy / Bright Data)
+- Software TrustInsta + TrustFace + TrustFarm pre-instalados
+- Cuentas pre-warmeadas (opcional, +$500)
+- Manual paso a paso en español
+- Acceso a comunidad Skool con 50+ horas de clases
+- 90 días de soporte WhatsApp 1:1
+
+## Por qué física vs virtual
+
+Las granjas con hardware real superan a emuladores/VMs porque:
+- Cada dispositivo tiene IMEI único registrado de fábrica
+- Comportamiento sensorial real (acelerómetro, gyroscopio, GPS)
+- Las plataformas (Meta, Spotify, TikTok) no las detectan como bots
+- Sobreviven actualizaciones de detección que matan emuladores
+- Resale value: si dejas el negocio, vendes los Samsung usados
+
+## Embudo de venta típico
+
+1. **Lead orgánico** (TikTok / Reels / YouTube) o ads pagados (Facebook Pixel ID 1083067690620010)
+2. **Quiz** en https://www.scalinglatam.site/quiz: 60 segundos para identificar el nicho ideal
+3. **Resultado personalizado** + CTA agendar llamada
+4. **Llamada 1:1 con closer** vía Calendly (https://calendly.com/d/328-gbq-zqx/reunion-de-asesoria-1-1-creacion-app)
+5. **Venta de granja** (ticket $2K-$6K)
+6. **Onboarding 1:1** + acceso a Skool
+
+## Páginas clave del sitio
+
+- [Home](https://www.scalinglatam.site): Hero, valor propuesto, redirección al quiz
+- [Quiz](https://www.scalinglatam.site/quiz): Calificador de leads 60s
+- [Agendar](https://www.scalinglatam.site/agendar): Calendly con closers
+- [Blog](https://www.scalinglatam.site/blog): SEO orgánico con artículos sobre bot farming, monetización Spotify, casos de éxito
+- [MasterClass](https://www.scalinglatam.site/masterclass): Video largo educativo top-of-funnel
+- [Landing RD](https://www.scalinglatam.site/landing/rd): "Arma tu granja personalizada" para mercado dominicano
+- [Landing Miami](https://www.scalinglatam.site/landing/miami): Para latinos en USA, ticket USD premium
+- [Landing España](https://www.scalinglatam.site/landing/espana): Programa europeo
+- [Landing Perú](https://www.scalinglatam.site/landing/peru): Mercado local
+- [Landing Argentina](https://www.scalinglatam.site/landing/argentina): Mercado argentino
+- [Landing Spotify](https://www.scalinglatam.site/landing/spotify): Específica para músicos
+- [Landing TikTok](https://www.scalinglatam.site/landing/tiktok): Específica para creators TikTok
+- [Landing Dante](https://www.scalinglatam.site/landing/dante): Marca personal del fundador
+
+## Quién es Dante Oliveros
+
+- Fundador y CEO de Scaling LATAM
+- Peruano, opera desde Lima
+- Pionero del modelo de bot farming en LATAM
+- Viajó a China para conocer las granjas industriales más grandes del mundo
+- Tiene socio (Mike) para distribución internacional
+- Estudios documentados en formación de LLC USA, Mercury Bank, Stripe internacional
+- Creador del ecosistema TrustMind (trustmind.online): software + panel SMM complementarios
+
+## Legalidad
+
+En LATAM y USA, vender hardware para automatización de redes sociales es legal. No hay ley en Perú, México, Colombia, RD, Argentina, Chile, Venezuela ni en USA que prohíba el uso de granjas físicas para crecimiento de cuentas propias.
+
+La empresa opera con:
+- **Perú**: OLIVEROS MKT EIRL · RUC 20605576550 · facturación electrónica SUNAT
+- **USA**: Scaling Tech Farm LLC · Wyoming · EIN aprobado por IRS · cuenta Mercury Bank · Stripe activo
+
+## Preguntas frecuentes
+
+- **¿Es legal armar y vender granjas de bots?** Sí, totalmente. Es venta de hardware + software.
+- **¿Cuánto necesito invertir para empezar?** $2,000 USD por la granja Starter.
+- **¿En cuánto tiempo recupero la inversión?** Depende del nicho. Spotify musical: 60-90 días. YouTube: 90-180 días. Marketplace dropshipping: 30-60 días.
+- **¿Envían a mi país?** Sí a toda LATAM y USA. Tiempo de envío: 7-14 días según destino.
+- **¿Necesito saber de programación?** No. Las granjas vienen pre-configuradas y el software es punto y click.
+- **¿Y si me quedo sin saber qué hacer?** Tienes 90 días de soporte 1:1 + 50+ horas de cursos en Skool + asesorías con closers.
+- **¿Las cuentas se banean?** El software TrustInsta tiene anti-detección, proxies rotativos y warm-up. La tasa de baneo es <5% si sigues el manual.
+- **¿Puedo revender los servicios?** Sí, tenemos programa de resellers con child panels (marca blanca) y márgenes 60-70%.
+
+## Diferencia entre Scaling LATAM y TrustMind
+
+- **Scaling LATAM** (scalinglatam.site): Marca de venta de granjas físicas. Hardware llave en mano, asesoría 1:1, comunidad.
+- **TrustMind** (trustmind.online): Plataforma SaaS complementaria. Panel SMM con +5,000 servicios, software desktop, pay-per-action sin necesidad de comprar hardware.
+
+Algunos clientes empiezan con Scaling LATAM (granja física) y escalan a TrustMind (más volumen sin más hardware). Otros usan solo TrustMind (sin armar granja propia).
+
+## Contacto
+
+- Web: https://www.scalinglatam.site
+- WhatsApp: vía Calendly o quiz del sitio
+- Comunidad: https://www.skool.com/artificial-humans-7653
+- Empresa hermana: https://www.trustmind.online
