@@ -3,7 +3,7 @@ import { supabase } from "@/lib/supabase";
 import { Button } from "@/components/ui/button";
 import { Lock, RefreshCw, Users, Globe, Zap, Calendar, Flame, Filter, CheckCircle, Circle, Phone } from "lucide-react";
 
-const ADMIN_PASSWORD = "scaling2026";
+const ADMIN_PASSWORD = "sca2026";
 
 interface QuizSubmission {
   id: string;
