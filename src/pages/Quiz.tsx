@@ -502,15 +502,15 @@ const Quiz = () => {
               </div>
 
               <div className="flex flex-col items-center gap-4 mb-8">
-                <a href={SKOOL_URL} target="_blank" rel="noopener noreferrer" onClick={() => fbEvent("ColdLeadSkool", { score })}>
-                  <Button size="lg" className="relative text-lg px-10 py-7 bg-primary hover:bg-cyan text-primary-foreground font-bold tracking-wider uppercase animate-halo group overflow-hidden">
+                <Button asChild size="lg" className="relative text-lg px-10 py-7 bg-primary hover:bg-cyan text-primary-foreground font-bold tracking-wider uppercase animate-halo group overflow-hidden">
+                  <a href={SKOOL_URL} target="_blank" rel="noopener noreferrer" onClick={() => fbEvent("ColdLeadSkool", { score })}>
                     <span className="relative z-10 flex items-center">
                       Unirme Gratis a la Comunidad
                       <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                     </span>
                     <div className="absolute inset-0 bg-gradient-to-r from-primary via-cyan to-primary bg-[length:200%_100%] animate-shimmer opacity-50" />
-                  </Button>
-                </a>
+                  </a>
+                </Button>
                 <span className="text-sm text-muted-foreground">
                   100% gratis — sin compromiso — acceso inmediato
                 </span>
@@ -612,15 +612,15 @@ const Quiz = () => {
             </div>
 
             <div className="flex flex-col items-center gap-4 mb-8">
-              <a href={AGENDAR_URL} target="_blank" rel="noopener noreferrer" onClick={() => fbEvent("Schedule", { content_name: `Recoger Granja ${summary.platform}` })}>
-                <Button size="lg" className="relative text-lg px-10 py-7 bg-primary hover:bg-cyan text-primary-foreground font-bold tracking-wider uppercase animate-halo group overflow-hidden">
+              <Button asChild size="lg" className="relative text-lg px-10 py-7 bg-primary hover:bg-cyan text-primary-foreground font-bold tracking-wider uppercase animate-halo group overflow-hidden">
+                <a href={AGENDAR_URL} target="_blank" rel="noopener noreferrer" onClick={() => fbEvent("Schedule", { content_name: `Recoger Granja ${summary.platform}` })}>
                   <span className="relative z-10 flex items-center">
                     Recoger Mi Granja
                     <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-primary via-cyan to-primary bg-[length:200%_100%] animate-shimmer opacity-50" />
-                </Button>
-              </a>
+                </a>
+              </Button>
               <span className="text-sm text-muted-foreground">
                 Agenda una llamada con Dante para recibir tu granja de {summary.platform} configurada
               </span>
@@ -810,11 +810,11 @@ const Quiz = () => {
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-primary via-cyan to-primary bg-[length:200%_100%] animate-shimmer opacity-50" />
                 </Button>
-                <a href={AGENDAR_URL} target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" variant="outline" className="text-lg px-8 py-7 border-primary/30 hover:bg-primary/10 font-bold tracking-wider uppercase w-full sm:w-auto">
+                <Button asChild size="lg" variant="outline" className="text-lg px-8 py-7 border-primary/30 hover:bg-primary/10 font-bold tracking-wider uppercase w-full sm:w-auto">
+                  <a href={AGENDAR_URL} target="_blank" rel="noopener noreferrer">
                     Agendar Asesoría 1:1
-                  </Button>
-                </a>
+                  </a>
+                </Button>
               </div>
 
               <div className="flex gap-8 mt-10">
@@ -1100,11 +1100,11 @@ const Quiz = () => {
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-primary via-cyan to-primary bg-[length:200%_100%] animate-shimmer opacity-50" />
                 </Button>
-                <a href={AGENDAR_URL} target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" variant="outline" className="text-lg px-10 py-7 border-primary/30 hover:bg-primary/10 font-bold tracking-wider uppercase">
+                <Button asChild size="lg" variant="outline" className="text-lg px-10 py-7 border-primary/30 hover:bg-primary/10 font-bold tracking-wider uppercase">
+                  <a href={AGENDAR_URL} target="_blank" rel="noopener noreferrer">
                     Agendar Asesoría con Dante
-                  </Button>
-                </a>
+                  </a>
+                </Button>
               </div>
               <p className="text-sm text-muted-foreground mt-6">Sin compromiso · Cupos limitados · Resultados garantizados</p>
             </div>
