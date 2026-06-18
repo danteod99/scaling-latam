@@ -631,6 +631,13 @@ const Tokenizacion = () => {
       {/* HERO */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=1920&h=1080&fit=crop"
+            alt="Skyline de edificios"
+            className="absolute inset-0 w-full h-full object-cover opacity-20"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/90 to-background" />
           <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/15 rounded-full blur-[150px] animate-glow-pulse" />
           <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-cyan/10 rounded-full blur-[120px]" />
         </div>
@@ -695,6 +702,53 @@ const Tokenizacion = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* BANDA VISUAL: de ladrillo a blockchain */}
+      <section className="py-16 md:py-20 relative">
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-10">
+            <h2
+              className="text-3xl md:text-5xl font-bold mb-3 uppercase tracking-wider"
+              style={{ fontFamily: "'Bebas Neue', 'Anton', sans-serif" }}
+            >
+              De <span className="text-primary glow-text">ladrillo</span> a <span className="text-cyan glow-text">blockchain</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Tu inmueble real, respaldando tokens que cualquier inversionista puede comprar
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {[
+              { img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop", title: "Tu activo inmobiliario", desc: "Edificios, terrenos o desarrollos con valor real y respaldo legal." },
+              { img: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&h=600&fit=crop", title: "Tokenizado en blockchain", desc: "Cada token es una fracción del inmueble, emitida con un smart contract auditado." },
+              { img: "https://images.unsplash.com/photo-1518546305927-5a555bb7020d?w=800&h=600&fit=crop", title: "Capital de inversionistas", desc: "Inversionistas compran los tokens y tú recibes el capital sin deuda bancaria." },
+            ].map((card, i) => (
+              <div
+                key={i}
+                className="glass-card-3d rounded-2xl overflow-hidden border border-primary/20 hover:border-cyan/50 transition-all duration-300 hover:-translate-y-2 group animate-fade-in"
+                style={{ animationDelay: `${i * 0.12}s` }}
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={card.img}
+                    alt={card.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                  <div className="absolute top-3 left-3 w-8 h-8 rounded-full bg-primary/90 flex items-center justify-center text-sm font-bold text-primary-foreground">
+                    {i + 1}
+                  </div>
+                </div>
+                <div className="p-5">
+                  <h3 className="text-lg font-bold text-white mb-1">{card.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{card.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
