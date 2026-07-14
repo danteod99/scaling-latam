@@ -37,6 +37,8 @@ export interface LandingProps {
   ctaText?: string;
   ctaSubtext?: string;
   ctaLink?: string;
+  /** Si se pasa, los botones CTA ejecutan esta función (ej: abrir un quiz) en vez de navegar a ctaLink */
+  onCtaClick?: () => void;
   finalCtaButtonText?: string;
   countryFlag?: string;
 
@@ -70,6 +72,7 @@ const LandingTemplate = ({
   ctaText = "Agenda una llamada",
   ctaSubtext,
   ctaLink = "/agendar",
+  onCtaClick,
   finalCtaButtonText = "Agendar ahora",
   countryFlag,
   stats,
@@ -84,6 +87,32 @@ const LandingTemplate = ({
   finalCtaHighlight,
   finalCtaSubtitle,
 }: LandingProps) => {
+  const CtaButton = ({ label, className }: { label: string; className: string }) => {
+    const inner = (
+      <>
+        <span className="relative z-10 flex items-center">
+          {label}
+          <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+        </span>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary via-cyan to-primary bg-[length:200%_100%] animate-shimmer opacity-50" />
+      </>
+    );
+    if (onCtaClick) {
+      return (
+        <Button size="lg" onClick={onCtaClick} className={className}>
+          {inner}
+        </Button>
+      );
+    }
+    return (
+      <a href={ctaLink}>
+        <Button size="lg" className={className}>
+          {inner}
+        </Button>
+      </a>
+    );
+  };
+
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -137,18 +166,10 @@ const LandingTemplate = ({
 
           {/* CTA */}
           <div className="flex flex-col items-center gap-4">
-            <a href={ctaLink}>
-              <Button
-                size="lg"
-                className="relative text-lg px-8 py-7 bg-primary hover:bg-cyan text-primary-foreground font-bold tracking-wider uppercase animate-halo group overflow-hidden"
-              >
-                <span className="relative z-10 flex items-center">
-                  {ctaText}
-                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary via-cyan to-primary bg-[length:200%_100%] animate-shimmer opacity-50" />
-              </Button>
-            </a>
+            <CtaButton
+              label={ctaText}
+              className="relative text-lg px-8 py-7 bg-primary hover:bg-cyan text-primary-foreground font-bold tracking-wider uppercase animate-halo group overflow-hidden"
+            />
             {ctaSubtext && (
               <span className="text-sm text-muted-foreground">{ctaSubtext}</span>
             )}
@@ -324,18 +345,10 @@ const LandingTemplate = ({
               {finalCtaSubtitle}
             </p>
 
-            <a href={ctaLink}>
-              <Button
-                size="lg"
-                className="relative text-lg px-10 py-7 bg-primary hover:bg-cyan text-primary-foreground font-bold tracking-wider uppercase animate-halo group overflow-hidden"
-              >
-                <span className="relative z-10 flex items-center">
-                  {finalCtaButtonText}
-                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary via-cyan to-primary bg-[length:200%_100%] animate-shimmer opacity-50" />
-              </Button>
-            </a>
+            <CtaButton
+              label={finalCtaButtonText}
+              className="relative text-lg px-10 py-7 bg-primary hover:bg-cyan text-primary-foreground font-bold tracking-wider uppercase animate-halo group overflow-hidden"
+            />
 
             <div className="mt-20 pt-10 border-t border-primary/20">
               <p className="text-sm md:text-base text-muted-foreground uppercase tracking-[0.2em]">
