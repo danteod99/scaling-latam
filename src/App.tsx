@@ -26,6 +26,7 @@ const LandingEspana = lazy(() => import("./pages/landing/Espana"));
 const LandingEmpresaUSA = lazy(() => import("./pages/landing/EmpresaUSA"));
 const LandingTokenizacion = lazy(() => import("./pages/landing/Tokenizacion"));
 const LandingDisenaTuGranja = lazy(() => import("./pages/landing/DisenaTuGranja"));
+const LandingTrustFace = lazy(() => import("./pages/landing/TrustFace"));
 const Admin = lazy(() => import("./pages/Admin"));
 
 const queryClient = new QueryClient();
@@ -90,6 +91,8 @@ const App = () => (
             <Route path="/landing/tokenizacion" element={<LandingTokenizacion />} />
             <Route path="/landing/tokenizacion-propiedades" element={<LandingTokenizacion />} />
             <Route path="/landing/disena-tu-granja" element={<LandingDisenaTuGranja />} />
+            <Route path="/landing/trustface" element={<LandingTrustFace />} />
+            <Route path="/landing/marketplace" element={<LandingTrustFace />} />
             <Route path="/quiz" element={<Quiz />} />
             <Route path="/admin" element={<Admin />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
