@@ -123,16 +123,20 @@ const LandingTrustFace = () => {
 
     fbEvent("Lead", { content_name: "Quiz TrustFace Finalizado" });
 
-    // Guardar lead en Supabase (mismo tabla del CRM de quizzes)
-    supabase
-      .from("quiz_submissions")
-      .insert({
-        name: contactName,
-        phone: contactPhone,
-        source: "TrustFace · Marketplace",
-        selections: { mensajes_dia: summary.mensajes, inversion_ads_dia: summary.inversion, problema_principal: summary.problema },
-      })
-      .then(() => {});
+    // Guardar lead en Supabase (no bloqueante — si no hay conexión, el flujo continúa)
+    try {
+      supabase
+        ?.from("quiz_submissions")
+        .insert({
+          name: contactName,
+          phone: contactPhone,
+          source: "TrustFace · Marketplace",
+          selections: { mensajes_dia: summary.mensajes, inversion_ads_dia: summary.inversion, problema_principal: summary.problema },
+        })
+        .then(() => {}, (err) => console.warn("Supabase insert failed:", err));
+    } catch (err) {
+      console.warn("Supabase no disponible:", err);
+    }
 
     // Notificar al CRM (bot de WhatsApp) — no bloqueante
     try {
