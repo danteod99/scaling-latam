@@ -36,6 +36,7 @@ const Admin = () => {
   const [error, setError] = useState("");
   const [submissions, setSubmissions] = useState<QuizSubmission[]>([]);
   const [loading, setLoading] = useState(false);
+  const [fetchError, setFetchError] = useState("");
   const [scoreFilter, setScoreFilter] = useState<ScoreFilter>("all");
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
@@ -51,13 +52,25 @@ const Admin = () => {
 
   const fetchSubmissions = async () => {
     setLoading(true);
-    const { data, error } = await supabase
-      .from("quiz_submissions")
-      .select("*")
-      .order("created_at", { ascending: false });
-    if (data) setSubmissions(data);
-    if (error) console.error(error);
-    setLoading(false);
+    setFetchError("");
+    try {
+      const { data, error } = await supabase
+        .from("quiz_submissions")
+        .select("*")
+        .order("created_at", { ascending: false });
+      if (data) setSubmissions(data);
+      if (error) {
+        console.error(error);
+        setFetchError(error.message);
+      }
+    } catch (err) {
+      // Un fallo de red (p.ej. proyecto Supabase caído) rechaza la promesa;
+      // sin este catch el spinner de "Cargando..." se queda para siempre.
+      console.error(err);
+      setFetchError(err instanceof Error ? err.message : "Error de conexión con la base de datos");
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -227,6 +240,16 @@ const Admin = () => {
           <div className="text-center py-20">
             <RefreshCw className="w-8 h-8 text-primary animate-spin mx-auto mb-4" />
             <p className="text-muted-foreground">Cargando...</p>
+          </div>
+        ) : fetchError ? (
+          <div className="text-center py-20">
+            <Globe className="w-12 h-12 text-red-400 mx-auto mb-4" />
+            <p className="text-red-400 text-lg mb-2">Error cargando los leads</p>
+            <p className="text-muted-foreground text-sm mb-6">{fetchError}</p>
+            <Button onClick={fetchSubmissions} variant="outline" className="border-primary/30 hover:bg-primary/10">
+              <RefreshCw className="w-4 h-4 mr-2" />
+              Reintentar
+            </Button>
           </div>
         ) : filtered.length === 0 ? (
           <div className="text-center py-20">

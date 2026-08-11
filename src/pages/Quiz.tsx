@@ -361,7 +361,7 @@ const Quiz = () => {
         timeline: summary.timeline,
         score,
         selections,
-      }).then(() => {});
+      }).then(() => {}).catch((err) => console.error("quiz_submissions insert:", err));
 
       // Fire-and-forget: notificar al CRM oliveros-finanzas para que el bot
       // de WhatsApp sepa quién llenó el quiz y mande recordatorio si no
