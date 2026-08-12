@@ -1,9 +1,11 @@
 import { createClient } from "@supabase/supabase-js";
 
-// Proyecto compartido con farmmind/desktop apps. El proyecto dedicado
-// anterior (ltdgrmih) fue eliminado por Supabase tras quedar pausado —
-// no volver a apuntar ahí.
-const supabaseUrl = "https://jlxaubqvgjahcsnotvih.supabase.co";
-const supabaseAnonKey = "sb_publishable_ooYxQ-GHz2mayTFJPIswyA_EAyP_gRi";
+// Proyecto dedicado de scalinglatam (aquí viven los leads del quiz).
+// OJO: es plan gratuito — Supabase lo PAUSA tras ~1 semana sin actividad
+// y el sitio deja de guardar/mostrar leads (ya pasó 2 veces). Si el admin
+// muestra "Error cargando los leads", restaurarlo desde el dashboard:
+// https://supabase.com/dashboard/project/ltdgrmihtgkqzpumtrsh
+const supabaseUrl = "https://ltdgrmihtgkqzpumtrsh.supabase.co";
+const supabaseAnonKey = "sb_publishable_YQWinQQXJ-V-92rkjqQ4Ow_dywDgGhG";
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
